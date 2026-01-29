@@ -2,6 +2,8 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { AgeGate } from "@/components/AgeGate"
+
 
 export const metadata: Metadata = {
   title: 'Bang On | 99 Proof Super Concentrated Liqueur',
@@ -49,6 +51,8 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <Analytics />
+        <AgeGate />
+
       </body>
     </html>
   )
