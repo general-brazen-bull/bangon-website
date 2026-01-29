@@ -13,20 +13,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Brazen Bull Creative' }],
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: 'Bang On | 99 Proof Super Concentrated Liqueur',
