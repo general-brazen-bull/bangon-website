@@ -1,0 +1,2069 @@
+[00:00:00.977] Server  LOG      ✓ Ready in 723ms
+[00:00:05.031] Server  WARN     ⚠ Cross origin request detected from 192.168.1.161 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:07.523] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:00:08.366] Browser LOG     [Vercel Web Analytics] Failed to load script from https://va.vercel-scripts.com/v1/script.debug.js. Please check if any ad blockers are enabled and try again.
+[00:00:09.721] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:00:09.721] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:09.721] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:09.721] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769712510868}
+[00:01:34.705] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:34.706] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:34.706] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:01:34.923] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:34.923] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:01:34.923] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769712595940}
+[00:02:12.271] Server  LOG      ✓ Compiled in 56ms
+[00:02:38.676] Server  LOG      ✓ Compiled in 56ms
+[00:03:00.069] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:55.677] Server  LOG      ✓ Compiled in 58ms
+[00:05:13.542] Server  LOG      ✓ Compiled in 71ms
+[00:05:51.619] Server  LOG      ✓ Compiled in 44ms
+[00:07:42.958] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:07:42.958] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:42.958] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:42.958] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769712964121}
+[00:09:25.954] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:09:25.954] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:25.954] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:09:25.954] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713067028}
+[00:11:22.091] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713183150}
+[00:11:24.587] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:11:24.587] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713185649}
+[00:11:35.632] Server  LOG      ✓ Compiled in 78ms
+[00:11:51.628] Server  LOG      ✓ Compiled in 45ms
+[00:14:36.708] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifesto.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:14:36.724] Server  LOG      ✓ Compiled in 46ms
+[00:14:36.977] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifesto.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:14:37.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:37.376] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:14:37.376] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:14:37.376] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:37.376] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:14:37.376] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713378448}
+[00:14:38.199] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:14:38.977] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:38.977] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:14:38.977] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713380078}
+[00:15:10.304] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:10.476] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:15:10.476] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:15:10.476] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:10.476] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:15:10.476] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713411548}
+[00:15:14.186] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:15:38.393] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:15:38.393] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:38.393] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:15:38.393] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713439380}
+[00:17:56.762] Server  LOG      ✓ Compiled in 52ms
+[00:19:41.487] Server  LOG      ✓ Compiled in 18ms
+[00:19:54.775] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifestoMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:19:54.878] Server  LOG      ✓ Compiled in 30ms
+[00:19:54.999] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifestoMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:19:55.262] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:55.429] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:19:55.429] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:19:55.429] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:19:55.429] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:55.429] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:19:55.429] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713696503}
+[00:19:56.481] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:19:58.010] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:19:58.010] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:19:58.010] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713699100}
+[00:20:47.221] Server  LOG      ✓ Compiled in 43ms
+[00:20:47.329] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ScrubLine 1. useRef                     useRef
+2. useRef                     useRef
+3. useContext                 useContext
+4. useLayoutEffect            useLayoutEffect
+5. useRef                     useRef
+6. useRef                     useRef
+7. useContext                 useContext
+8. useLayoutEffect            useLayoutEffect
+9. useRef                     useRef
+10. useRef                    useRef
+11. useContext                useContext
+12. useLayoutEffect           useLayoutEffect
+13. useRef                    useRef
+14. useRef                    useRef
+15. useContext                useContext
+16. useLayoutEffect           useLayoutEffect
+17. useRef                    useRef
+18. useRef                    useRef
+19. useContext                useContext
+20. useLayoutEffect           useLayoutEffect
+21. undefined                 useRef
+
+[00:20:47.330] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
+[00:20:47.507] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ScrubLine 1. useRef                     useRef
+2. useRef                     useRef
+3. useContext                 useContext
+4. useLayoutEffect            useLayoutEffect
+5. useRef                     useRef
+6. useRef                     useRef
+7. useContext                 useContext
+8. useLayoutEffect            useLayoutEffect
+9. useRef                     useRef
+10. useRef                    useRef
+11. useContext                useContext
+12. useLayoutEffect           useLayoutEffect
+13. useRef                    useRef
+14. useRef                    useRef
+15. useContext                useContext
+16. useLayoutEffect           useLayoutEffect
+17. useRef                    useRef
+18. useRef                    useRef
+19. useContext                useContext
+20. useLayoutEffect           useLayoutEffect
+21. undefined                 useRef
+
+[00:20:47.507] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
+[00:20:54.586] Server  LOG      ✓ Compiled in 28ms
+[00:20:54.693] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:120:5
+Parsing ecmascript source code failed
+  118 |         </div>
+  119 |       </div>
+> 120 |     </section>
+      |     ^
+  121 |   )
+  122 | }
+  123 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:20:54.693] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:120:6
+Parsing ecmascript source code failed
+  118 |         </div>
+  119 |       </div>
+> 120 |     </section>
+      |      ^^^^^^^^^
+  121 |   )
+  122 | }
+  123 |
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:20:54.704] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:120:5
+Parsing ecmascript source code failed
+  118 |         </div>
+  119 |       </div>
+> 120 |     </section>
+      |     ^
+  121 |   )
+  122 | }
+  123 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:20:54.704] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:120:6
+Parsing ecmascript source code failed
+  118 |         </div>
+  119 |       </div>
+> 120 |     </section>
+      |      ^^^^^^^^^
+  121 |   )
+  122 | }
+  123 |
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:21:18.102] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:18.460] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713779305}
+[00:21:18.460] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:18.460] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713779523}
+[00:21:18.658] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:18.829] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:21:18.829] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:21:18.829] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:21:18.829] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:21:18.829] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713779904}
+[00:21:19.547] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:21:19.730] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:21:19.730] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:21:19.730] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769713780797}
+[00:21:47.572] Server  LOG      ✓ Compiled in 61ms
+[00:22:38.753] Server  LOG      ✓ Compiled in 49ms
+[00:22:57.807] Server  LOG      ✓ Compiled in 22ms
+[00:25:34.048] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifestoMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:25:34.207] Server  LOG      ✓ Compiled in 102ms
+[00:25:34.339] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/BangOnManifestoMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:25:34.514] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:34.682] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:25:34.682] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:25:34.682] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:25:34.682] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:25:34.682] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714035760}
+[00:25:35.308] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:25:36.022] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:25:36.022] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:25:36.022] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714037109}
+[00:26:16.921] Server  LOG      ✓ Compiled in 35ms
+[00:26:43.257] Server  LOG      ✓ Compiled in 20ms
+[00:26:49.937] Server  LOG      ✓ Compiled in 13ms
+[00:27:04.398] Server  LOG      ✓ Compiled in 46ms
+[00:27:14.976] Server  LOG      ✓ Compiled in 22ms
+[00:27:25.947] Server  LOG      ✓ Compiled in 42ms
+[00:27:30.657] Server  LOG      ✓ Compiled in 13ms
+[00:27:33.666] Server  LOG      ✓ Compiled in 52ms
+[00:27:53.628] Server  LOG      ✓ Compiled in 27ms
+[00:28:03.955] Server  LOG      ✓ Compiled in 36ms
+[00:28:12.354] Server  LOG      ✓ Compiled in 23ms
+[00:28:19.393] Server  LOG      ✓ Compiled in 13ms
+[00:28:31.880] Server  LOG      ✓ Compiled in 84ms
+[00:28:54.276] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:28:54.276] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:28:54.276] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:28:54.276] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714235351}
+[00:29:24.123] Server  LOG      ✓ Compiled in 39ms
+[00:29:41.156] Server  LOG      ✓ Compiled in 25ms
+[00:30:28.290] Server  LOG      ✓ Compiled in 41ms
+[00:30:32.007] Server  LOG      ✓ Compiled in 13ms
+[00:30:43.732] Server  LOG      ✓ Compiled in 22ms
+[00:31:13.084] Server  LOG      ✓ Compiled in 41ms
+[00:31:28.910] Server  LOG      ✓ Compiled in 16ms
+[00:31:52.583] Server  LOG      ✓ Compiled in 19ms
+[00:32:02.113] Server  LOG      ✓ Compiled in 28ms
+[00:32:04.452] Server  LOG      ✓ Compiled in 12ms
+[00:32:20.543] Server  LOG      ✓ Compiled in 21ms
+[00:32:56.842] Server  LOG      ✓ Compiled in 56ms
+[00:33:07.823] Server  LOG      ✓ Compiled in 15ms
+[00:33:13.006] Server  LOG      ✓ Compiled in 13ms
+[00:33:27.153] Server  LOG      ✓ Compiled in 26ms
+[00:33:46.087] Server  LOG      ✓ Compiled in 41ms
+[00:33:58.643] Server  LOG      ✓ Compiled in 18ms
+[00:34:10.050] Server  LOG      ✓ Compiled in 40ms
+[00:34:15.897] Server  LOG      ✓ Compiled in 12ms
+[00:34:30.925] Server  LOG      ✓ Compiled in 21ms
+[00:34:37.014] Server  LOG      ✓ Compiled in 19ms
+[00:34:46.138] Server  LOG      ✓ Compiled in 12ms
+[00:34:48.985] Server  LOG      ✓ Compiled in 10ms
+[00:35:00.765] Server  LOG      ✓ Compiled in 17ms
+[00:35:12.930] Server  LOG      ✓ Compiled in 38ms
+[00:35:21.536] Server  LOG      ✓ Compiled in 18ms
+[00:35:38.697] Server  LOG      ✓ Compiled in 26ms
+[00:35:40.756] Server  LOG      ✓ Compiled in 14ms
+[00:35:51.508] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:35:51.508] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:35:51.508] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714652605}
+[00:35:51.508] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:38:17.439] Server  LOG      ✓ Compiled in 43ms
+[00:38:24.853] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:38:24.853] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:38:24.853] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:38:24.853] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714805845}
+[00:38:35.293] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:38:35.294] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:38:35.294] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:38:35.294] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714815685}
+[00:38:45.402] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:38:45.402] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:38:45.402] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:38:45.402] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714826393}
+[00:39:09.985] Server  LOG      ✓ Compiled in 55ms
+[00:39:12.514] Server  LOG      ✓ Compiled in 12ms
+[00:39:16.835] Server  LOG      ✓ Compiled in 13ms
+[00:39:20.402] Server  LOG      ✓ Compiled in 14ms
+[00:39:24.546] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:39:24.546] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:39:24.546] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:39:24.546] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714865606}
+[00:39:31.187] Server  LOG      ✓ Compiled in 16ms
+[00:39:35.399] Server  LOG      ✓ Compiled in 11ms
+[00:39:38.430] Server  LOG      ✓ Compiled in 10ms
+[00:39:43.472] Server  LOG      ✓ Compiled in 14ms
+[00:39:46.647] Server  LOG      ✓ Compiled in 10ms
+[00:39:49.187] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:39:49.187] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:39:49.187] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714890275}
+[00:39:49.187] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:40:06.019] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:40:06.019] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:40:06.019] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:40:06.019] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714907136}
+[00:40:29.755] Server  LOG      ✓ Compiled in 44ms
+[00:40:32.843] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:40:32.843] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:40:32.843] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:40:32.843] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769714933766}
+[00:43:07.021] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:43:07.425] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:43:07.425] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:43:07.425] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715088539}
+[00:44:57.121] Server  LOG      ✓ Compiled in 50ms
+[00:45:15.222] Server  LOG      ✓ Compiled in 28ms
+[00:45:28.679] Server  LOG      ✓ Compiled in 17ms
+[00:45:47.999] Server  LOG      ✓ Compiled in 53ms
+[00:45:48.102] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:38:14
+Parsing ecmascript source code failed
+  36 |       >
+  37 |         Level up your night.
+> 38 |         </br>
+     |              ^
+> 39 |         Get your
+     | ^^^^^^^^^^^^^^^^
+> 40 |       </motion.p>
+     | ^^^^^^^
+  41 |
+  42 |       {/* Stamp */}
+  43 |       <motion.div
+
+Expected '</', got 'jsx text (
+        Get your
+      )'
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:45:48.336] Browser ERROR   ./components/home/BangOnManifestoMobile.tsx:38:14
+Parsing ecmascript source code failed
+  36 |       >
+  37 |         Level up your night.
+> 38 |         </br>
+     |              ^
+> 39 |         Get your
+     | ^^^^^^^^^^^^^^^^
+> 40 |       </motion.p>
+     | ^^^^^^^
+  41 |
+  42 |       {/* Stamp */}
+  43 |       <motion.div
+
+Expected '</', got 'jsx text (
+        Get your
+      )'
+
+Import trace:
+  Server Component:
+    ./components/home/BangOnManifestoMobile.tsx
+    ./components/home/BangOnManifestoSection.tsx
+    ./app/page.tsx
+[00:46:17.634] Server  LOG      ✓ Compiled in 43ms
+[00:46:23.029] Server  LOG      ✓ Compiled in 15ms
+[00:46:25.375] Server  LOG      ✓ Compiled in 19ms
+[00:48:28.538] Server  LOG      ✓ Compiled in 54ms
+[00:48:46.657] Server  LOG      ✓ Compiled in 22ms
+[00:48:59.195] Server  LOG      ✓ Compiled in 14ms
+[00:49:20.466] Server  LOG      ✓ Compiled in 40ms
+[00:49:30.163] Server  LOG      ✓ Compiled in 19ms
+[00:50:35.340] Server  LOG      ✓ Compiled in 66ms
+[00:50:58.675] Server  LOG      ✓ Compiled in 27ms
+[00:51:02.060] Server  LOG      ✓ Compiled in 22ms
+[00:51:09.102] Server  LOG      ✓ Compiled in 43ms
+[00:51:16.015] Server  LOG      ✓ Compiled in 14ms
+[00:51:32.018] Server  LOG      ✓ Compiled in 15ms
+[00:51:38.375] Server  LOG      ✓ Compiled in 26ms
+[00:52:26.595] Server  LOG      ✓ Compiled in 44ms
+[00:52:43.029] Server  LOG      ✓ Compiled in 33ms
+[00:52:46.946] Server  LOG      ✓ Compiled in 14ms
+[00:53:03.485] Server  LOG      ✓ Compiled in 20ms
+[00:53:09.435] Server  LOG      ✓ Compiled in 18ms
+[00:53:18.049] Server  LOG      ✓ Compiled in 21ms
+[00:53:31.738] Server  LOG      ✓ Compiled in 48ms
+[00:53:40.387] Server  LOG      ✓ Compiled in 12ms
+[00:53:46.661] Server  LOG      ✓ Compiled in 16ms
+[00:53:53.875] Server  LOG      ✓ Compiled in 16ms
+[00:54:03.959] Server  LOG      ✓ Compiled in 21ms
+[00:54:11.656] Server  LOG      ✓ Compiled in 35ms
+[00:55:31.980] Server  LOG      ✓ Compiled in 49ms
+[00:55:34.814] Server  LOG      ✓ Compiled in 18ms
+[00:55:38.282] Server  LOG      ✓ Compiled in 15ms
+[00:55:43.028] Server  LOG      ✓ Compiled in 29ms
+[00:55:46.801] Server  LOG      ✓ Compiled in 76ms
+[00:55:57.616] Server  LOG      ✓ Compiled in 31ms
+[00:56:00.781] Server  LOG      ✓ Compiled in 10ms
+[00:56:23.355] Server  LOG      ✓ Compiled in 39ms
+[00:56:27.778] Server  LOG      ✓ Compiled in 11ms
+[00:56:40.880] Server  LOG      ✓ Compiled in 22ms
+[00:56:56.874] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:56:56.874] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:56:56.874] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:56:56.874] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715917981}
+[00:57:06.001] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:57:06.001] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:57:06.001] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715927171}
+[00:57:06.001] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:57:14.489] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:57:14.489] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:57:14.489] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:57:14.489] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715935435}
+[00:57:48.140] Server  LOG      ✓ Compiled in 45ms
+[00:57:48.213] Browser ERROR   uncaughtError: RangeError: Failed to construct 'IntersectionObserver': Threshold values must be numbers between 0 and 1
+[00:57:48.402] Browser ERROR   uncaughtError: RangeError: Failed to construct 'IntersectionObserver': all thresholds must lie in the range [0.0, 1.0].
+[00:58:13.115] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:58:13.137] Server  LOG      ✓ Compiled in 14ms
+[00:58:13.299] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715994413}
+[00:58:13.300] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:58:13.364] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715994439}
+[00:58:13.512] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:58:13.684] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:58:13.684] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:58:13.684] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:58:13.684] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:58:13.684] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715994855}
+[00:58:14.474] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:58:15.581] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:58:15.581] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:58:15.581] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769715996589}
+[01:00:33.657] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.659] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.712] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.713] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.714] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.714] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.715] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.716] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.716] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.717] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.720] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.721] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.733] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.737] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.739] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.743] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.745] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.746] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.746] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.749] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.750] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.753] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.755] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.756] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.761] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.762] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.764] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.767] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.769] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.769] Server  ERROR    ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:00:33.770] Server  LOG      ✓ Compiled in 295ms
+[01:00:33.873] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:00:33.958] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:01:56.963] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:01:57.076] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/home/product-reveal-section'
+  3 | import { HeroSection } from "@/components/home/hero-section"
+  4 | import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
+> 5 | import { ProductRevealSection } from "@/components/home/product-reveal-section"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { BananaSection } from "@/components/home/banana-section"
+  7 | import { MarqueeSection } from "@/components/home/marquee-section"
+  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+
+Import map: aliased to relative './components/home/product-reveal-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:02:00.586] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:02:00.586] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:03:08.450] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:03:08.450] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:03:08.450] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:03:08.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769716289459}
+[01:03:08.450] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:03:14.260] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:05:37.941] Server  LOG      ✓ Compiled in 40ms
+[01:07:45.831] Server  LOG      ✓ Compiled in 38ms
+[01:09:43.148] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.155] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.257] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.264] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.265] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.267] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.276] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.279] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.280] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.280] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.281] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.282] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.282] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.284] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.285] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.285] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.288] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.289] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.291] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.291] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.292] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.293] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.293] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.295] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.296] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.296] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.298] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.298] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.299] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.300] Server  ERROR    ⨯ ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:09:43.301] Server  LOG      ✓ Compiled in 250ms
+[01:09:43.405] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:09:43.439] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:10:16.368] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:10:16.406] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:10:23.876] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:10:23.890] Browser ERROR   ./app/page.tsx:8:1
+Module not found: Can't resolve '@/components/home/raspberry-section'
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import { RaspberrySection } from "@/components/home/raspberry-section"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+Import map: aliased to relative './components/home/raspberry-section' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[01:11:16.047] Server  LOG      ✓ Compiled in 180ms
+[01:11:16.149] Browser ERROR   ./app/page.tsx:8:1
+Export default doesn't exist in target module
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import RaspberrySectionWrapper from "@/components/home/RaspberrySectionWrapper"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+The export default was not found in module [project]/components/home/RaspberrySectionWrapper.tsx [app-rsc] (ecmascript).
+Did you mean to import RaspberrySectionWrapper?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+[01:11:16.204] Browser ERROR   ./app/page.tsx:8:1
+Export default doesn't exist in target module
+   6 | import { BananaSection } from "@/components/home/banana-section"
+   7 | import { MarqueeSection } from "@/components/home/marquee-section"
+>  8 | import RaspberrySectionWrapper from "@/components/home/RaspberrySectionWrapper"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
+  10 | import { WhereToBuySection } from "@/components/home/where-to-buy-section"
+  11 |
+
+The export default was not found in module [project]/components/home/RaspberrySectionWrapper.tsx [app-rsc] (ecmascript).
+Did you mean to import RaspberrySectionWrapper?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+[01:12:23.271] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:12:23.271] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:12:23.271] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:12:23.271] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:12:23.271] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769716844435}
+[01:12:26.006] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:17:07.830] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/RaspberrySectionMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:17:08.013] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/home/RaspberrySectionMobile.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:17:08.013] Browser ERROR   Failed to fetch RSC payload for http://192.168.1.161:3000/. Falling back to browser navigation. {}
+[01:17:08.381] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:17:08.549] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:17:08.549] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:17:08.549] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:17:08.549] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:17:08.549] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717129714}
+[01:17:08.831] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:17:08.831] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:17:08.831] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:17:08.831] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:17:08.831] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717129912}
+[01:17:31.052] Server  LOG      ✓ Compiled in 40ms
+[01:17:33.334] Server  LOG      ✓ Compiled in 15ms
+[01:17:36.562] Server  LOG      ✓ Compiled in 15ms
+[01:17:48.339] Server  LOG      ✓ Compiled in 31ms
+[01:17:51.206] Server  LOG      ✓ Compiled in 22ms
+[01:17:56.509] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:18:50.313] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:19:02.772] Server  LOG      ✓ Compiled in 32ms
+[01:19:16.076] Server  LOG      ✓ Compiled in 47ms
+[01:19:36.153] Server  LOG      ✓ Compiled in 34ms
+[01:19:50.801] Server  LOG      ✓ Compiled in 31ms
+[01:23:38.290] Server  LOG      ✓ Compiled in 75ms
+[01:24:00.047] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:24:00.187] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:24:00.188] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:24:00.188] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:24:00.188] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:24:00.188] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:24:00.188] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717541359}
+[01:24:18.405] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:24:18.405] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717559575}
+[01:24:34.245] Server  LOG      ✓ Compiled in 58ms
+[01:25:09.103] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717610261}
+[01:25:20.333] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717621506}
+[01:27:46.689] Server  LOG      ✓ Compiled in 49ms
+[01:27:57.941] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:27:57.941] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717778937}
+[01:28:12.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717793444}
+[01:28:38.442] Server  LOG      ✓ Compiled in 26ms
+[01:28:42.286] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:42.427] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:28:42.427] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/cocktails","route":"/cocktails"}
+[01:28:42.427] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717823580}
+[01:28:46.708] Server  LOG      ✓ Compiled in 14ms
+[01:29:12.817] Server  LOG      ✓ Compiled in 28ms
+[01:29:20.848] Server  LOG      ✓ Compiled in 16ms
+[01:29:42.405] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:29:42.406] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717883558}
+[01:29:44.455] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717885608}
+[01:29:59.832] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:29:59.833] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/cocktails","route":"/cocktails"}
+[01:29:59.833] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769717900984}
+[01:30:18.265] Server  LOG      ✓ Compiled in 27ms
+[01:30:21.753] Server  LOG      ✓ Compiled in 10ms
+[01:30:30.755] Server  LOG      ✓ Compiled in 102ms
+[01:30:34.683] Server  LOG      ✓ Compiled in 20ms
+[01:30:37.112] Server  LOG      ✓ Compiled in 12ms
+[01:30:39.784] Server  LOG      ✓ Compiled in 9ms
+[01:30:43.633] Server  LOG      ✓ Compiled in 13ms
+[01:32:26.986] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:32:26.986] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769718048137}
+[01:33:15.419] Server  LOG      ✓ Compiled in 36ms
+[01:34:08.886] Server  LOG      ✓ Compiled in 36ms
+[01:34:11.691] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769718152837}
+[01:34:19.730] Server  LOG      ✓ Compiled in 16ms
+[01:34:22.209] Server  LOG      ✓ Compiled in 12ms
+[01:35:21.095] Server  LOG      ✓ Compiled in 33ms
+[01:35:26.727] Server  LOG      ✓ Compiled in 15ms
+[01:35:31.757] Server  LOG      ✓ Compiled in 17ms
+[01:49:16.738] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769719057862}
+[01:49:23.334] Server  LOG      ✓ Compiled in 43ms
+[01:49:37.403] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769719078605}
+[01:54:17.779] Server  LOG      ✓ Compiled in 64ms
+[01:54:29.162] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:54:29.314] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:54:29.314] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/where-to-buy","route":"/where-to-buy"}
+[01:54:29.314] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769719370441}
+[01:56:21.949] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769719483159}
+[02:05:27.780] Server  LOG      ✓ Compiled in 57ms
+[02:05:38.918] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:05:38.918] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720040045}
+[02:05:43.356] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720044482}
+[02:05:52.826] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720053951}
+[02:05:52.826] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:06:02.427] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720063553}
+[02:06:14.797] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720075922}
+[02:06:22.375] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:06:22.375] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:06:22.375] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720083501}
+[02:06:47.944] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720109069}
+[02:08:55.362] Server  LOG      ✓ Compiled in 54ms
+[02:09:06.037] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:09:06.175] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:09:06.175] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/flavours/ripe-raspberry","route":"/flavours/ripe-raspberry"}
+[02:09:06.175] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720247330}
+[02:09:06.175] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:09:26.101] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <InnerLayoutRouter url="/contact" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+          <SegmentViewNode type="page" pagePath="contact/pa...">
+            <SegmentTrieNode>
+            <ClientPageRoot Component={function ContactPage} serverProvidedParams={{...}}>
+              <ContactPage params={Promise} searchParams={Promise}>
+                <main>
+                  <Header>
+                  <section>
+                  <section className="py-20 md:p...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <motion.div>
+                        <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true, ...}} ...>
+                          <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <form
+                              onSubmit={function handleSubmit}
+                              className="space-y-6"
+-                             __gchrome_uniqueid="1"
+                            >
+                              <input
+                                required={true}
+                                placeholder="Name"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="2"
+                              >
+                              <input
+                                required={true}
+                                type="email"
+                                placeholder="Email"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="3"
+                              >
+                              <textarea
+                                required={true}
+                                rows={6}
+                                placeholder="Message"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 resize-none text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="4"
+                              >
+                              ...
+                  ...
+          ...
+        ...
+
+[02:09:26.101] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:09:26.101] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/contact","route":"/contact"}
+[02:09:26.101] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720267309}
+[02:09:41.789] Server  LOG      ✓ Compiled in 39ms
+[02:15:34.648] Server  LOG      ✓ Compiled in 69ms
+[02:15:51.489] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:15:51.645] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:15:51.645] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:15:51.645] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/flavours/ripe-raspberry","route":"/flavours/ripe-raspberry"}
+[02:15:51.645] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769720652804}
+[02:16:17.049] Server  LOG      ✓ Compiled in 46ms
+[02:16:23.770] Server  LOG      ✓ Compiled in 14ms
+[02:16:35.662] Server  LOG      ✓ Compiled in 48ms
+[02:16:43.191] Server  LOG      ✓ Compiled in 41ms
+[02:18:08.319] Server  LOG      ✓ Compiled in 40ms
+[02:18:19.066] Server  LOG      ✓ Compiled in 41ms
+[02:19:25.304] Server  LOG      ✓ Compiled in 36ms
+[02:43:57.229] Server  LOG      ✓ Compiled in 55ms
+[02:44:45.293] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <InnerLayoutRouter url="/contact" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+          <SegmentViewNode type="page" pagePath="contact/pa...">
+            <SegmentTrieNode>
+            <ClientPageRoot Component={function ContactPage} serverProvidedParams={{...}}>
+              <ContactPage params={Promise} searchParams={Promise}>
+                <main>
+                  <Header>
+                  <section>
+                  <section className="py-20 md:p...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <motion.div>
+                        <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true, ...}} ...>
+                          <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <form
+                              onSubmit={function handleSubmit}
+                              className="space-y-6"
+-                             __gchrome_uniqueid="1"
+                            >
+                              <input
+                                required={true}
+                                placeholder="Name"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="2"
+                              >
+                              <input
+                                required={true}
+                                type="email"
+                                placeholder="Email"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="3"
+                              >
+                              <textarea
+                                required={true}
+                                rows={6}
+                                placeholder="Message"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 resize-none text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="4"
+                              >
+                              ...
+                  ...
+          ...
+        ...
+
+[02:44:45.293] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:44:45.293] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/contact","route":"/contact"}
+[02:44:45.293] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722386493}
+[02:46:42.103] Server  LOG      ✓ Compiled in 47ms
+[02:46:53.499] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <InnerLayoutRouter url="/contact" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+          <SegmentViewNode type="page" pagePath="contact/pa...">
+            <SegmentTrieNode>
+            <ClientPageRoot Component={function ContactPage} serverProvidedParams={{...}}>
+              <ContactPage params={Promise} searchParams={Promise}>
+                <main>
+                  <Header>
+                  <section>
+                  <section className="py-20 md:p...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <motion.div>
+                        <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true, ...}} ...>
+                          <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <form
+                              onSubmit={function handleSubmit}
+                              className="space-y-6"
+-                             __gchrome_uniqueid="1"
+                            >
+                              <input
+                                required={true}
+                                placeholder="Name"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="2"
+                              >
+                              <input
+                                required={true}
+                                type="email"
+                                placeholder="Email"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="3"
+                              >
+                              <textarea
+                                required={true}
+                                rows={6}
+                                placeholder="Message"
+                                className="w-full bg-[#f5f5f5] px-6 py-4 resize-none text-lg md:text-base"
+                                value=""
+                                onChange={function onChange}
+-                               __gchrome_uniqueid="4"
+                              >
+                              ...
+                  ...
+          ...
+        ...
+
+[02:46:53.499] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:46:53.499] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/contact","route":"/contact"}
+[02:46:53.499] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722514802}
+[02:47:05.410] Server  LOG      ✓ Compiled in 36ms
+[02:47:58.816] Server  LOG      ✓ Compiled in 37ms
+[02:48:27.737] Server  LOG      ✓ Compiled in 52ms
+[02:48:27.848] Browser ERROR   ./components/header.tsx:160:49
+Parsing ecmascript source code failed
+  158 |                   onClick={() => setMobileFlavoursOpen(!mobileFlavoursOpen)}
+  159 |                   className="flex items-center justify-between w-full text-xl font-medium text-[#0a0a0a]"
+> 160 |                   style={{ fontFamily: "Balboa" textTransform: "none" }}
+      |                                                 ^^^^^^^^^^^^^
+  161 |                 >
+  162 |                   Flavours
+  163 |                   <ChevronDown
+
+Expected '</', got 'textTransform'
+
+Import trace:
+  Server Component:
+    ./components/header.tsx
+    ./app/page.tsx
+[02:48:27.860] Browser ERROR   ./components/header.tsx:160:49
+Parsing ecmascript source code failed
+  158 |                   onClick={() => setMobileFlavoursOpen(!mobileFlavoursOpen)}
+  159 |                   className="flex items-center justify-between w-full text-xl font-medium text-[#0a0a0a]"
+> 160 |                   style={{ fontFamily: "Balboa" textTransform: "none" }}
+      |                                                 ^^^^^^^^^^^^^
+  161 |                 >
+  162 |                   Flavours
+  163 |                   <ChevronDown
+
+Expected '</', got 'textTransform'
+
+Import trace:
+  Server Component:
+    ./components/header.tsx
+    ./app/page.tsx
+[02:49:00.160] Server  LOG      ✓ Compiled in 19ms
+[02:49:08.822] Server  LOG      ✓ Compiled in 63ms
+[02:49:12.103] Server  LOG      ✓ Compiled in 16ms
+[02:49:17.362] Server  LOG      ✓ Compiled in 22ms
+[02:49:22.893] Server  LOG      ✓ Compiled in 42ms
+[02:49:37.952] Server  LOG      ✓ Compiled in 15ms
+[02:50:29.020] Server  LOG      ✓ Compiled in 59ms
+[02:51:10.537] Server  LOG      ✓ Compiled in 45ms
+[02:51:31.610] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:51:31.748] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:51:31.748] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:51:31.748] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/flavours/ripe-raspberry","route":"/flavours/ripe-raspberry"}
+[02:51:31.748] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722792930}
+[02:52:13.750] Server  LOG      ✓ Compiled in 36ms
+[02:52:20.952] Server  LOG      ✓ Compiled in 12ms
+[02:52:24.204] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:52:24.347] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[02:52:24.347] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/flavours/ripe-raspberry","route":"/flavours/ripe-raspberry"}
+[02:52:24.347] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722845527}
+[02:52:24.347] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:52:45.314] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:52:45.314] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722866505}
+[02:52:45.314] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:52:45.314] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:52:48.262] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:53:18.447] Server  LOG      ✓ Compiled in 33ms
+[02:53:39.103] Server  LOG      ✓ Compiled in 12ms
+[02:54:08.187] Server  LOG      ✓ Compiled in 38ms
+[02:54:13.549] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:54:13.549] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722954730}
+[02:54:43.610] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769722984782}
+[02:54:43.610] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:54:43.610] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[02:55:40.666] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769723041883}
+[02:56:05.422] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769723066631}
+[02:56:11.428] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/where-to-buy color: rgb(120, 120, 120) color: inherit {"dp":"/where-to-buy","o":"http://192.168.1.161:3000/where-to-buy","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769723072644}
+[02:56:22.471] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/contact color: rgb(120, 120, 120) color: inherit {"dp":"/contact","o":"http://192.168.1.161:3000/contact","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769723083681}
+[02:56:36.355] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769723097569}
+[02:56:54.899] Server  LOG      ✓ Compiled in 65ms
+[02:58:15.571] Server  LOG      ✓ Compiled in 104ms
+[03:03:35.794] Server  LOG      ✓ Compiled in 29ms
+[03:12:09.098] Server  LOG      ✓ Compiled in 37ms
+[03:12:14.302] Server  LOG      ✓ Compiled in 22ms
+[03:12:22.526] Server  LOG      ✓ Compiled in 17ms
+[03:12:26.635] Server  LOG      ✓ Compiled in 19ms
+[03:12:36.429] Server  LOG      ✓ Compiled in 26ms
+[03:13:39.710] Server  LOG      ✓ Compiled in 40ms
+[03:13:52.338] Server  LOG      ✓ Compiled in 15ms
+[03:14:09.972] Server  LOG      ✓ Compiled in 15ms
+[03:14:14.965] Server  LOG      ✓ Compiled in 12ms
+[03:14:35.599] Server  LOG      ✓ Compiled in 32ms
+[03:14:51.891] Server  LOG      ✓ Compiled in 13ms
+[03:14:59.608] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:14:59.828] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[03:14:59.828] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[03:14:59.828] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[03:14:59.828] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[03:14:59.828] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724200988}
+[03:14:59.828] Browser WARN    Image with src "/assets/banana-velvet.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[03:15:00.509] Browser WARN    Image with src "/assets/raspberry-rumble.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[03:15:25.293] Server  LOG      ✓ Compiled in 36ms
+[03:15:31.058] Server  LOG      ✓ Compiled in 19ms
+[03:15:51.265] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724252483}
+[03:15:53.427] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724254641}
+[03:16:14.587] Server  LOG      ✓ Compiled in 32ms
+[03:16:48.855] Server  LOG      ✓ Compiled in 22ms
+[03:17:01.363] Server  LOG      ✓ Compiled in 11ms
+[03:17:05.796] Server  LOG      ✓ Compiled in 13ms
+[03:17:23.884] Server  LOG      ✓ Compiled in 30ms
+[03:17:27.296] Server  LOG      ✓ Compiled in 13ms
+[03:17:32.386] Server  LOG      ✓ Compiled in 13ms
+[03:17:35.092] Server  LOG      ✓ Compiled in 10ms
+[03:17:37.990] Server  LOG      ✓ Compiled in 17ms
+[03:17:58.359] Server  LOG      ✓ Compiled in 36ms
+[03:18:07.800] Server  LOG      ✓ Compiled in 14ms
+[03:18:12.628] Server  LOG      ✓ Compiled in 33ms
+[03:18:31.290] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[03:18:31.290] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724412487}
+[03:18:45.602] Server  LOG      ✓ Compiled in 28ms
+[03:18:57.682] Server  LOG      ✓ Compiled in 16ms
+[03:19:02.008] Server  LOG      ✓ Compiled in 101ms
+[03:19:33.751] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724474949}
+[03:19:53.234] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[03:20:03.693] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724504895}
+[03:20:09.593] Server  LOG      ✓ Compiled in 46ms
+[03:20:18.704] Server  LOG      ✓ Compiled in 28ms
+[03:20:28.860] Server  LOG      ✓ Compiled in 30ms
+[03:20:45.006] Server  LOG      ✓ Compiled in 13ms
+[03:20:49.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724550813}
+[03:21:19.375] Server  LOG      ✓ Compiled in 43ms
+[03:21:24.495] Server  LOG      ✓ Compiled in 29ms
+[03:21:28.357] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724589564}
+[03:22:22.005] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724643208}
+[03:23:21.999] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724703201}
+[03:23:40.875] Server  LOG      ✓ Compiled in 30ms
+[03:23:45.810] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:23:45.964] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[03:23:45.964] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[03:23:45.964] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[03:23:45.964] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[03:23:45.964] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[03:23:45.964] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.1.161:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769724727168}
+[03:23:52.915] Server  LOG      ✓ Compiled in 18ms
+[03:23:57.532] Server  LOG      ✓ Compiled in 36ms
+[03:24:29.453] Server  LOG      ✓ Compiled in 31ms
+[03:24:41.279] Server  LOG      ✓ Compiled in 31ms
+[03:24:51.772] Server  LOG      ✓ Compiled in 34ms
+[03:25:27.868] Server  LOG      ✓ Compiled in 36ms
+[03:25:32.234] Server  LOG      ✓ Compiled in 17ms
+[03:25:34.815] Server  LOG      ✓ Compiled in 22ms
+[03:25:41.389] Server  LOG      ✓ Compiled in 21ms
+[03:26:03.692] Server  LOG      ✓ Compiled in 40ms
+[03:26:09.901] Server  LOG      ✓ Compiled in 13ms
+[03:26:21.164] Server  LOG      ✓ Compiled in 13ms
+[03:26:27.414] Server  LOG      ✓ Compiled in 19ms
+[03:26:32.910] Server  LOG      ✓ Compiled in 28ms
+[03:30:21.230] Server  LOG      ✓ Compiled in 36ms
+[03:30:38.272] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725139426}
+[03:30:46.311] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725147532}
+[03:30:56.072] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725157294}
+[03:31:19.179] Server  LOG      ✓ Compiled in 33ms
+[03:31:26.583] Server  LOG      ✓ Compiled in 20ms
+[03:31:42.828] Server  LOG      ✓ Compiled in 13ms
+[03:31:59.659] Server  LOG      ✓ Compiled in 13ms
+[03:32:03.514] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[03:32:03.514] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725224723}
+[03:32:06.783] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/ripe-raspberry color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/ripe-raspberry","o":"http://192.168.1.161:3000/flavours/ripe-raspberry","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725227993}
+[03:33:56.526] Server  LOG      ✓ Compiled in 25ms
+[03:34:18.879] Server  LOG      ✓ Compiled in 14ms
+[03:36:24.137] Server  LOG      ✓ Compiled in 31ms
+[03:36:24.218] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/assets/berry-bomb.webp" "received" null
+[03:36:24.244] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/assets/berry-bomb.webp" "received" null
+[03:37:02.500] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://192.168.1.161:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725523712}
+[03:37:27.721] Server  LOG      ✓ Compiled in 28ms
+[03:38:05.711] Server  LOG      ✓ Compiled in 50ms
+[03:39:25.567] Server  LOG      ✓ Compiled in 40ms
+[03:39:35.299] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.1.161:3000/flavours/big-banana color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/big-banana","o":"http://192.168.1.161:3000/flavours/big-banana","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1769725676503}
+[03:40:05.262] Server  LOG      ✓ Compiled in 40ms
