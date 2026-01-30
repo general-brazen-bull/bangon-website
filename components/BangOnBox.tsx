@@ -7,12 +7,10 @@ export function BangOnBox({
 }: {
   progress: MotionValue<number>
 }) {
-    const opacity = useTransform(progress, [0.70, 0.82], [0, 1])
-    const scale   = useTransform(progress, [0.70, 0.82], [1.15, 1])
-    const rotate  = useTransform(progress, [0.70, 0.82], [-6, 0])
-    const y       = useTransform(progress, [0.70, 0.82], [18, 0])
-    
-    
+  const opacity = useTransform(progress, [0.70, 0.82], [0, 1])
+  const scale   = useTransform(progress, [0.70, 0.82], [1.15, 1])
+  const rotate  = useTransform(progress, [0.70, 0.82], [-6, 0])
+  const y       = useTransform(progress, [0.70, 0.82], [18, 0])
 
   return (
     <motion.span
@@ -34,15 +32,15 @@ export function BangOnBox({
         inline-block
         bg-[#ff3672]
         text-black
-
-        /* MATCH MANIFESTO SIZE */
-        text-7xl md:text-8xl lg:text-9xl
-        leading-[0.9]
-        font-extrabold
         uppercase
         tracking-tight
+        font-extrabold
+        leading-[0.9]
 
-        px-10 py-4
+        text-[clamp(4.3rem,9vw,10rem)]
+        px-[clamp(1.25rem,3vw,2rem)]
+        py-[clamp(0.6rem,1.5vw,0.9rem)]
+
         shadow-[0_10px_30px_rgba(0,0,0,0.4)]
       "
     >

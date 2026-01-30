@@ -1,29 +1,34 @@
 "use client"
 
 import { motion, MotionValue, useTransform } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 export function ScrubLine({
   text,
   progress,
   range,
+  className,
 }: {
   text: string
   progress: MotionValue<number>
   range: [number, number]
+  className?: string
 }) {
   const words = text.split(" ")
 
   return (
     <h2
-      className="
+      className={cn(
+        `
         text-center
-        text-7xl md:text-8xl lg:text-9xl
-        leading-[0.85]
         font-extrabold
         uppercase
         tracking-tight
-        text-white
-      "
+        leading-[0.9]
+        text-[clamp(4.3rem,7.5vw,8.5rem)]
+        `,
+        className
+      )}
     >
       {words.map((word, i) => {
         const start =

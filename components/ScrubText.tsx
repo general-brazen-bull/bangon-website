@@ -13,9 +13,13 @@ export function ScrubText({
 
   return (
     <motion.h2
-      className={`text-5xl md:text-6xl lg:text-7xl leading-tight flex flex-wrap gap-x-3 ${
-        highlight ? "text-[#ff3672]" : "text-white"
-      }`}
+      className={`
+        flex flex-wrap gap-x-3
+        font-extrabold uppercase tracking-tight
+        leading-tight
+        text-[clamp(1.4rem,3.5vw,2.6rem)]
+        ${highlight ? "text-[#ff3672]" : "text-white"}
+      `}
     >
       {words.map((word, i) => (
         <motion.span

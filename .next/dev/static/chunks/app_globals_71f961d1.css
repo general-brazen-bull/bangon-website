@@ -576,6 +576,10 @@
     display: inline-block;
   }
 
+  .inline-flex {
+    display: inline-flex;
+  }
+
   .aspect-\[1\/2\] {
     aspect-ratio: 1 / 2;
   }
@@ -614,6 +618,10 @@
 
   .h-\[300px\] {
     height: 300px;
+  }
+
+  .h-\[320vh\] {
+    height: 320vh;
   }
 
   .h-\[350vh\] {
@@ -682,6 +690,10 @@
 
   .max-w-7xl {
     max-width: var(--container-7xl);
+  }
+
+  .max-w-\[1100px\] {
+    max-width: 1100px;
   }
 
   .max-w-\[1200px\] {
@@ -839,6 +851,12 @@
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 28) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 28) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+  :where(.space-y-\[clamp\(1\.25rem\,3vh\,2\.25rem\)\] > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(clamp(1.25rem, 3vh, 2.25rem) * var(--tw-space-y-reverse));
+    margin-block-end: calc(clamp(1.25rem, 3vh, 2.25rem) * calc(1 - var(--tw-space-y-reverse)));
   }
 
   .gap-x-3 {
@@ -1010,6 +1028,14 @@
     padding-inline: calc(var(--spacing) * 10);
   }
 
+  .px-\[clamp\(1\.25rem\,3vw\,2rem\)\] {
+    padding-inline: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .px-\[clamp\(1\.25rem\,4vw\,3rem\)\] {
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -1044,6 +1070,10 @@
 
   .py-32 {
     padding-block: calc(var(--spacing) * 32);
+  }
+
+  .py-\[clamp\(0\.6rem\,1\.5vw\,0\.9rem\)\] {
+    padding-block: clamp(.6rem, 1.5vw, .9rem);
   }
 
   .pt-4 {
@@ -1172,6 +1202,194 @@
     font-size: 37vw;
   }
 
+  .text-\[clamp\(1\.4rem\,3\.5vw\,2\.6rem\)\] {
+    font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+  }
+
+  .text-\[clamp\(1rem\,4vw\,3rem\)\] {
+    font-size: clamp(1rem, 4vw, 3rem);
+  }
+
+  .text-\[clamp\(2\.4rem\,5\.8vw\,4\.55rem\)\] {
+    font-size: clamp(2.4rem, 5.8vw, 4.55rem);
+  }
+
+  .text-\[clamp\(2\.4rem\,5vw\,4\.55rem\)\] {
+    font-size: clamp(2.4rem, 5vw, 4.55rem);
+  }
+
+  .text-\[clamp\(2\.6rem\,6vw\,4\.75rem\)\] {
+    font-size: clamp(2.6rem, 6vw, 4.75rem);
+  }
+
+  .text-\[clamp\(2\.9rem\,6\.5vw\,5\.25rem\)\] {
+    font-size: clamp(2.9rem, 6.5vw, 5.25rem);
+  }
+
+  .text-\[clamp\(2\.25rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(2\.75rem\,7vw\,5\.25rem\)\] {
+    font-size: clamp(2.75rem, 7vw, 5.25rem);
+  }
+
+  .text-\[clamp\(2rem\,5vw\,4rem\)\] {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .text-\[clamp\(3\.1rem\,6\.7vw\,5\.45rem\)\] {
+    font-size: clamp(3.1rem, 6.7vw, 5.45rem);
+  }
+
+  .text-\[clamp\(3\.1rem\,6\.7vw\,7rem\)\] {
+    font-size: clamp(3.1rem, 6.7vw, 7rem);
+  }
+
+  .text-\[clamp\(3\.1rem\,8vw\,5\.45rem\)\] {
+    font-size: clamp(3.1rem, 8vw, 5.45rem);
+  }
+
+  .text-\[clamp\(3\.1rem\,9vw\,5\.45rem\)\] {
+    font-size: clamp(3.1rem, 9vw, 5.45rem);
+  }
+
+  .text-\[clamp\(3\.5rem\,7\.5vw\,6\.5rem\)\] {
+    font-size: clamp(3.5rem, 7.5vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.25rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(3.25rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(3\.25rem\,7vw\,6rem\)\] {
+    font-size: clamp(3.25rem, 7vw, 6rem);
+  }
+
+  .text-\[clamp\(3rem\,8vw\,5rem\)\] {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  .text-\[clamp\(3rem\,8vw\,11rem\)\] {
+    font-size: clamp(3rem, 8vw, 11rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,5\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 5.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,6\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 6.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,7\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 7.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,8\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 8.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,6vw\,9\.5rem\)\] {
+    font-size: clamp(4.3rem, 6vw, 9.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,7\.5vw\,8\.5rem\)\] {
+    font-size: clamp(4.3rem, 7.5vw, 8.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,8\.5vw\,8\.5rem\)\] {
+    font-size: clamp(4.3rem, 8.5vw, 8.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,8\.5vw\,8rem\)\] {
+    font-size: clamp(4.3rem, 8.5vw, 8rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,8vw\,8\.5rem\)\] {
+    font-size: clamp(4.3rem, 8vw, 8.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,8vw\,9\.5rem\)\] {
+    font-size: clamp(4.3rem, 8vw, 9.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,9\.5vw\,9\.5rem\)\] {
+    font-size: clamp(4.3rem, 9.5vw, 9.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,9vw\,9\.5rem\)\] {
+    font-size: clamp(4.3rem, 9vw, 9.5rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,9vw\,10rem\)\] {
+    font-size: clamp(4.3rem, 9vw, 10rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,10vw\,10rem\)\] {
+    font-size: clamp(4.3rem, 10vw, 10rem);
+  }
+
+  .text-\[clamp\(4\.3rem\,11vw\,11rem\)\] {
+    font-size: clamp(4.3rem, 11vw, 11rem);
+  }
+
+  .text-\[clamp\(4\.4rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.4rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4\.5rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.5rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4\.8rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.8rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4\.9rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.9rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4\.25rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(4.25rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(4rem\,6\.7vw\,5\.45rem\)\] {
+    font-size: clamp(4rem, 6.7vw, 5.45rem);
+  }
+
+  .text-\[clamp\(5\.25rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(5.25rem, 6vw, 4.5rem);
+  }
+
+  .text-\[clamp\(5rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(5rem, 6vw, 4.5rem);
+  }
+
+  .leading-\[0\.3\] {
+    --tw-leading: .3;
+    line-height: .3;
+  }
+
+  .leading-\[0\.6\] {
+    --tw-leading: .6;
+    line-height: .6;
+  }
+
+  .leading-\[0\.7\] {
+    --tw-leading: .7;
+    line-height: .7;
+  }
+
+  .leading-\[0\.8\] {
+    --tw-leading: .8;
+    line-height: .8;
+  }
+
   .leading-\[0\.9\] {
     --tw-leading: .9;
     line-height: .9;
@@ -1180,6 +1398,11 @@
   .leading-\[0\.85\] {
     --tw-leading: .85;
     line-height: .85;
+  }
+
+  .leading-\[0\.92\] {
+    --tw-leading: .92;
+    line-height: .92;
   }
 
   .leading-\[0\.95\] {
@@ -1718,6 +1941,12 @@
   }
 
   @media (min-width: 64rem) {
+    .lg\:px-6 {
+      padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+
+  @media (min-width: 64rem) {
     .lg\:text-3xl {
       font-size: var(--text-3xl);
       line-height: var(--tw-leading, var(--text-3xl--line-height));
@@ -1773,6 +2002,74 @@
   @media (min-width: 64rem) {
     .lg\:text-\[12vw\] {
       font-size: 12vw;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:whitespace-nowrap {
+      white-space: nowrap;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:max-w-\[1200px\] {
+      max-width: 1200px;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:translate-x-\[-0\.15ch\] {
+      --tw-translate-x: -.15ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:translate-x-\[-0\.25ch\] {
+      --tw-translate-x: -.25ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:translate-x-\[-0\.35ch\] {
+      --tw-translate-x: -.35ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:translate-x-\[0\.15ch\] {
+      --tw-translate-x: .15ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 96rem) {
+    .\32 xl\:translate-x-\[-0\.25ch\] {
+      --tw-translate-x: -.25ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 96rem) {
+    .\32 xl\:translate-x-\[-0\.35ch\] {
+      --tw-translate-x: -.35ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 96rem) {
+    .\32 xl\:translate-x-\[-0\.45ch\] {
+      --tw-translate-x: -.45ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  @media (min-width: 96rem) {
+    .\32 xl\:translate-x-\[0\.25ch\] {
+      --tw-translate-x: .25ch;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
 }

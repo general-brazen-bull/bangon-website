@@ -218,7 +218,7 @@ export default function BigBananaPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
-            READY TO GO BANANAS?
+            READY. SET. BANANAS!
           </motion.h2>
           <Link
             href="/where-to-buy"

@@ -1206,7 +1206,7 @@ function BigBananaPage() {
                             transition: {
                                 duration: 0.6
                             },
-                            children: "READY TO GO BANANAS?"
+                            children: "READY. SET. BANANAS!"
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/big-banana/page.tsx",
                             lineNumber: 214,
