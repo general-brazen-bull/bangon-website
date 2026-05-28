@@ -1302,6 +1302,11 @@
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
 
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+
   .text-\[11px\] {
     font-size: 11px;
   }
@@ -1413,6 +1418,11 @@
   .tracking-\[0\.14em\] {
     --tw-tracking: .14em;
     letter-spacing: .14em;
+  }
+
+  .tracking-\[0\.25em\] {
+    --tw-tracking: .25em;
+    letter-spacing: .25em;
   }
 
   .tracking-tight {

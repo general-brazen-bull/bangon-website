@@ -83,6 +83,28 @@ export function HeroSection() {
           SHOP NOW
         </motion.a>
       </motion.div>
+      <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1 }}
+  className="mt-10 flex flex-col items-center"
+>
+  <p className="text-white/70 text-xs md:text-sm uppercase tracking-[0.25em] mb-3">
+    Continue
+  </p>
+
+  <motion.div
+    animate={{ y: [0, 10, 0] }}
+    transition={{
+      duration: 1.4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="text-white text-3xl"
+  >
+    ↓
+  </motion.div>
+</motion.div>
     </section>
   )
 }

@@ -1005,6 +1005,52 @@ function HeroSection() {
                 fileName: "[project]/components/home/hero-section.tsx",
                 lineNumber: 27,
                 columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                initial: {
+                    opacity: 0
+                },
+                animate: {
+                    opacity: 1
+                },
+                transition: {
+                    delay: 1
+                },
+                className: "mt-10 flex flex-col items-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-white/70 text-xs md:text-sm uppercase tracking-[0.25em] mb-3",
+                        children: "Continue"
+                    }, void 0, false, {
+                        fileName: "[project]/components/home/hero-section.tsx",
+                        lineNumber: 92,
+                        columnNumber: 3
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                        animate: {
+                            y: [
+                                0,
+                                10,
+                                0
+                            ]
+                        },
+                        transition: {
+                            duration: 1.4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        className: "text-white text-3xl",
+                        children: "↓"
+                    }, void 0, false, {
+                        fileName: "[project]/components/home/hero-section.tsx",
+                        lineNumber: 96,
+                        columnNumber: 3
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/home/hero-section.tsx",
+                lineNumber: 86,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
