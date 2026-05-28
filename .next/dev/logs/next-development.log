@@ -1,42 +1,52 @@
-[00:00:01.080] Server  LOG      ✓ Ready in 815ms
-[00:00:03.287] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:04.054] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:04.054] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/cocktails","route":"/cocktails"}
-[00:00:04.054] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://localhost:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779926426928} /_vercel/insights/view
-[00:00:04.762] Browser WARN    Image with src "/assets/apple-jacked.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:00:28.304] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:28.304] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
-[00:00:28.304] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/flavours/green-apple color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/green-apple","o":"http://localhost:3000/flavours/green-apple","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779926451068} /_vercel/insights/view
-[00:01:11.487] Server  LOG      ✓ Compiled in 55ms
-[00:01:26.907] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779926509779} /_vercel/insights/view
-[00:01:27.592] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:02:25.646] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:04:09.987] Server  LOG      ✓ Compiled in 51ms
-[00:04:10.097] Browser ERROR   uncaughtError: Error: Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
-[00:05:02.267] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:05:02.281] Server  LOG      ✓ Compiled in 48ms
-[00:05:02.658] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779926725276} /_vercel/insights/view
-[00:05:02.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:03.255] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
-[00:05:03.255] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:03.257] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:05:03.258] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779926725874} /_vercel/insights/view
-[00:05:03.258] Browser WARN    Image with src "/assets/banana-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:05.514] Browser WARN    Image with src "/assets/raspberry-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:10:28.458] Server  LOG      ✓ Compiled in 49ms
-[00:10:28.518] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/assets/green-apple-bottle.png" "received" null
-[00:10:46.095] Server  LOG      ✓ Compiled in 36ms
-[00:10:46.280] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:12:06.420] Server  LOG      ✓ Compiled in 49ms
-[00:13:45.548] Server  LOG      ✓ Compiled in 37ms
-[00:16:27.719] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:16:50.219] Server  LOG      ✓ Compiled in 50ms
-[00:16:50.282] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/assets/green-apple-bottle.png" "received" null
-[00:16:59.175] Server  LOG      ✓ Compiled in 39ms
-[00:17:28.169] Server  LOG      ✓ Compiled in 77ms
-[00:20:27.442] Server  LOG      ✓ Compiled in 47ms
-[00:20:49.181] Server  LOG      ✓ Compiled in 46ms
-[00:20:59.895] Server  LOG      ✓ Compiled in 29ms
-[00:25:36.591] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/cocktails color: rgb(120, 120, 120) color: inherit {"dp":"/cocktails","o":"http://localhost:3000/cocktails","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779927959491} /_vercel/insights/view
-[00:25:44.257] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/flavours/green-apple color: rgb(120, 120, 120) color: inherit {"dp":"/flavours/green-apple","o":"http://localhost:3000/flavours/green-apple","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1779927967160} /_vercel/insights/view
+[00:00:01.969] Server  LOG      ✓ Ready in 1713ms
+[00:00:14.998] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.258] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:15.258] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:15.258] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780009068573} /_vercel/insights/view
+[00:14:30.022] Server  LOG      ✓ Compiled in 2.1s
+[00:24:21.220] Server  LOG      ✓ Compiled in 156ms
+[00:24:22.097] Browser ERROR   uncaughtError: ReferenceError: enableAudio is not defined
+[00:24:23.283] Server  LOG      ✓ Compiled in 1065ms
+[00:24:23.290] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:24:23.965] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:24:24.108] Server  LOG      ✓ Compiled in 48ms
+[00:24:26.989] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:28.087] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:24:28.087] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:24:28.088] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780010520682} /_vercel/insights/view
+[00:25:08.169] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:25:08.169] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:25:35.287] Server  LOG      ✓ Compiled in 104ms
+[00:32:48.524] Server  LOG      ✓ Compiled in 51ms
+[00:35:45.661] Server  LOG      ✓ Compiled in 97ms
+[00:36:09.825] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:10.404] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:36:10.404] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:36:10.404] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:36:10.404] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:36:10.404] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780011223821} /_vercel/insights/view
+[00:37:38.546] Server  LOG      ✓ Compiled in 143ms
+[00:39:27.762] Server  LOG      ✓ Compiled in 99ms
+[00:39:33.804] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:34.280] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:39:34.280] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:39:34.281] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:39:34.281] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:39:34.281] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780011427696} /_vercel/insights/view
+[00:40:48.334] Server  LOG      ✓ Compiled in 117ms
+[00:41:03.675] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:04.075] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:41:04.075] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:41:04.075] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:41:04.075] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:41:04.075] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780011517493} /_vercel/insights/view
+[00:44:23.891] Server  LOG      ✓ Compiled in 110ms
+[00:44:31.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:44:32.383] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:44:32.383] Browser WARN    Image with src "/assets/apple-bottle.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:44:32.383] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:44:32.383] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:44:32.383] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1780011725805} /_vercel/insights/view
+[00:50:58.878] Server  LOG      ✓ Compiled in 79ms
