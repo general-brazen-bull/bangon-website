@@ -76,7 +76,7 @@ export function HeroSection() {
             ease: [0.25, 1, 0.5, 1], // punchy snap
           }}
         >
-          BANG ON
+          BANG ON!
         </motion.div>
 
         {/* TAGLINE */}
