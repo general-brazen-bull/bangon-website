@@ -30,7 +30,7 @@ export function BangOnBox({
       }}
       className="
         inline-block
-        bg-[#ff3672]
+        bg-[#95cb00]
         text-black
         uppercase
         tracking-tight

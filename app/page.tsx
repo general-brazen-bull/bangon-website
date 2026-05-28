@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/home/hero-section"
 import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
 import ProductRevealSectionWrapper from "@/components/home/ProductRevealSectionWrapper"
 import { BananaSection } from "@/components/home/banana-section"
+import { GreenappleSection } from "@/components/home/greenapple-section"
 import { MarqueeSection } from "@/components/home/marquee-section"
 import { RaspberrySectionWrapper } from "@/components/home/RaspberrySectionWrapper"
 import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
@@ -16,9 +17,11 @@ export default function HomePage() {
       <HeroSection />
       <BangOnManifestoSection />
       <ProductRevealSectionWrapper />
+      <MarqueeSection />
+      <GreenappleSection />
+      <RaspberrySectionWrapper />
       <BananaSection />
       <MarqueeSection />
-      <RaspberrySectionWrapper />
       <CocktailsTeaserSection />
       <WhereToBuySection />
       <Footer />

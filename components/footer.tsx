@@ -2,6 +2,7 @@ import Link from "next/link"
 
 const footerLinks = [
   { href: "/flavours/big-banana", label: "Big Banana" },
+  { href: "/flavours/green-apple", label: "Green Apple" },
   { href: "/flavours/ripe-raspberry", label: "Ripe Raspberry" },
   { href: "/cocktails", label: "Cocktails" },
   { href: "/where-to-buy", label: "Where to Buy" },

@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react"
 
 const flavours = [
   { href: "/flavours/big-banana", label: "Big Banana" },
+  { href: "/flavours/green-apple", label: "Green Apple" },
   { href: "/flavours/ripe-raspberry", label: "Ripe Raspberry" },
 ]
 

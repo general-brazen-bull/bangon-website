@@ -19,6 +19,12 @@
   --banana-orange: #f94a02;
   --raspberry-pink: #ff3672;
   --raspberry-blue: #006ad7;
+  --apple-green: #95cb00;
+  --apple-accent: #f94a02; /* keeping brand orange for consistency */
+
+  /* ✅ ADDED: Supporting shades for Green Apple */
+  --apple-green-light: #b7e64a;
+  --apple-green-dark: #6fa000;
 
   /* Shadcn/ui default colors (overwritten by user's if present, but here user had custom values for all, so their values persist) */
   --background: #f5f5f5;
@@ -103,6 +109,12 @@
   --color-banana-orange: var(--banana-orange);
   --color-raspberry-pink: var(--raspberry-pink);
   --color-raspberry-blue: var(--raspberry-blue);
+
+  /* ✅ ADDED: Green Apple mapping */
+  --color-apple-green: var(--apple-green);
+  --color-apple-accent: var(--apple-accent);
+  --color-apple-green-light: var(--apple-green-light);
+  --color-apple-green-dark: var(--apple-green-dark);
 
   /* Shadcn/ui colors */
   --color-background: var(--background);

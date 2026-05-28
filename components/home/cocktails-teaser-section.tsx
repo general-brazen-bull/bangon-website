@@ -6,10 +6,10 @@ import Image from "next/image"
 
 const cocktails = [
   {
-    name: "Banana Velvet Shot",
-    description: "Big Banana + Bailey's liqueur",
-    flavour: "Big Banana",
-    image: "/assets/banana-velvet.webp",
+    name: "Apple Jacked",
+    description: "Green Apple + whisky + ginger ale",
+    flavour: "Bang On Green Apple",
+    image: "/assets/apple-jacked.webp",
   },
   {
     name: "Raspberry Rumble",
@@ -66,7 +66,9 @@ export function CocktailsTeaserSection() {
                 className={`text-lg md:text-sm block mb-6 font-medium ${
                   cocktail.flavour === "Big Banana"
                     ? "text-[#f94a02]"
-                    : "text-[#ff3672]"
+                    : cocktail.flavour === "Ripe Raspberry"
+                    ? "text-[#ff3672]"
+                    : "text-[#95cb00]"
                 }`}
               >
                 Made with {cocktail.flavour}

@@ -87,7 +87,7 @@ export default function BangOnManifestoMobile() {
       <motion.div
         className="
           inline-block
-          bg-[#ff3672]
+          bg-[#95cb00]
           text-black
           px-8 py-4
           text-7xl

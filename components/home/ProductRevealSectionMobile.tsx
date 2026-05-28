@@ -26,6 +26,32 @@ export default function ProductRevealSectionMobile() {
         That Hit Different
       </motion.h2>
 
+      {/* GREEN APPLE */}
+      <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <Image
+            src="/assets/apple-bottle.png"
+            alt="Bang On Green Apple"
+            width={300}
+            height={420}
+            priority
+          />
+        </motion.div>
+
+        <p className="text-[#95cb00] text-4xl font-extrabold uppercase tracking-tight mb-4">
+          Green Apple
+        </p>
+
+        <p className="text-black text-lg leading-relaxed max-w-md">
+          Crisp green apple flavour that goes down easy and hits hard.
+        </p>
+      </div>
+
       {/* BIG BANANA */}
       <div className="mb-20">
         <motion.div
@@ -39,7 +65,6 @@ export default function ProductRevealSectionMobile() {
             alt="Bang On Big Banana"
             width={300}
             height={420}
-            priority
           />
         </motion.div>
 
