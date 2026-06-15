@@ -1,0 +1,427 @@
+/* [project]/components/StaggeredMenu.css [app-client] (css) */
+.staggered-menu-wrapper {
+  z-index: 9999;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.staggered-menu-wrapper.fixed-wrapper {
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.staggered-menu-header {
+  pointer-events: none;
+  z-index: 10002;
+  background: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em 2em;
+  display: flex;
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+
+.staggered-menu-header > * {
+  pointer-events: auto;
+}
+
+.sm-logo {
+  -webkit-user-select: none;
+  user-select: none;
+  align-items: center;
+  display: flex;
+}
+
+.sm-logo-img {
+  object-fit: contain;
+  width: auto;
+  height: 90px;
+}
+
+.sm-toggle {
+  z-index: 10003;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #fff;
+  background: none;
+  border: none;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: color .25s;
+  display: inline-flex;
+  position: relative;
+  overflow: visible;
+}
+
+.sm-toggle:hover {
+  color: #ff3672 !important;
+}
+
+.staggered-menu-wrapper[data-open] .sm-toggle {
+  color: #000 !important;
+}
+
+.staggered-menu-wrapper[data-open] .sm-toggle:hover {
+  color: #ff3672 !important;
+}
+
+.sm-toggle:focus-visible {
+  outline-offset: 4px;
+  border-radius: 4px;
+  outline: 2px solid #ff3672;
+}
+
+.sm-line:last-of-type {
+  margin-top: 6px;
+}
+
+.sm-toggle-textWrap {
+  white-space: nowrap;
+  width: 4.5rem;
+  min-width: 4.5rem;
+  height: 1em;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.sm-toggle-textInner {
+  flex-direction: column;
+  line-height: 1;
+  display: flex;
+}
+
+.sm-toggle-line {
+  height: 1em;
+  line-height: 1;
+  display: block;
+}
+
+.sm-icon {
+  will-change: transform;
+  flex: 0 0 20px;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  position: relative;
+}
+
+.sm-icon-line {
+  will-change: transform;
+  background: currentColor;
+  border-radius: 2px;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sm-line {
+  display: none !important;
+}
+
+.sm-panel-itemWrap {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.staggered-menu-panel {
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10001;
+  pointer-events: auto;
+  opacity: 0;
+  background: #fff;
+  flex-direction: column;
+  width: clamp(420px, 42vw, 560px);
+  height: 100%;
+  padding: 6em 2em 2em;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+[data-position="left"] .staggered-menu-panel {
+  left: 0;
+  right: auto;
+}
+
+.sm-prelayers {
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  width: clamp(420px, 42vw, 560px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+[data-position="left"] .sm-prelayers {
+  left: 0;
+  right: auto;
+}
+
+.sm-prelayer {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(0);
+}
+
+.sm-panel-inner {
+  flex-direction: column;
+  flex: 1;
+  gap: 1.25rem;
+  display: flex;
+}
+
+.sm-panel-list {
+  flex-direction: column;
+  gap: .35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.sm-panel-item {
+  color: #000;
+  cursor: pointer;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  padding-right: 1.4em;
+  font-size: clamp(2.14rem, 4.25vw, 3.1rem);
+  font-weight: 600;
+  line-height: .95;
+  text-decoration: none;
+  transition: background .25s, color .25s;
+  display: inline-block;
+  position: relative;
+}
+
+.sm-panel-itemLabel {
+  will-change: transform;
+  transform-origin: 50% 100%;
+  display: inline-block;
+}
+
+.sm-panel-item:hover, .sm-panel-item[href="/"]:hover, .sm-panel-item[href="/cocktails"]:hover, .sm-panel-item[href="/where-to-buy"]:hover, .sm-panel-item[href="/contact"]:hover, .sm-panel-item[href*="deepbluedistilleries"]:hover {
+  color: #ff3672;
+}
+
+.sm-panel-item[href="/flavours/big-banana"]:hover {
+  color: #f3db03;
+}
+
+.sm-panel-item[href="/flavours/green-apple"]:hover {
+  color: #95cb00;
+}
+
+.sm-panel-item[href="/flavours/ripe-raspberry"]:hover {
+  color: #ff3672;
+}
+
+.sm-panel-item[href="/flavours/tropical"]:hover {
+  color: #2596be;
+}
+
+.sm-panel-list[data-numbering] {
+  counter-reset: smItem;
+}
+
+.sm-panel-list[data-numbering] .sm-panel-item:after {
+  counter-increment: smItem;
+  content: counter(smItem, decimal-leading-zero);
+  color: #ff3672;
+  letter-spacing: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: var(--sm-num-opacity, 0);
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  top: .1em;
+  right: 2em;
+}
+
+.sm-socials {
+  flex-direction: column;
+  gap: .75rem;
+  margin-top: auto;
+  padding-top: 2rem;
+  display: flex;
+}
+
+.sm-socials-title {
+  color: #ff3672;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sm-socials-list {
+  flex-flow: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.sm-socials-list .sm-socials-link {
+  opacity: 1;
+}
+
+.sm-socials-list:hover .sm-socials-link {
+  opacity: .35;
+}
+
+.sm-socials-list:hover .sm-socials-link:hover {
+  opacity: 1;
+}
+
+.sm-socials-list:focus-within .sm-socials-link {
+  opacity: .35;
+}
+
+.sm-socials-list:focus-within .sm-socials-link:focus-visible {
+  opacity: 1;
+}
+
+.sm-socials-link {
+  color: #111;
+  padding: 2px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .3s, opacity .3s;
+  display: inline-block;
+  position: relative;
+}
+
+.sm-socials-link:hover {
+  color: #ff3672;
+}
+
+.sm-socials-link:focus-visible {
+  outline-offset: 3px;
+  outline: 2px solid #ff3672;
+}
+
+.sm-panel-title {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.staggered-menu-panel .sm-socials-list .sm-socials-link {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.staggered-menu-panel .sm-socials-list:hover .sm-socials-link:not(:hover), .staggered-menu-panel .sm-socials-list:focus-within .sm-socials-link:not(:focus-visible) {
+  opacity: .35;
+}
+
+.staggered-menu-panel .sm-socials-list .sm-socials-link:hover, .staggered-menu-panel .sm-socials-list .sm-socials-link:focus-visible {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .staggered-menu-panel, .sm-prelayers {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .sm-panel-item {
+    font-size: clamp(2.5rem, 9vw, 4rem);
+  }
+
+  .staggered-menu-wrapper[data-open] .sm-logo-img {
+    filter: invert();
+  }
+}
+
+@media (max-width: 640px) {
+  .staggered-menu-header {
+    padding: 1.25em;
+  }
+
+  .staggered-menu-panel, .sm-prelayers {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .staggered-menu-panel {
+    padding: 6em 1.5em 2em;
+  }
+
+  .sm-toggle {
+    font-size: 1.1rem;
+  }
+
+  .sm-toggle-textWrap {
+    width: 4rem;
+    min-width: 4rem;
+  }
+
+  .sm-icon {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .sm-panel-item {
+    font-size: clamp(2.25rem, 11vw, 3.4rem);
+    line-height: .95;
+  }
+
+  .sm-panel-list[data-numbering] .sm-panel-item:after {
+    font-size: 14px;
+    right: 2.2em;
+  }
+
+  .staggered-menu-wrapper[data-open] .sm-logo-img {
+    filter: invert();
+  }
+}
+
+body.light-header-section .sm-toggle {
+  color: #000 !important;
+}
+
+body.light-header-section .sm-toggle:hover {
+  color: #ff3672 !important;
+}
+
+/*# sourceMappingURL=components_StaggeredMenu_1ba93419.css.map*/

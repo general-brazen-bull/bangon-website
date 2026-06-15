@@ -1,152 +1,207 @@
+"use client"
+
 import Link from "next/link"
+import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 
-const footerLinks = [
-  { href: "/flavours/big-banana", label: "Big Banana" },
-  { href: "/flavours/green-apple", label: "Green Apple" },
-  { href: "/flavours/ripe-raspberry", label: "Ripe Raspberry" },
-  { href: "/cocktails", label: "Cocktails" },
-  { href: "/where-to-buy", label: "Where to Buy" },
-  { href: "/contact", label: "Contact" },
-]
-
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-    </svg>
-  )
+type FooterLink = {
+  text: string
+  href: string
+  external?: boolean
 }
 
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-    </svg>
-  )
+type FooterCard = {
+  title: string
+  links: FooterLink[]
+}
+
+const footerCards: FooterCard[] = [
+  {
+    title: "Flavours",
+    links: [
+      { text: "Big Banana", href: "/flavours/big-banana" },
+      { text: "Green Apple", href: "/flavours/green-apple" },
+      { text: "Ripe Raspberry", href: "/flavours/ripe-raspberry" },
+      { text: "Tropical", href: "/flavours/tropical" },
+    ],
+  },
+  {
+    title: "Explore",
+    links: [
+      { text: "Cocktails", href: "/cocktails" },
+      { text: "Where to Buy", href: "/where-to-buy" },
+      { text: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Shop & Social",
+    links: [
+      {
+        text: "Shop Now",
+        href: "https://deepbluedistilleries.ca/product-tag/bang-on/",
+        external: true,
+      },
+      {
+        text: "Instagram",
+        href: "https://instagram.com",
+        external: true,
+      },
+      {
+        text: "TikTok",
+        href: "https://tiktok.com",
+        external: true,
+      },
+    ],
+  },
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
 }
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-[#fafafa] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-
-        <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
-
-          {/* Brand */}
-          <div>
-            <Link
-              href="/"
-              className="
-                block mb-4
-                text-4xl           /* mobile: same scale as page heading */
-                md:text-4xl        /* desktop unchanged */
-              "
+    <footer className="relative w-full overflow-hidden bg-[#0a0a0a] py-16 md:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8"
+        >
+          {/* TOP SECTION */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+            {/* BRAND COLUMN */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col justify-between space-y-6 mb-6 lg:mb-0 border border-[#262626] p-6 sm:p-8"
             >
-              <h2>BANG ON</h2>
-            </Link>
+              <div>
+                <Link
+                  href="/"
+                  className="block text-4xl text-[#f3db03]"
+                >
+                  <h2>BANG ON</h2>
+                </Link>
 
-            <p
+                <h3 className="mt-8 text-2xl md:text-3xl leading-tight">
+  <span className="text-[#fafafa]">99 Proof.</span>
+  <br />
+  <span className="text-[#d52b1e]">Proudly Canadian.</span>
+  <br />
+  <span className="text-[#d52b1e]">Born in BC.</span>
+</h3>
+</div>
+
+            </motion.div>
+
+            {/* FOOTER CARDS */}
+            {footerCards.map((card, index) => {
+              let marginClass = ""
+
+              if (index > 0) {
+                marginClass = "-mt-px"
+              }
+
+              if (index === 0) {
+                marginClass += " md:mt-0"
+              } else if (index === 1) {
+                marginClass += " md:-mt-px md:ml-0"
+              } else if (index === 2) {
+                marginClass += " md:-mt-px md:-ml-px"
+              }
+
+              marginClass += " lg:mt-0"
+
+              if (index > 0) {
+                marginClass += " lg:-ml-px"
+              }
+
+              return (
+                <motion.div
+                  key={card.title}
+                  variants={itemVariants}
+                  className={`group relative min-h-[260px] overflow-hidden border border-[#262626] p-6 sm:p-8 transition-colors hover:bg-[#111111] ${marginClass}`}
+                >
+                  <h4 className="mb-6 text-lg text-[#fafafa]">
+                    {card.title}
+                  </h4>
+
+                  <ul className="space-y-3">
+                    {card.links.map((link) => (
+                      <li key={link.text}>
+                        <Link
+                          href={link.href}
+                          target={link.external ? "_blank" : undefined}
+                          rel={
+                            link.external
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          className="inline-flex items-center gap-1 text-base text-[#a3a3a3] transition-colors hover:text-[#fafafa]"
+                        >
+                          {link.text}
+
+                          {link.external && (
+                            <ArrowUpRight className="h-3 w-3" />
+                          )}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* HUGE WORDMARK */}
+          <motion.div
+            variants={itemVariants}
+            className="relative flex items-center justify-center overflow-hidden py-8 md:py-12"
+          >
+            <span
+              aria-hidden="true"
               className="
-                text-xl           /* mobile body text */
-                md:text-base      /* desktop unchanged */
-                text-[#a3a3a3]
-                max-w-xs
-              "
+              select-none
+              text-[clamp(5.5rem,16vw,20rem)]
+              leading-none
+              font-black
+              tracking-tighter
+              text-[#141414]
+              whitespace-nowrap
+            "
             >
-              99 proof. Super concentrated. Super delicious.
+              BANG ON
+            </span>
+          </motion.div>
+
+          {/* BOTTOM BAR */}
+          <motion.div
+            variants={itemVariants}
+            className="border-t border-[#262626] pt-8 flex flex-col md:flex-row justify-between gap-4"
+          >
+            <p className="text-[#737373] text-base">
+              Drink responsibly. Must be 19+.
             </p>
-          </div>
 
-          {/* Navigation */}
-          <nav className="flex flex-col gap-3">
-          <p
-  className="
-    text-xl        /* mobile */
-    md:text-base   /* desktop FIX */
-    text-[#fafafa]
-    mb-2
-  "
->
-  Navigation
-</p>
-
-
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="
-                  text-xl           /* mobile body text */
-                  md:text-base      /* desktop unchanged */
-                  text-[#a3a3a3]
-                  hover:text-[#fafafa]
-                  transition-colors
-                  duration-300
-                "
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Social */}
-          <div className="flex flex-col gap-4">
-          <p
-  className="
-    text-xl        /* mobile */
-    md:text-base   /* desktop FIX */
-    text-[#fafafa]
-    mb-2
-  "
->
-  Follow us on social
-</p>
-
-
-            <div className="flex items-center gap-5">
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#a3a3a3] hover:text-[#fafafa] transition-colors duration-300"
-                aria-label="Follow us on TikTok"
-              >
-                <TikTokIcon className="w-7 h-7" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#a3a3a3] hover:text-[#fafafa] transition-colors duration-300"
-                aria-label="Follow us on Instagram"
-              >
-                <InstagramIcon className="w-7 h-7" />
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Legal — unchanged */}
-        <div className="border-t border-[#262626] pt-8 flex flex-col md:flex-row justify-between gap-4">
-          <p className="text-[#737373] text-md">
-            Proudly crafted in British Columbia. Drink responsibly. Must be 19+.
-          </p>
-          <p className="text-[#737373] text-md">
-            © 2026 Brazen Bull Creative
-          </p>
-        </div>
-
+            <p className="text-[#737373] text-base">
+              © 2026 Brazen Bull Creative
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
     </footer>
   )

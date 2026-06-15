@@ -5,6 +5,7 @@ import BangOnManifestoSection from "@/components/home/BangOnManifestoSection"
 import ProductRevealSectionWrapper from "@/components/home/ProductRevealSectionWrapper"
 import { BananaSection } from "@/components/home/banana-section"
 import { GreenappleSection } from "@/components/home/greenapple-section"
+import { TropicalSection } from "@/components/home/tropical-section"
 import { MarqueeSection } from "@/components/home/marquee-section"
 import { RaspberrySectionWrapper } from "@/components/home/RaspberrySectionWrapper"
 import { CocktailsTeaserSection } from "@/components/home/cocktails-teaser-section"
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProductRevealSectionWrapper />
       <MarqueeSection />
       <GreenappleSection />
+      <TropicalSection />
       <RaspberrySectionWrapper />
       <BananaSection />
       <MarqueeSection />

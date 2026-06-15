@@ -20,10 +20,17 @@ export function GreenappleSection() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-end">
           {/* Stacked headline */}
           <motion.h2
-            className="text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.85] text-[#0a0a0a] mb-12 text-left"
+            className="
+              text-[20vw] md:text-[15vw] lg:text-[12vw]
+              leading-[0.85]
+              text-[#0a0a0a]
+              mb-12
+              text-right
+              pl-6 md:pl-0
+            "
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -35,22 +42,25 @@ export function GreenappleSection() {
 
           {/* Product facts */}
           <motion.div
-            className="space-y-4 mb-12 text-left max-w-xl"
+            className="space-y-4 mb-12 text-right max-w-xl pl-6 md:pl-0"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-xl md:text-2xl text-[#0a0a0a]">
-              Crisp green apple flavour. Twice distilled premium spirit. 99 proof.
+              Crisp green apple flavour. Twice distilled premium spirit. 99
+              proof.
             </p>
-            <p className="text-lg md:text-xl text-[#0a0a0a]">
+
+            <p className="text-lg md:text-xl text-[#0a0a0a]/80">
               Sharp, juicy, and built to hit hard.
             </p>
           </motion.div>
 
           {/* CTA */}
           <motion.div
+            className="pl-6 md:pl-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

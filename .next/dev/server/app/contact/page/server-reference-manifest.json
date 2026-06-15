@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40c9c3e85b32508762fc5c41ba91561e1dcadb48a2": {
+      "workers": {
+        "app/contact/page": {
+          "moduleId": "[project]/.next-internal/server/app/contact/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions/sendContactEmail.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "sendContactEmail",
+          "filename": "app/actions/sendContactEmail.ts"
+        }
+      },
+      "layer": {
+        "app/contact/page": "action-browser"
+      },
+      "exportedName": "sendContactEmail",
+      "filename": "app/actions/sendContactEmail.ts"
+    }
+  },
+  "edge": {}
+}
