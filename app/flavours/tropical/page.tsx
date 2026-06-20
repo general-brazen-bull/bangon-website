@@ -131,7 +131,7 @@ export default function TropicalPage() {
               </p>
 
               <a
-                href="https://deepbluedistilleries.ca/"
+                href="https://deepbluedistilleries.ca/product/bang-on-tropical-99-proof-liqueur/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-[#0a0a0a] text-[#fafafa] px-6 py-3 text-base rounded hover:bg-[#006ad7] transition-colors duration-300"

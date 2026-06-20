@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Volume2, VolumeX, Music, Music2 } from "lucide-react"
 import {
   FruitNinjaBackground,
@@ -15,8 +15,6 @@ type LeaderboardEntry = {
 }
 
 type GameState = "idle" | "countdown" | "playing" | "gameover"
-
-const LEADERBOARD_KEY = "bang-on-leaderboard"
 
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -50,17 +48,61 @@ export function HeroSection() {
   const isPlaying = gameState === "playing"
   const isGameOver = gameState === "gameover"
 
-  useEffect(() => {
-    const saved = localStorage.getItem(LEADERBOARD_KEY)
-    if (!saved) return
-
+  const loadLeaderboard = useCallback(async () => {
     try {
-      const parsed = JSON.parse(saved) as LeaderboardEntry[]
-      if (Array.isArray(parsed)) setLeaderboard(parsed)
+      const response = await fetch("/api/leaderboard", {
+        cache: "no-store",
+      })
+
+      if (!response.ok) return
+
+      const data = (await response.json()) as {
+        leaderboard?: LeaderboardEntry[]
+      }
+
+      if (Array.isArray(data.leaderboard)) {
+        setLeaderboard(data.leaderboard)
+      }
     } catch {
       setLeaderboard([])
     }
   }, [])
+
+  const updateLeaderboard = useCallback(
+    async (playerName: string, nextScore: number) => {
+      if (!playerName || nextScore <= 0) return
+
+      try {
+        const response = await fetch("/api/leaderboard", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: playerName,
+            score: nextScore,
+          }),
+        })
+
+        if (!response.ok) return
+
+        const data = (await response.json()) as {
+          leaderboard?: LeaderboardEntry[]
+        }
+
+        if (Array.isArray(data.leaderboard)) {
+          setLeaderboard(data.leaderboard)
+        }
+      } catch {
+        await loadLeaderboard()
+      }
+    },
+    [loadLeaderboard]
+  )
+
+  useEffect(() => {
+    loadLeaderboard()
+  }, [loadLeaderboard])
 
   useEffect(() => {
     const musicAudio = musicRef.current
@@ -113,25 +155,11 @@ export function HeroSection() {
       fruitRef.current?.resetScore()
       fruitRef.current?.clearFruit()
       setGameState("idle")
+      loadLeaderboard()
     }, 2000)
 
     return () => window.clearTimeout(timeout)
-  }, [gameState])
-
-  const updateLeaderboard = (playerName: string, nextScore: number) => {
-    if (!playerName || nextScore <= 0) return
-
-    setLeaderboard((current) => {
-      const withoutPlayer = current.filter((entry) => entry.name !== playerName)
-
-      const updated = [...withoutPlayer, { name: playerName, score: nextScore }]
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3)
-
-      localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(updated))
-      return updated
-    })
-  }
+  }, [gameState, loadLeaderboard])
 
   const startGame = () => {
     const cleanName = name.trim() || "Player"
@@ -234,10 +262,6 @@ export function HeroSection() {
         }}
         onScoreChange={(nextScore) => {
           setScore(nextScore)
-
-          if (isPlaying && activeName && nextScore > 0) {
-            updateLeaderboard(activeName, nextScore)
-          }
         }}
         onMissChange={(nextMisses) => {
           setMisses(nextMisses)
@@ -255,8 +279,8 @@ export function HeroSection() {
           bg-black/80
           p-4
           text-white
-shadow-[0_0_20px_rgba(37,150,190,0.5)]          
-backdrop-blur-md
+          shadow-[0_0_20px_rgba(37,150,190,0.5)]          
+          backdrop-blur-md
           pointer-events-auto
           md:left-8 md:top-24
         "
@@ -359,7 +383,7 @@ backdrop-blur-md
 
         <div className="mt-5 border-t border-[#2596be]/45 pt-4">
           <p className="mb-2 text-[12px] uppercase tracking-[0.22em] text-[#2596be]">
-            = High Scores =
+            = Global High Scores =
           </p>
 
           <div className="space-y-1">

@@ -11,15 +11,18 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/gsap/index.js [app-ssr] (ecmascript) <locals>");
+"use client";
 ;
 ;
 ;
 ;
-const StaggeredMenu = ({ position = 'right', colors = [
-    '#B497CF',
-    '#5227FF'
-], items = [], socialItems = [], displaySocials = true, displayItemNumbering = true, className, logoUrl = "/assets/logos/bangon.png", menuButtonColor = '#fff', openMenuButtonColor = '#fff', changeMenuColorOnOpen = true, accentColor = '#5227FF', isFixed = false, closeOnClickAway = true, onMenuOpen, onMenuClose })=>{
+const StaggeredMenu = ({ position = "right", colors = [
+    "#95cb00",
+    "#f3db03",
+    "#2596be"
+], items = [], submenuItems = {}, socialItems = [], displaySocials = true, displayItemNumbering = true, className, logoUrl = "/assets/logos/bangon.png", logoHref = "/", menuButtonColor = "#ffffff", openMenuButtonColor = "#000000", changeMenuColorOnOpen = false, accentColor = "#ff3672", isFixed = false, closeOnClickAway = true, onMenuOpen, onMenuClose })=>{
     const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [activeSubmenu, setActiveSubmenu] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const openRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(false);
     const panelRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const preLayersRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -30,8 +33,8 @@ const StaggeredMenu = ({ position = 'right', colors = [
     const textInnerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const textWrapRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [textLines, setTextLines] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([
-        'Menu',
-        'Close'
+        "Menu",
+        "Close"
     ]);
     const openTlRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const closeTweenRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -41,6 +44,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
     const toggleBtnRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const busyRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(false);
     const itemEntranceTweenRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const visibleItems = activeSubmenu ? submenuItems[activeSubmenu] || [] : items;
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLayoutEffect"])(()=>{
         const ctx = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].context(()=>{
             const panel = panelRef.current;
@@ -52,10 +56,10 @@ const StaggeredMenu = ({ position = 'right', colors = [
             if (!panel || !plusH || !plusV || !icon || !textInner) return;
             let preLayers = [];
             if (preContainer) {
-                preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer'));
+                preLayers = Array.from(preContainer.querySelectorAll(".sm-prelayer"));
             }
             preLayerElsRef.current = preLayers;
-            const offscreen = position === 'left' ? -100 : 100;
+            const offscreen = position === "left" ? -100 : 100;
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set([
                 panel,
                 ...preLayers
@@ -70,29 +74,65 @@ const StaggeredMenu = ({ position = 'right', colors = [
                 });
             }
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(plusH, {
-                transformOrigin: '50% 50%',
+                transformOrigin: "50% 50%",
                 rotate: 0
             });
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(plusV, {
-                transformOrigin: '50% 50%',
+                transformOrigin: "50% 50%",
                 rotate: 90
             });
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(icon, {
                 rotate: 0,
-                transformOrigin: '50% 50%'
+                transformOrigin: "50% 50%"
             });
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(textInner, {
                 yPercent: 0
             });
-            if (toggleBtnRef.current) __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(toggleBtnRef.current, {
-                color: menuButtonColor
-            });
+            if (toggleBtnRef.current) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(toggleBtnRef.current, {
+                    color: menuButtonColor
+                });
+            }
         });
         return ()=>ctx.revert();
     }, [
         menuButtonColor,
         position
     ]);
+    const animatePanelItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
+        const panel = panelRef.current;
+        if (!panel) return;
+        const itemEls = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+        const numberEls = Array.from(panel.querySelectorAll(".sm-panel-list[data-numbering] .sm-panel-item"));
+        if (itemEls.length) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].fromTo(itemEls, {
+                yPercent: 140,
+                rotate: 10
+            }, {
+                yPercent: 0,
+                rotate: 0,
+                duration: 0.75,
+                ease: "power4.out",
+                stagger: {
+                    each: 0.08,
+                    from: "start"
+                }
+            });
+        }
+        if (numberEls.length) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].fromTo(numberEls, {
+                "--sm-num-opacity": 0
+            }, {
+                "--sm-num-opacity": 1,
+                duration: 0.45,
+                ease: "power2.out",
+                stagger: {
+                    each: 0.06,
+                    from: "start"
+                }
+            });
+        }
+    }, []);
     const buildOpenTimeline = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
         const panel = panelRef.current;
         const layers = preLayerElsRef.current;
@@ -103,11 +143,11 @@ const StaggeredMenu = ({ position = 'right', colors = [
             closeTweenRef.current = null;
         }
         itemEntranceTweenRef.current?.kill();
-        const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
-        const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
-        const socialTitle = panel.querySelector('.sm-socials-title');
-        const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
-        const offscreen = position === 'left' ? -100 : 100;
+        const itemEls = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+        const numberEls = Array.from(panel.querySelectorAll(".sm-panel-list[data-numbering] .sm-panel-item"));
+        const socialTitle = panel.querySelector(".sm-socials-title");
+        const socialLinks = Array.from(panel.querySelectorAll(".sm-socials-link"));
+        const offscreen = position === "left" ? -100 : 100;
         const layerStates = layers.map((el)=>({
                 el,
                 start: offscreen
@@ -121,7 +161,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
         }
         if (numberEls.length) {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(numberEls, {
-                '--sm-num-opacity': 0
+                "--sm-num-opacity": 0
             });
         }
         if (socialTitle) {
@@ -144,7 +184,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
             }, {
                 xPercent: 0,
                 duration: 0.5,
-                ease: 'power4.out'
+                ease: "power4.out"
             }, i * 0.07);
         });
         const lastTime = layerStates.length ? (layerStates.length - 1) * 0.07 : 0;
@@ -155,29 +195,28 @@ const StaggeredMenu = ({ position = 'right', colors = [
         }, {
             xPercent: 0,
             duration: panelDuration,
-            ease: 'power4.out'
+            ease: "power4.out"
         }, panelInsertTime);
         if (itemEls.length) {
-            const itemsStartRatio = 0.15;
-            const itemsStart = panelInsertTime + panelDuration * itemsStartRatio;
+            const itemsStart = panelInsertTime + panelDuration * 0.15;
             tl.to(itemEls, {
                 yPercent: 0,
                 rotate: 0,
                 duration: 1,
-                ease: 'power4.out',
+                ease: "power4.out",
                 stagger: {
                     each: 0.1,
-                    from: 'start'
+                    from: "start"
                 }
             }, itemsStart);
             if (numberEls.length) {
                 tl.to(numberEls, {
                     duration: 0.6,
-                    ease: 'power2.out',
-                    '--sm-num-opacity': 1,
+                    ease: "power2.out",
+                    "--sm-num-opacity": 1,
                     stagger: {
                         each: 0.08,
-                        from: 'start'
+                        from: "start"
                     }
                 }, itemsStart + 0.1);
             }
@@ -188,7 +227,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
                 tl.to(socialTitle, {
                     opacity: 1,
                     duration: 0.5,
-                    ease: 'power2.out'
+                    ease: "power2.out"
                 }, socialsStart);
             }
             if (socialLinks.length) {
@@ -196,14 +235,14 @@ const StaggeredMenu = ({ position = 'right', colors = [
                     y: 0,
                     opacity: 1,
                     duration: 0.55,
-                    ease: 'power3.out',
+                    ease: "power3.out",
                     stagger: {
                         each: 0.08,
-                        from: 'start'
+                        from: "start"
                     },
                     onComplete: ()=>{
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(socialLinks, {
-                            clearProps: 'opacity'
+                            clearProps: "opacity"
                         });
                     }
                 }, socialsStart + 0.04);
@@ -219,7 +258,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
         busyRef.current = true;
         const tl = buildOpenTimeline();
         if (tl) {
-            tl.eventCallback('onComplete', ()=>{
+            tl.eventCallback("onComplete", ()=>{
                 busyRef.current = false;
             });
             tl.play(0);
@@ -240,29 +279,29 @@ const StaggeredMenu = ({ position = 'right', colors = [
             ...layers,
             panel
         ];
+        const offscreen = position === "left" ? -100 : 100;
         closeTweenRef.current?.kill();
-        const offscreen = position === 'left' ? -100 : 100;
         closeTweenRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(all, {
             xPercent: offscreen,
             duration: 0.32,
-            ease: 'power3.in',
-            overwrite: 'auto',
+            ease: "power3.in",
+            overwrite: "auto",
             onComplete: ()=>{
-                const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
+                const itemEls = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
                 if (itemEls.length) {
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(itemEls, {
                         yPercent: 140,
                         rotate: 10
                     });
                 }
-                const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
+                const numberEls = Array.from(panel.querySelectorAll(".sm-panel-list[data-numbering] .sm-panel-item"));
                 if (numberEls.length) {
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(numberEls, {
-                        '--sm-num-opacity': 0
+                        "--sm-num-opacity": 0
                     });
                 }
-                const socialTitle = panel.querySelector('.sm-socials-title');
-                const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
+                const socialTitle = panel.querySelector(".sm-socials-title");
+                const socialLinks = Array.from(panel.querySelectorAll(".sm-socials-link"));
                 if (socialTitle) __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(socialTitle, {
                     opacity: 0
                 });
@@ -270,6 +309,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
                     y: 25,
                     opacity: 0
                 });
+                setActiveSubmenu(null);
                 busyRef.current = false;
             }
         });
@@ -280,21 +320,12 @@ const StaggeredMenu = ({ position = 'right', colors = [
         const icon = iconRef.current;
         if (!icon) return;
         spinTweenRef.current?.kill();
-        if (opening) {
-            spinTweenRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(icon, {
-                rotate: 225,
-                duration: 0.8,
-                ease: 'power4.out',
-                overwrite: 'auto'
-            });
-        } else {
-            spinTweenRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(icon, {
-                rotate: 0,
-                duration: 0.35,
-                ease: 'power3.inOut',
-                overwrite: 'auto'
-            });
-        }
+        spinTweenRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(icon, {
+            rotate: opening ? 225 : 0,
+            duration: opening ? 0.8 : 0.35,
+            ease: opening ? "power4.out" : "power3.inOut",
+            overwrite: "auto"
+        });
     }, []);
     const animateColor = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((opening)=>{
         const btn = toggleBtnRef.current;
@@ -306,31 +337,24 @@ const StaggeredMenu = ({ position = 'right', colors = [
                 color: targetColor,
                 delay: 0.18,
                 duration: 0.3,
-                ease: 'power2.out'
+                ease: "power2.out"
             });
         } else {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(btn, {
-                color: menuButtonColor
+                color: opening ? openMenuButtonColor : menuButtonColor
             });
         }
     }, [
-        openMenuButtonColor,
+        changeMenuColorOnOpen,
         menuButtonColor,
-        changeMenuColorOnOpen
+        openMenuButtonColor
     ]);
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
-        if (toggleBtnRef.current) {
-            if (changeMenuColorOnOpen) {
-                const targetColor = openRef.current ? openMenuButtonColor : menuButtonColor;
-                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(toggleBtnRef.current, {
-                    color: targetColor
-                });
-            } else {
-                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(toggleBtnRef.current, {
-                    color: menuButtonColor
-                });
-            }
-        }
+        if (!toggleBtnRef.current) return;
+        const targetColor = openRef.current ? openMenuButtonColor : menuButtonColor;
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(toggleBtnRef.current, {
+            color: targetColor
+        });
     }, [
         changeMenuColorOnOpen,
         menuButtonColor,
@@ -340,15 +364,15 @@ const StaggeredMenu = ({ position = 'right', colors = [
         const inner = textInnerRef.current;
         if (!inner) return;
         textCycleAnimRef.current?.kill();
-        const currentLabel = opening ? 'Menu' : 'Close';
-        const targetLabel = opening ? 'Close' : 'Menu';
+        const currentLabel = opening ? "Menu" : "Close";
+        const targetLabel = opening ? "Close" : "Menu";
         const cycles = 3;
         const seq = [
             currentLabel
         ];
         let last = currentLabel;
         for(let i = 0; i < cycles; i++){
-            last = last === 'Menu' ? 'Close' : 'Menu';
+            last = last === "Menu" ? "Close" : "Menu";
             seq.push(last);
         }
         if (last !== targetLabel) seq.push(targetLabel);
@@ -362,7 +386,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
         textCycleAnimRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(inner, {
             yPercent: -finalShift,
             duration: 0.5 + lineCount * 0.07,
-            ease: 'power4.out'
+            ease: "power4.out"
         });
     }, []);
     const toggleMenu = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
@@ -384,18 +408,19 @@ const StaggeredMenu = ({ position = 'right', colors = [
         playClose,
         animateIcon,
         animateColor,
-        animateText
+        animateText,
+        onMenuOpen,
+        onMenuClose
     ]);
     const closeMenu = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
-        if (openRef.current) {
-            openRef.current = false;
-            setOpen(false);
-            onMenuClose?.();
-            playClose();
-            animateIcon(false);
-            animateColor(false);
-            animateText(false);
-        }
+        if (!openRef.current) return;
+        openRef.current = false;
+        setOpen(false);
+        onMenuClose?.();
+        playClose();
+        animateIcon(false);
+        animateColor(false);
+        animateText(false);
     }, [
         playClose,
         animateIcon,
@@ -403,6 +428,70 @@ const StaggeredMenu = ({ position = 'right', colors = [
         animateText,
         onMenuClose
     ]);
+    const openSubmenu = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((submenu)=>{
+        const panel = panelRef.current;
+        if (!panel) return;
+        const currentItems = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(currentItems, {
+            xPercent: -20,
+            opacity: 0,
+            duration: 0.25,
+            ease: "power2.in",
+            onComplete: ()=>{
+                setActiveSubmenu(submenu);
+                requestAnimationFrame(()=>{
+                    const nextItems = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].fromTo(nextItems, {
+                        xPercent: 20,
+                        opacity: 0,
+                        yPercent: 0,
+                        rotate: 0
+                    }, {
+                        xPercent: 0,
+                        opacity: 1,
+                        duration: 0.45,
+                        ease: "power3.out",
+                        stagger: {
+                            each: 0.06,
+                            from: "start"
+                        }
+                    });
+                });
+            }
+        });
+    }, []);
+    const backToMainMenu = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
+        const panel = panelRef.current;
+        if (!panel) return;
+        const currentItems = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to(currentItems, {
+            xPercent: 20,
+            opacity: 0,
+            duration: 0.25,
+            ease: "power2.in",
+            onComplete: ()=>{
+                setActiveSubmenu(null);
+                requestAnimationFrame(()=>{
+                    const nextItems = Array.from(panel.querySelectorAll(".sm-panel-itemLabel"));
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].fromTo(nextItems, {
+                        xPercent: -20,
+                        opacity: 0,
+                        yPercent: 0,
+                        rotate: 0
+                    }, {
+                        xPercent: 0,
+                        opacity: 1,
+                        duration: 0.45,
+                        ease: "power3.out",
+                        stagger: {
+                            each: 0.06,
+                            from: "start"
+                        }
+                    });
+                });
+            }
+        });
+    }, []);
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
         if (!closeOnClickAway || !open) return;
         const handleClickOutside = (event)=>{
@@ -410,9 +499,9 @@ const StaggeredMenu = ({ position = 'right', colors = [
                 closeMenu();
             }
         };
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
         return ()=>{
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [
         closeOnClickAway,
@@ -420,9 +509,9 @@ const StaggeredMenu = ({ position = 'right', colors = [
         closeMenu
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: (className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : ''),
+        className: (className ? className + " " : "") + "staggered-menu-wrapper" + (isFixed ? " fixed-wrapper" : ""),
         style: accentColor ? {
-            ['--sm-accent']: accentColor
+            "--sm-accent": accentColor
         } : undefined,
         "data-position": position,
         "data-open": open || undefined,
@@ -433,60 +522,61 @@ const StaggeredMenu = ({ position = 'right', colors = [
                 "aria-hidden": "true",
                 children: (()=>{
                     const raw = colors && colors.length ? colors.slice(0, 4) : [
-                        '#1e1e22',
-                        '#35353c'
+                        "#95cb00",
+                        "#f3db03"
                     ];
-                    let arr = [
+                    const arr = [
                         ...raw
                     ];
                     if (arr.length >= 3) {
                         const mid = Math.floor(arr.length / 2);
                         arr.splice(mid, 1);
                     }
-                    return arr.map((c, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    return arr.map((color, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "sm-prelayer",
                             style: {
-                                background: c
+                                background: color
                             }
-                        }, i, false, {
+                        }, index, false, {
                             fileName: "[project]/components/StaggeredMenu.tsx",
-                            lineNumber: 402,
-                            columnNumber: 36
+                            lineNumber: 652,
+                            columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)));
                 })()
             }, void 0, false, {
                 fileName: "[project]/components/StaggeredMenu.tsx",
-                lineNumber: 394,
+                lineNumber: 639,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
                 className: "staggered-menu-header",
                 "aria-label": "Main navigation header",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         className: "sm-logo",
-                        "aria-label": "Logo",
+                        "aria-label": "Go to home page",
+                        href: logoHref,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: logoUrl = "/assets/logos/bangon.png",
-                            alt: "Logo",
+                            src: logoUrl,
+                            alt: "Bang On",
                             className: "sm-logo-img",
                             draggable: false,
                             width: 110,
                             height: 24
                         }, void 0, false, {
                             fileName: "[project]/components/StaggeredMenu.tsx",
-                            lineNumber: 407,
+                            lineNumber: 663,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/components/StaggeredMenu.tsx",
-                        lineNumber: 406,
+                        lineNumber: 662,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         ref: toggleBtnRef,
                         className: "sm-toggle",
-                        "aria-label": open ? 'Close menu' : 'Open menu',
+                        "aria-label": open ? "Close menu" : "Open menu",
                         "aria-expanded": open,
                         "aria-controls": "staggered-menu-panel",
                         onClick: toggleMenu,
@@ -499,22 +589,22 @@ const StaggeredMenu = ({ position = 'right', colors = [
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     ref: textInnerRef,
                                     className: "sm-toggle-textInner",
-                                    children: textLines.map((l, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: textLines.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "sm-toggle-line",
-                                            children: l
-                                        }, i, false, {
+                                            children: line
+                                        }, `${line}-${index}`, false, {
                                             fileName: "[project]/components/StaggeredMenu.tsx",
-                                            lineNumber: 428,
+                                            lineNumber: 689,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/StaggeredMenu.tsx",
-                                    lineNumber: 426,
+                                    lineNumber: 687,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/components/StaggeredMenu.tsx",
-                                lineNumber: 425,
+                                lineNumber: 682,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -527,7 +617,7 @@ const StaggeredMenu = ({ position = 'right', colors = [
                                         className: "sm-icon-line"
                                     }, void 0, false, {
                                         fileName: "[project]/components/StaggeredMenu.tsx",
-                                        lineNumber: 435,
+                                        lineNumber: 697,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -535,25 +625,25 @@ const StaggeredMenu = ({ position = 'right', colors = [
                                         className: "sm-icon-line sm-icon-line-v"
                                     }, void 0, false, {
                                         fileName: "[project]/components/StaggeredMenu.tsx",
-                                        lineNumber: 436,
+                                        lineNumber: 698,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/StaggeredMenu.tsx",
-                                lineNumber: 434,
+                                lineNumber: 696,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/StaggeredMenu.tsx",
-                        lineNumber: 416,
+                        lineNumber: 673,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/StaggeredMenu.tsx",
-                lineNumber: 405,
+                lineNumber: 661,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
@@ -568,56 +658,105 @@ const StaggeredMenu = ({ position = 'right', colors = [
                             className: "sm-panel-list",
                             role: "list",
                             "data-numbering": displayItemNumbering || undefined,
-                            children: items && items.length ? items.map((it, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                            children: [
+                                activeSubmenu && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                     className: "sm-panel-itemWrap",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                        className: "sm-panel-item",
-                                        href: it.link,
-                                        "aria-label": it.ariaLabel,
-                                        "data-index": idx + 1,
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        type: "button",
+                                        className: "sm-panel-item sm-panel-back",
+                                        "aria-label": "Back to main menu",
+                                        onClick: backToMainMenu,
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "sm-panel-itemLabel",
-                                            children: it.label
+                                            children: "← Back"
                                         }, void 0, false, {
                                             fileName: "[project]/components/StaggeredMenu.tsx",
-                                            lineNumber: 448,
-                                            columnNumber: 21
+                                            lineNumber: 723,
+                                            columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/StaggeredMenu.tsx",
-                                        lineNumber: 447,
-                                        columnNumber: 19
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                }, it.label + idx, false, {
-                                    fileName: "[project]/components/StaggeredMenu.tsx",
-                                    lineNumber: 446,
-                                    columnNumber: 17
-                                }, ("TURBOPACK compile-time value", void 0))) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "sm-panel-itemWrap",
-                                "aria-hidden": "true",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "sm-panel-item",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "sm-panel-itemLabel",
-                                        children: "No items"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/StaggeredMenu.tsx",
-                                        lineNumber: 455,
-                                        columnNumber: 19
+                                        lineNumber: 717,
+                                        columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/components/StaggeredMenu.tsx",
-                                    lineNumber: 454,
-                                    columnNumber: 17
+                                    lineNumber: 716,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                visibleItems && visibleItems.length ? visibleItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "sm-panel-itemWrap",
+                                        children: item.submenu ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            className: "sm-panel-item sm-panel-submenu-trigger",
+                                            "aria-label": item.ariaLabel,
+                                            "data-index": index + 1,
+                                            onClick: ()=>openSubmenu(item.submenu),
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "sm-panel-itemLabel",
+                                                children: [
+                                                    item.label,
+                                                    " →"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/StaggeredMenu.tsx",
+                                                lineNumber: 742,
+                                                columnNumber: 23
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/StaggeredMenu.tsx",
+                                            lineNumber: 735,
+                                            columnNumber: 21
+                                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            className: "sm-panel-item",
+                                            href: item.link,
+                                            "aria-label": item.ariaLabel,
+                                            "data-index": activeSubmenu ? index + 2 : index + 1,
+                                            onClick: closeMenu,
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "sm-panel-itemLabel",
+                                                children: item.label
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/StaggeredMenu.tsx",
+                                                lineNumber: 754,
+                                                columnNumber: 23
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/StaggeredMenu.tsx",
+                                            lineNumber: 747,
+                                            columnNumber: 21
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, `${item.label}-${index}`, false, {
+                                        fileName: "[project]/components/StaggeredMenu.tsx",
+                                        lineNumber: 730,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                    className: "sm-panel-itemWrap",
+                                    "aria-hidden": "true",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "sm-panel-item",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "sm-panel-itemLabel",
+                                            children: "No items"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/StaggeredMenu.tsx",
+                                            lineNumber: 762,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/StaggeredMenu.tsx",
+                                        lineNumber: 761,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/components/StaggeredMenu.tsx",
+                                    lineNumber: 760,
+                                    columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
-                            }, void 0, false, {
-                                fileName: "[project]/components/StaggeredMenu.tsx",
-                                lineNumber: 453,
-                                columnNumber: 15
-                            }, ("TURBOPACK compile-time value", void 0))
-                        }, void 0, false, {
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/components/StaggeredMenu.tsx",
-                            lineNumber: 443,
+                            lineNumber: 710,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         displaySocials && socialItems && socialItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -629,56 +768,56 @@ const StaggeredMenu = ({ position = 'right', colors = [
                                     children: "Socials"
                                 }, void 0, false, {
                                     fileName: "[project]/components/StaggeredMenu.tsx",
-                                    lineNumber: 462,
+                                    lineNumber: 770,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                     className: "sm-socials-list",
                                     role: "list",
-                                    children: socialItems.map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                    children: socialItems.map((social, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             className: "sm-socials-item",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: s.link,
+                                                href: social.link,
                                                 target: "_blank",
                                                 rel: "noopener noreferrer",
                                                 className: "sm-socials-link",
-                                                children: s.label
+                                                children: social.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/StaggeredMenu.tsx",
-                                                lineNumber: 466,
+                                                lineNumber: 778,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0))
-                                        }, s.label + i, false, {
+                                        }, `${social.label}-${index}`, false, {
                                             fileName: "[project]/components/StaggeredMenu.tsx",
-                                            lineNumber: 465,
+                                            lineNumber: 774,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/components/StaggeredMenu.tsx",
-                                    lineNumber: 463,
+                                    lineNumber: 772,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/StaggeredMenu.tsx",
-                            lineNumber: 461,
+                            lineNumber: 769,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/StaggeredMenu.tsx",
-                    lineNumber: 442,
+                    lineNumber: 709,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/StaggeredMenu.tsx",
-                lineNumber: 441,
+                lineNumber: 703,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/StaggeredMenu.tsx",
-        lineNumber: 388,
+        lineNumber: 625,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -692,8 +831,12 @@ __turbopack_context__.s([
     ()=>Header
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$StaggeredMenu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/StaggeredMenu.tsx [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 const menuItems = [
@@ -703,24 +846,10 @@ const menuItems = [
         link: "/"
     },
     {
-        label: "Big Banana",
-        ariaLabel: "View Big Banana flavour",
-        link: "/flavours/big-banana"
-    },
-    {
-        label: "Green Apple",
-        ariaLabel: "View Green Apple flavour",
-        link: "/flavours/green-apple"
-    },
-    {
-        label: "Ripe Raspberry",
-        ariaLabel: "View Ripe Raspberry flavour",
-        link: "/flavours/ripe-raspberry"
-    },
-    {
-        label: "Tropical",
-        ariaLabel: "View Tropical flavour",
-        link: "/flavours/tropical"
+        label: "Flavours",
+        ariaLabel: "View Bang On flavours",
+        link: "#",
+        submenu: "flavours"
     },
     {
         label: "Cocktails",
@@ -738,9 +867,41 @@ const menuItems = [
         link: "/contact"
     },
     {
+        label: "Merch",
+        ariaLabel: "Shop Bang On merch",
+        link: "/merch"
+    },
+    {
         label: "Shop Now",
         ariaLabel: "Shop Bang On online",
         link: "https://deepbluedistilleries.ca/product-tag/bang-on/"
+    }
+];
+const flavourItems = [
+    {
+        label: "Big Banana",
+        ariaLabel: "View Big Banana flavour",
+        link: "/flavours/big-banana"
+    },
+    {
+        label: "Green Apple",
+        ariaLabel: "View Green Apple flavour",
+        link: "/flavours/green-apple"
+    },
+    {
+        label: "Atomic Peach",
+        ariaLabel: "View Atomic Peach flavour",
+        link: "/flavours/atomic-peach"
+    },
+    {
+        label: "Ripe Raspberry",
+        ariaLabel: "View Ripe Raspberry flavour",
+        link: "/flavours/ripe-raspberry"
+    },
+    {
+        label: "Tropical",
+        ariaLabel: "View Tropical flavour",
+        link: "/flavours/tropical"
     }
 ];
 const socialItems = [
@@ -754,15 +915,73 @@ const socialItems = [
     }
 ];
 function Header() {
+    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
+    const isHome = pathname === "/";
+    const [isLightSection, setIsLightSection] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(!isHome);
+    const [showHeader, setShowHeader] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [menuOpen, setMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (!isHome) {
+            setIsLightSection(true);
+            return;
+        }
+        const checkThemeSection = ()=>{
+            const sections = document.querySelectorAll("[data-header-theme='light']");
+            const headerCheckY = 80;
+            const isOverLightSection = Array.from(sections).some((section)=>{
+                const rect = section.getBoundingClientRect();
+                return rect.top <= headerCheckY && rect.bottom >= headerCheckY;
+            });
+            setIsLightSection(isOverLightSection);
+        };
+        checkThemeSection();
+        window.addEventListener("scroll", checkThemeSection, {
+            passive: true
+        });
+        window.addEventListener("resize", checkThemeSection);
+        return ()=>{
+            window.removeEventListener("scroll", checkThemeSection);
+            window.removeEventListener("resize", checkThemeSection);
+        };
+    }, [
+        isHome
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        let lastScrollY = window.scrollY;
+        const handleScroll = ()=>{
+            const currentScrollY = window.scrollY;
+            if (menuOpen || currentScrollY < 80) {
+                setShowHeader(true);
+            } else if (currentScrollY > lastScrollY) {
+                setShowHeader(false);
+            } else {
+                setShowHeader(true);
+            }
+            lastScrollY = currentScrollY;
+        };
+        window.addEventListener("scroll", handleScroll, {
+            passive: true
+        });
+        return ()=>{
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [
+        menuOpen
+    ]);
+    const useRedLogo = !isHome || isLightSection;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$StaggeredMenu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+        className: showHeader || menuOpen ? "header-visible" : "header-hidden",
         position: "right",
         items: menuItems,
+        submenuItems: {
+            flavours: flavourItems
+        },
         socialItems: socialItems,
         displaySocials: true,
         displayItemNumbering: true,
         isFixed: true,
         closeOnClickAway: true,
-        menuButtonColor: "#ffffff",
+        menuButtonColor: useRedLogo ? "#000000" : "#ffffff",
         openMenuButtonColor: "#000000",
         changeMenuColorOnOpen: false,
         colors: [
@@ -770,10 +989,14 @@ function Header() {
             "#f3db03",
             "#2596be"
         ],
-        accentColor: "#ff3672"
+        accentColor: "#ff3672",
+        logoUrl: useRedLogo ? "/assets/logos/bangonred.png" : "/assets/logos/bangon.png",
+        logoHref: "/",
+        onMenuOpen: ()=>setMenuOpen(true),
+        onMenuClose: ()=>setMenuOpen(false)
     }, void 0, false, {
         fileName: "[project]/components/header.tsx",
-        lineNumber: 48,
+        lineNumber: 131,
         columnNumber: 5
     }, this);
 }
@@ -798,6 +1021,10 @@ const footerCards = [
     {
         title: "Flavours",
         links: [
+            {
+                text: "Atomic Peach",
+                href: "/flavours/atomic-peach"
+            },
             {
                 text: "Big Banana",
                 href: "/flavours/big-banana"
@@ -905,12 +1132,12 @@ function Footer() {
                                                 children: "BANG ON"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/footer.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 98,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 94,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -921,12 +1148,12 @@ function Footer() {
                                                     children: "99 Proof."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 101,
+                                                    lineNumber: 102,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 102,
+                                                    lineNumber: 103,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -934,12 +1161,12 @@ function Footer() {
                                                     children: "Proudly Canadian."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 104,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 105,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -947,24 +1174,24 @@ function Footer() {
                                                     children: "Born in BC."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 106,
                                                     columnNumber: 3
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 100,
+                                            lineNumber: 101,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/footer.tsx",
-                                    lineNumber: 92,
+                                    lineNumber: 93,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 88,
+                                lineNumber: 89,
                                 columnNumber: 13
                             }, this),
                             footerCards.map((card, index)=>{
@@ -992,7 +1219,7 @@ function Footer() {
                                             children: card.title
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 140,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1009,36 +1236,36 @@ function Footer() {
                                                                 className: "h-3 w-3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/footer.tsx",
-                                                                lineNumber: 159,
+                                                                lineNumber: 160,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/footer.tsx",
-                                                        lineNumber: 146,
+                                                        lineNumber: 147,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, link.text, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 146,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 144,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, card.title, true, {
                                     fileName: "[project]/components/footer.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 135,
                                     columnNumber: 17
                                 }, this);
                             })
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 86,
+                        lineNumber: 87,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1046,16 +1273,16 @@ function Footer() {
                         className: "relative flex items-center justify-center overflow-hidden py-8 md:py-12",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             "aria-hidden": "true",
-                            className: " select-none text-[clamp(5.5rem,16vw,20rem)] leading-none font-black tracking-tighter text-[#141414] whitespace-nowrap ",
+                            className: " group select-none text-[clamp(5.5rem,16vw,20rem)] leading-none font-black tracking-tighter whitespace-nowrap text-[#141414] transition-all duration-700 hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,#f3db03_0%,#95cb00_25%,#ff3672_55%,#2596be_100%)] ",
                             children: "BANG ON"
                         }, void 0, false, {
                             fileName: "[project]/components/footer.tsx",
-                            lineNumber: 175,
-                            columnNumber: 13
+                            lineNumber: 176,
+                            columnNumber: 12
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 171,
+                        lineNumber: 172,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1067,7 +1294,7 @@ function Footer() {
                                 children: "Drink responsibly. Must be 19+."
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 196,
+                                lineNumber: 203,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1075,29 +1302,29 @@ function Footer() {
                                 children: "© 2026 Brazen Bull Creative"
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 200,
+                                lineNumber: 207,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 192,
+                        lineNumber: 199,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/footer.tsx",
-                lineNumber: 78,
+                lineNumber: 79,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/footer.tsx",
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/footer.tsx",
-        lineNumber: 76,
+        lineNumber: 77,
         columnNumber: 5
     }, this);
 }

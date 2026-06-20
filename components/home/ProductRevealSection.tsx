@@ -39,67 +39,84 @@ export function ProductRevealSection() {
 
   /**
    * Bottle transitions
-   * Order: Green Apple → Big Banana → Tropical → Ripe Raspberry
+   * Order: Atomic Peach → Green Apple → Big Banana → Tropical → Ripe Raspberry
    */
-  const appleOpacity = useTransform(
+  const peachOpacity = useTransform(
     scrollYProgress,
-    [0.0, 0.18, 0.26],
+    [0.0, 0.14, 0.21],
     [1, 1, 0]
   )
-  const appleX = useTransform(scrollYProgress, [0.0, 0.26], [0, -200])
+  const peachX = useTransform(scrollYProgress, [0.0, 0.21], [0, -200])
+
+  const appleOpacity = useTransform(
+    scrollYProgress,
+    [0.19, 0.31, 0.4],
+    [0, 1, 0]
+  )
+  const appleX = useTransform(scrollYProgress, [0.19, 0.4], [200, -200])
 
   const bananaOpacity = useTransform(
     scrollYProgress,
-    [0.24, 0.38, 0.5],
+    [0.38, 0.5, 0.59],
     [0, 1, 0]
   )
-  const bananaX = useTransform(scrollYProgress, [0.24, 0.5], [200, -200])
+  const bananaX = useTransform(scrollYProgress, [0.38, 0.59], [200, -200])
 
   const tropicalOpacity = useTransform(
     scrollYProgress,
-    [0.48, 0.62, 0.74],
+    [0.57, 0.69, 0.78],
     [0, 1, 0]
   )
-  const tropicalX = useTransform(scrollYProgress, [0.48, 0.74], [200, -200])
+  const tropicalX = useTransform(scrollYProgress, [0.57, 0.78], [200, -200])
 
   const raspberryOpacity = useTransform(
     scrollYProgress,
-    [0.72, 0.88],
+    [0.76, 0.9],
     [0, 1]
   )
-  const raspberryX = useTransform(scrollYProgress, [0.72, 0.88], [200, 0])
+  const raspberryX = useTransform(scrollYProgress, [0.76, 0.9], [200, 0])
 
   /**
    * Text transitions
    */
+  const peachTextOpacity = useTransform(
+    scrollYProgress,
+    [0.0, 0.14, 0.21],
+    [1, 1, 0]
+  )
+
   const appleTextOpacity = useTransform(
     scrollYProgress,
-    [0.0, 0.18, 0.26],
-    [1, 1, 0]
+    [0.19, 0.31, 0.4],
+    [0, 1, 0]
   )
 
   const bananaTextOpacity = useTransform(
     scrollYProgress,
-    [0.24, 0.38, 0.5],
+    [0.38, 0.5, 0.59],
     [0, 1, 0]
   )
 
   const tropicalTextOpacity = useTransform(
     scrollYProgress,
-    [0.48, 0.62, 0.74],
+    [0.57, 0.69, 0.78],
     [0, 1, 0]
   )
 
   const raspberryTextOpacity = useTransform(
     scrollYProgress,
-    [0.72, 0.88],
+    [0.76, 0.9],
     [0, 1]
   )
 
   return (
-    <section ref={sectionRef} className="relative bg-white">
+    <section
+      ref={sectionRef}
+      data-header-theme="light"
+      className="relative bg-white"
+    >
       {/* Scroll fuel */}
-      <div className="h-[280vh]">
+      <div className="h-[340vh]">
         <div className="sticky top-0 h-screen flex items-center">
           <div className="w-full max-w-[1400px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
             {/* LEFT — TEXT */}
@@ -120,6 +137,20 @@ export function ProductRevealSection() {
               </h2>
 
               <div className="relative mt-10 h-40">
+                {/* Atomic Peach text */}
+                <motion.div
+                  style={{ opacity: peachTextOpacity }}
+                  className="absolute inset-0"
+                >
+                  <p className="text-[#ff7a1a] text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
+                    Atomic Peach
+                  </p>
+                  <p className="mt-3 text-black text-lg md:text-xl max-w-md">
+                    Juicy peach flavour with a sweet opening and a high-proof
+                    finish. Bright, bold, and built to explode.
+                  </p>
+                </motion.div>
+
                 {/* Green Apple text */}
                 <motion.div
                   style={{ opacity: appleTextOpacity }}
@@ -181,6 +212,23 @@ export function ProductRevealSection() {
 
             {/* RIGHT — BOTTLES */}
             <div className="relative h-[560px] md:h-[700px] flex items-center justify-center">
+              {/* Atomic Peach bottle */}
+              <motion.div
+                style={{
+                  opacity: peachOpacity,
+                  x: peachX,
+                }}
+                className="absolute"
+              >
+                <Image
+                  src="/assets/atomic-peach-bottle.png"
+                  alt="Bang On Atomic Peach"
+                  width={520}
+                  height={700}
+                  priority
+                />
+              </motion.div>
+
               {/* Green Apple bottle */}
               <motion.div
                 style={{
@@ -194,7 +242,6 @@ export function ProductRevealSection() {
                   alt="Bang On Green Apple"
                   width={520}
                   height={700}
-                  priority
                 />
               </motion.div>
 

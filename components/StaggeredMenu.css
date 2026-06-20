@@ -28,6 +28,20 @@
   background: transparent;
   pointer-events: none;
   z-index: 10002;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.header-hidden .staggered-menu-header {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-visible .staggered-menu-header {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .staggered-menu-header > * {
@@ -59,7 +73,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #ffffff;
+  color: inherit;
   line-height: 1;
   overflow: visible;
   transition: color 0.25s ease;
@@ -81,10 +95,6 @@
   outline: 2px solid #ff3672;
   outline-offset: 4px;
   border-radius: 4px;
-}
-
-.sm-line:last-of-type {
-  margin-top: 6px;
 }
 
 .sm-toggle-textWrap {
@@ -132,14 +142,9 @@
   will-change: transform;
 }
 
-.sm-line {
+.sm-line,
+.sm-line:last-of-type {
   display: none !important;
-}
-
-.sm-panel-itemWrap {
-  position: relative;
-  overflow: hidden;
-  line-height: 1;
 }
 
 .staggered-menu-panel {
@@ -207,21 +212,41 @@
   gap: 0.35rem;
 }
 
+.sm-panel-itemWrap {
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+
 .sm-panel-item {
   position: relative;
   color: #000000;
   font-weight: 600;
-  font-size: clamp(2.14rem, 4.25vw, 3.1rem);
-      cursor: pointer;
-  line-height: 0.95;
-  letter-spacing: -1.5px;
+  font-size: clamp(2.45rem, 4.85vw, 3.5rem);
+    cursor: pointer;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
   text-transform: uppercase;
   transition:
     background 0.25s,
     color 0.25s;
   display: inline-block;
   text-decoration: none;
-  padding-right: 1.4em;
+  padding-right: 2.2em;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.sm-panel-back {
+  color: #ff3672;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.35rem;
+}
+
+.sm-panel-submenu-trigger {
+  color: #000000;
 }
 
 .sm-panel-itemLabel {
@@ -238,6 +263,7 @@
 .sm-panel-item[href="/cocktails"]:hover,
 .sm-panel-item[href="/where-to-buy"]:hover,
 .sm-panel-item[href="/contact"]:hover,
+.sm-panel-item[href="/merch"]:hover,
 .sm-panel-item[href*="deepbluedistilleries"]:hover {
   color: #ff3672;
 }
@@ -248,6 +274,10 @@
 
 .sm-panel-item[href="/flavours/green-apple"]:hover {
   color: #95cb00;
+}
+
+.sm-panel-item[href="/flavours/atomic-peach"]:hover {
+  color: #f94a02;
 }
 
 .sm-panel-item[href="/flavours/ripe-raspberry"]:hover {
@@ -267,14 +297,19 @@
   content: counter(smItem, decimal-leading-zero);
   position: absolute;
   top: 0.1em;
-  right: 2em;
+  right: 4em;
   font-size: 18px;
   font-weight: 400;
   color: #ff3672;
   letter-spacing: 0;
   pointer-events: none;
   user-select: none;
-  opacity: var(--sm-num-opacity, 0);
+  opacity: var(--sm-num-opacity, 1);
+}
+
+.sm-panel-list[data-numbering] .sm-panel-back::after {
+  display: none;
+  content: "";
 }
 
 .sm-socials {
@@ -303,26 +338,6 @@
   flex-wrap: wrap;
 }
 
-.sm-socials-list .sm-socials-link {
-  opacity: 1;
-}
-
-.sm-socials-list:hover .sm-socials-link {
-  opacity: 0.35;
-}
-
-.sm-socials-list:hover .sm-socials-link:hover {
-  opacity: 1;
-}
-
-.sm-socials-list:focus-within .sm-socials-link {
-  opacity: 0.35;
-}
-
-.sm-socials-list:focus-within .sm-socials-link:focus-visible {
-  opacity: 1;
-}
-
 .sm-socials-link {
   font-size: 1.2rem;
   font-weight: 500;
@@ -345,14 +360,6 @@
   outline-offset: 3px;
 }
 
-.sm-panel-title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
 .staggered-menu-panel .sm-socials-list .sm-socials-link {
   opacity: 1;
   transition: opacity 0.3s ease;
@@ -371,6 +378,22 @@
   opacity: 1;
 }
 
+.sm-panel-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+body.light-header-section .sm-toggle {
+  color: #000000 !important;
+}
+
+body.light-header-section .sm-toggle:hover {
+  color: #ff3672 !important;
+}
+
 @media (max-width: 1024px) {
   .staggered-menu-panel,
   .sm-prelayers {
@@ -380,7 +403,14 @@
   }
 
   .sm-panel-item {
-    font-size: clamp(2.5rem, 9vw, 4rem);
+    font-size: clamp(2.14rem, 7vw, 3.1rem);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+    padding-right: 2.2em;
+  }
+
+  .sm-panel-back {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
@@ -390,7 +420,12 @@
 
 @media (max-width: 640px) {
   .staggered-menu-header {
-    padding: 1.25em;
+    top: -10px;
+    padding: 1em 1.25em;
+  }
+
+  .sm-logo-img {
+    height: 72px;
   }
 
   .staggered-menu-panel,
@@ -420,24 +455,23 @@
   }
 
   .sm-panel-item {
-    font-size: clamp(2.25rem, 11vw, 3.4rem);
-    line-height: 0.95;
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.15;
+    padding-right: 2em;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+  }
+
+  .sm-panel-back {
+    font-size: clamp(1.4rem, 7vw, 2rem);
   }
 
   .sm-panel-list[data-numbering] .sm-panel-item::after {
-    right: 2.2em;
+    right: 0.2em;
     font-size: 14px;
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
     filter: invert(100%);
   }
-}
-
-body.light-header-section .sm-toggle {
-  color: #000000 !important;
-}
-
-body.light-header-section .sm-toggle:hover {
-  color: #ff3672 !important;
 }

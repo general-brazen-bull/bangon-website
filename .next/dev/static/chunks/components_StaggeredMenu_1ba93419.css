@@ -25,10 +25,22 @@
   align-items: center;
   width: 100%;
   padding: 1em 2em;
+  transition: transform .35s, opacity .35s;
   display: flex;
   position: absolute;
   top: -15px;
   left: 0;
+}
+
+.header-hidden .staggered-menu-header {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-120%);
+}
+
+.header-visible .staggered-menu-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .staggered-menu-header > * {
@@ -53,7 +65,7 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: #fff;
+  color: inherit;
   background: none;
   border: none;
   align-items: center;
@@ -83,10 +95,6 @@
   outline-offset: 4px;
   border-radius: 4px;
   outline: 2px solid #ff3672;
-}
-
-.sm-line:last-of-type {
-  margin-top: 6px;
 }
 
 .sm-toggle-textWrap {
@@ -134,14 +142,8 @@
   transform: translate(-50%, -50%);
 }
 
-.sm-line {
+.sm-line, .sm-line:last-of-type {
   display: none !important;
-}
-
-.sm-panel-itemWrap {
-  line-height: 1;
-  position: relative;
-  overflow: hidden;
 }
 
 .staggered-menu-panel {
@@ -208,19 +210,39 @@
   display: flex;
 }
 
+.sm-panel-itemWrap {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
 .sm-panel-item {
   color: #000;
   cursor: pointer;
-  letter-spacing: -1.5px;
+  letter-spacing: -.5px;
   text-transform: uppercase;
-  padding-right: 1.4em;
-  font-size: clamp(2.14rem, 4.25vw, 3.1rem);
+  text-align: left;
+  background: none;
+  border: 0;
+  padding-right: 2.2em;
+  font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  font-size: clamp(2.45rem, 4.85vw, 3.5rem);
   font-weight: 600;
-  line-height: .95;
+  line-height: 1.15;
   text-decoration: none;
   transition: background .25s, color .25s;
   display: inline-block;
   position: relative;
+}
+
+.sm-panel-back {
+  color: #ff3672;
+  margin-bottom: .35rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.sm-panel-submenu-trigger {
+  color: #000;
 }
 
 .sm-panel-itemLabel {
@@ -229,7 +251,7 @@
   display: inline-block;
 }
 
-.sm-panel-item:hover, .sm-panel-item[href="/"]:hover, .sm-panel-item[href="/cocktails"]:hover, .sm-panel-item[href="/where-to-buy"]:hover, .sm-panel-item[href="/contact"]:hover, .sm-panel-item[href*="deepbluedistilleries"]:hover {
+.sm-panel-item:hover, .sm-panel-item[href="/"]:hover, .sm-panel-item[href="/cocktails"]:hover, .sm-panel-item[href="/where-to-buy"]:hover, .sm-panel-item[href="/contact"]:hover, .sm-panel-item[href="/merch"]:hover, .sm-panel-item[href*="deepbluedistilleries"]:hover {
   color: #ff3672;
 }
 
@@ -239,6 +261,10 @@
 
 .sm-panel-item[href="/flavours/green-apple"]:hover {
   color: #95cb00;
+}
+
+.sm-panel-item[href="/flavours/atomic-peach"]:hover {
+  color: #f94a02;
 }
 
 .sm-panel-item[href="/flavours/ripe-raspberry"]:hover {
@@ -261,12 +287,17 @@
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
-  opacity: var(--sm-num-opacity, 0);
+  opacity: var(--sm-num-opacity, 1);
   font-size: 18px;
   font-weight: 400;
   position: absolute;
   top: .1em;
-  right: 2em;
+  right: 4em;
+}
+
+.sm-panel-list[data-numbering] .sm-panel-back:after {
+  content: "";
+  display: none;
 }
 
 .sm-socials {
@@ -294,26 +325,6 @@
   display: flex;
 }
 
-.sm-socials-list .sm-socials-link {
-  opacity: 1;
-}
-
-.sm-socials-list:hover .sm-socials-link {
-  opacity: .35;
-}
-
-.sm-socials-list:hover .sm-socials-link:hover {
-  opacity: 1;
-}
-
-.sm-socials-list:focus-within .sm-socials-link {
-  opacity: .35;
-}
-
-.sm-socials-list:focus-within .sm-socials-link:focus-visible {
-  opacity: 1;
-}
-
 .sm-socials-link {
   color: #111;
   padding: 2px 0;
@@ -334,14 +345,6 @@
   outline: 2px solid #ff3672;
 }
 
-.sm-panel-title {
-  color: #fff;
-  text-transform: uppercase;
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
 .staggered-menu-panel .sm-socials-list .sm-socials-link {
   opacity: 1;
   transition: opacity .3s;
@@ -355,6 +358,22 @@
   opacity: 1;
 }
 
+.sm-panel-title {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+body.light-header-section .sm-toggle {
+  color: #000 !important;
+}
+
+body.light-header-section .sm-toggle:hover {
+  color: #ff3672 !important;
+}
+
 @media (max-width: 1024px) {
   .staggered-menu-panel, .sm-prelayers {
     width: 100%;
@@ -363,7 +382,13 @@
   }
 
   .sm-panel-item {
-    font-size: clamp(2.5rem, 9vw, 4rem);
+    padding-right: 2.2em;
+    font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+    font-size: clamp(2.14rem, 7vw, 3.1rem);
+  }
+
+  .sm-panel-back {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
@@ -373,7 +398,12 @@
 
 @media (max-width: 640px) {
   .staggered-menu-header {
-    padding: 1.25em;
+    padding: 1em 1.25em;
+    top: -10px;
+  }
+
+  .sm-logo-img {
+    height: 72px;
   }
 
   .staggered-menu-panel, .sm-prelayers {
@@ -402,26 +432,24 @@
   }
 
   .sm-panel-item {
-    font-size: clamp(2.25rem, 11vw, 3.4rem);
-    line-height: .95;
+    padding-right: 2em;
+    font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .sm-panel-back {
+    font-size: clamp(1.4rem, 7vw, 2rem);
   }
 
   .sm-panel-list[data-numbering] .sm-panel-item:after {
     font-size: 14px;
-    right: 2.2em;
+    right: .2em;
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
     filter: invert();
   }
-}
-
-body.light-header-section .sm-toggle {
-  color: #000 !important;
-}
-
-body.light-header-section .sm-toggle:hover {
-  color: #ff3672 !important;
 }
 
 /*# sourceMappingURL=components_StaggeredMenu_1ba93419.css.map*/

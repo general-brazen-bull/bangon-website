@@ -3,10 +3,61 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
+const flavourFilters = [
+  { label: "All", value: "All", color: "#f94a02" },
+  { label: "Atomic Peach", value: "Atomic Peach", color: "#ff7a1a" },
+  { label: "Big Banana", value: "Big Banana", color: "#f3db03" },
+  { label: "Ripe Raspberry", value: "Ripe Raspberry", color: "#ff3672" },
+  { label: "Green Apple", value: "Bang On Green Apple", color: "#95cb00" },
+  { label: "Tropical", value: "Tropical", color: "#2596be" },
+]
+
 const cocktails = [
+  {
+    name: "Peach Bomb Shot",
+    flavour: "Atomic Peach",
+    flavourColor: "#ff7a1a",
+    image: "/assets/peach-shot.png",
+    ingredients: ["1 oz Atomic Peach", "0.5 oz vodka", "0.25 oz lemon juice", "Ice"],
+    method:
+      "Shake Atomic Peach, vodka, and lemon juice with ice. Strain into a shot glass.",
+  },
+  {
+    name: "Atomic Fizz",
+    flavour: "Atomic Peach",
+    flavourColor: "#ff7a1a",
+    image: "/assets/peach-fizz.png",
+    ingredients: [
+      "1.5 oz Atomic Peach",
+      "3 oz soda water",
+      "0.5 oz lime juice",
+      "0.5 oz orange juice",
+      "Orange slice",
+      "Lime wedge",
+      "Ice",
+    ],
+    method:
+      "Build Atomic Peach, lime juice, and orange juice in a glass over ice. Top with soda water and stir gently. Garnish with orange and lime.",
+  },
+  {
+    name: "Peach Party Punch",
+    flavour: "Atomic Peach",
+    flavourColor: "#ff7a1a",
+    image: "/assets/peach-punch.png",
+    ingredients: [
+      "1.5 oz Atomic Peach",
+      "3 oz iced tea",
+      "2 oz lemonade",
+      "Peach slice",
+      "Ice",
+    ],
+    method:
+      "Build Atomic Peach, iced tea, and lemonade in a glass over ice. Stir gently and garnish with a peach slice.",
+  },
   {
     name: "Banana Velvet Shot",
     flavour: "Big Banana",
@@ -180,6 +231,13 @@ const cocktails = [
 ]
 
 export default function CocktailsPage() {
+  const [activeFilter, setActiveFilter] = useState("All")
+
+  const filteredCocktails =
+    activeFilter === "All"
+      ? cocktails
+      : cocktails.filter((cocktail) => cocktail.flavour === activeFilter)
+
   return (
     <main>
       <Header />
@@ -201,14 +259,39 @@ export default function CocktailsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Simple recipes. Maximum impact. These drinks hit different.
+            Simple recipes. Maximum impact. Pick your flavour and find your Bang.
           </motion.p>
+        </div>
+      </section>
+
+      <section className="sticky top-0 z-30 bg-white border-b border-black/10 py-5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex gap-3 overflow-x-auto pb-1">
+            {flavourFilters.map((filter) => (
+              <button
+                key={filter.value}
+                type="button"
+                onClick={() => setActiveFilter(filter.value)}
+                className={`shrink-0 px-5 py-2 rounded-full text-lg font-bold uppercase tracking-wide border transition-colors duration-300 ${
+                  activeFilter === filter.value
+                    ? "text-white border-transparent"
+                    : "text-black border-black/20 hover:border-black"
+                }`}
+                style={{
+                  backgroundColor:
+                    activeFilter === filter.value ? filter.color : "transparent",
+                }}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-28">
-          {cocktails.map((cocktail) => (
+          {filteredCocktails.map((cocktail) => (
             <motion.div
               key={cocktail.name}
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
@@ -217,7 +300,7 @@ export default function CocktailsPage() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="relative w-full h-[420px] md:h-[520px]">
+              <div className="relative w-full h-[420px] md:h-[520px] bg-[#f5f5f5] rounded-sm overflow-hidden">
                 <Image
                   src={cocktail.image}
                   alt={cocktail.name}

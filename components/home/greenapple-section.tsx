@@ -2,10 +2,41 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useEffect, useRef } from "react"
 
 export function GreenappleSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle(
+          "light-header-section",
+          entry.isIntersecting
+        )
+      },
+      {
+        threshold: 0.35,
+      }
+    )
+
+    observer.observe(section)
+
+    return () => {
+      document.body.classList.remove("light-header-section")
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <section className="py-32 md:py-40 bg-[#95cb00] relative overflow-hidden">
+    <section
+        data-header-theme="light"
+  className="py-32 md:py-40 bg-[#95cb00] relative overflow-hidden"
+    >
       {/* Background decorative rotated text */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"

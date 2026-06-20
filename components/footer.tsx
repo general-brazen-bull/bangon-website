@@ -19,6 +19,7 @@ const footerCards: FooterCard[] = [
   {
     title: "Flavours",
     links: [
+      { text: "Atomic Peach", href: "/flavours/atomic-peach" },
       { text: "Big Banana", href: "/flavours/big-banana" },
       { text: "Green Apple", href: "/flavours/green-apple" },
       { text: "Ripe Raspberry", href: "/flavours/ripe-raspberry" },
@@ -172,20 +173,26 @@ export function Footer() {
             variants={itemVariants}
             className="relative flex items-center justify-center overflow-hidden py-8 md:py-12"
           >
-            <span
-              aria-hidden="true"
-              className="
-              select-none
-              text-[clamp(5.5rem,16vw,20rem)]
-              leading-none
-              font-black
-              tracking-tighter
-              text-[#141414]
-              whitespace-nowrap
-            "
-            >
-              BANG ON
-            </span>
+           <span
+  aria-hidden="true"
+  className="
+    group
+    select-none
+    text-[clamp(5.5rem,16vw,20rem)]
+    leading-none
+    font-black
+    tracking-tighter
+    whitespace-nowrap
+    text-[#141414]
+    transition-all
+    duration-700
+    hover:text-transparent
+    hover:bg-clip-text
+    hover:bg-[linear-gradient(90deg,#f3db03_0%,#95cb00_25%,#ff3672_55%,#2596be_100%)]
+  "
+>
+  BANG ON
+</span>
           </motion.div>
 
           {/* BOTTOM BAR */}

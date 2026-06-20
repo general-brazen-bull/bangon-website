@@ -2,10 +2,41 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useEffect, useRef } from "react"
 
 export function WhereToBuySection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle(
+          "light-header-section",
+          entry.isIntersecting
+        )
+      },
+      {
+        threshold: 0.35,
+      }
+    )
+
+    observer.observe(section)
+
+    return () => {
+      document.body.classList.remove("light-header-section")
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <section className="py-16 md:py-20 bg-[#e5e5e5]">
+    <section
+       data-header-theme="light"
+  className="py-16 md:py-20 bg-[#e5e5e5]"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <motion.div
@@ -18,6 +49,7 @@ export function WhereToBuySection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#0a0a0a] mb-4">
               GET YOUR BANG ON
             </h2>
+
             <p className="text-lg text-[#525252]">
               Find Bang On at select retailers or visit the distillery.
             </p>

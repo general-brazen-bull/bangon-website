@@ -1,198 +1,302 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import './StaggeredMenu.css';
+"use client"
+
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
+import { gsap } from "gsap"
+import "./StaggeredMenu.css"
 
 export interface StaggeredMenuItem {
-  label: string;
-  ariaLabel: string;
-  link: string;
+  label: string
+  ariaLabel: string
+  link: string
+  submenu?: string
 }
 
 export interface StaggeredMenuSocialItem {
-  label: string;
-  link: string;
+  label: string
+  link: string
 }
 
 export interface StaggeredMenuProps {
-  position?: 'left' | 'right';
-  colors?: string[];
-  items?: StaggeredMenuItem[];
-  socialItems?: StaggeredMenuSocialItem[];
-  displaySocials?: boolean;
-  displayItemNumbering?: boolean;
-  className?: string;
-  logoUrl?: string;
-  menuButtonColor?: string;
-  openMenuButtonColor?: string;
-  accentColor?: string;
-  changeMenuColorOnOpen?: boolean;
-  closeOnClickAway?: boolean;
-  onMenuOpen?: () => void;
-  onMenuClose?: () => void;
-  isFixed?: boolean;
+  position?: "left" | "right"
+  colors?: string[]
+  items?: StaggeredMenuItem[]
+  submenuItems?: Record<string, StaggeredMenuItem[]>
+  socialItems?: StaggeredMenuSocialItem[]
+  displaySocials?: boolean
+  displayItemNumbering?: boolean
+  className?: string
+  logoUrl?: string
+  logoHref?: string
+  menuButtonColor?: string
+  openMenuButtonColor?: string
+  accentColor?: string
+  changeMenuColorOnOpen?: boolean
+  closeOnClickAway?: boolean
+  onMenuOpen?: () => void
+  onMenuClose?: () => void
+  isFixed?: boolean
 }
 
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
-  position = 'right',
-  colors = ['#B497CF', '#5227FF'],
+  position = "right",
+  colors = ["#95cb00", "#f3db03", "#2596be"],
   items = [],
+  submenuItems = {},
   socialItems = [],
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl="/assets/logos/bangon.png",
-  menuButtonColor = '#fff',
-  openMenuButtonColor = '#fff',
-  changeMenuColorOnOpen = true,
-  accentColor = '#5227FF',
+  logoUrl = "/assets/logos/bangon.png",
+  logoHref = "/",
+  menuButtonColor = "#ffffff",
+  openMenuButtonColor = "#000000",
+  changeMenuColorOnOpen = false,
+  accentColor = "#ff3672",
   isFixed = false,
   closeOnClickAway = true,
   onMenuOpen,
-  onMenuClose
+  onMenuClose,
 }: StaggeredMenuProps) => {
-  const [open, setOpen] = useState(false);
-  const openRef = useRef(false);
-  const panelRef = useRef<HTMLDivElement | null>(null);
-  const preLayersRef = useRef<HTMLDivElement | null>(null);
-  const preLayerElsRef = useRef<HTMLElement[]>([]);
-  const plusHRef = useRef<HTMLSpanElement | null>(null);
-  const plusVRef = useRef<HTMLSpanElement | null>(null);
-  const iconRef = useRef<HTMLSpanElement | null>(null);
-  const textInnerRef = useRef<HTMLSpanElement | null>(null);
-  const textWrapRef = useRef<HTMLSpanElement | null>(null);
-  const [textLines, setTextLines] = useState<string[]>(['Menu', 'Close']);
+  const [open, setOpen] = useState(false)
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const openRef = useRef(false)
 
-  const openTlRef = useRef<gsap.core.Timeline | null>(null);
-  const closeTweenRef = useRef<gsap.core.Tween | null>(null);
-  const spinTweenRef = useRef<gsap.core.Tween | null>(null);
-  const textCycleAnimRef = useRef<gsap.core.Tween | null>(null);
-  const colorTweenRef = useRef<gsap.core.Tween | null>(null);
-  const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
-  const busyRef = useRef(false);
-  const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null)
+  const preLayersRef = useRef<HTMLDivElement | null>(null)
+  const preLayerElsRef = useRef<HTMLElement[]>([])
+
+  const plusHRef = useRef<HTMLSpanElement | null>(null)
+  const plusVRef = useRef<HTMLSpanElement | null>(null)
+  const iconRef = useRef<HTMLSpanElement | null>(null)
+  const textInnerRef = useRef<HTMLSpanElement | null>(null)
+  const textWrapRef = useRef<HTMLSpanElement | null>(null)
+
+  const [textLines, setTextLines] = useState<string[]>(["Menu", "Close"])
+
+  const openTlRef = useRef<gsap.core.Timeline | null>(null)
+  const closeTweenRef = useRef<gsap.core.Tween | null>(null)
+  const spinTweenRef = useRef<gsap.core.Tween | null>(null)
+  const textCycleAnimRef = useRef<gsap.core.Tween | null>(null)
+  const colorTweenRef = useRef<gsap.core.Tween | null>(null)
+  const toggleBtnRef = useRef<HTMLButtonElement | null>(null)
+  const busyRef = useRef(false)
+  const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null)
+
+  const visibleItems = activeSubmenu
+    ? submenuItems[activeSubmenu] || []
+    : items
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const panel = panelRef.current;
-      const preContainer = preLayersRef.current;
-      const plusH = plusHRef.current;
-      const plusV = plusVRef.current;
-      const icon = iconRef.current;
-      const textInner = textInnerRef.current;
-      if (!panel || !plusH || !plusV || !icon || !textInner) return;
+      const panel = panelRef.current
+      const preContainer = preLayersRef.current
+      const plusH = plusHRef.current
+      const plusV = plusVRef.current
+      const icon = iconRef.current
+      const textInner = textInnerRef.current
 
-      let preLayers: HTMLElement[] = [];
+      if (!panel || !plusH || !plusV || !icon || !textInner) return
+
+      let preLayers: HTMLElement[] = []
+
       if (preContainer) {
-        preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
+        preLayers = Array.from(
+          preContainer.querySelectorAll(".sm-prelayer")
+        ) as HTMLElement[]
       }
-      preLayerElsRef.current = preLayers;
 
-      const offscreen = position === 'left' ? -100 : 100;
-      gsap.set([panel, ...preLayers], { xPercent: offscreen, opacity: 1 });
+      preLayerElsRef.current = preLayers
+
+      const offscreen = position === "left" ? -100 : 100
+
+      gsap.set([panel, ...preLayers], { xPercent: offscreen, opacity: 1 })
+
       if (preContainer) {
-        gsap.set(preContainer, { xPercent: 0, opacity: 1 });
+        gsap.set(preContainer, { xPercent: 0, opacity: 1 })
       }
-      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
-      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
-      gsap.set(textInner, { yPercent: 0 });
-      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
-    });
-    return () => ctx.revert();
-  }, [menuButtonColor, position]);
 
-  const buildOpenTimeline = useCallback(() => {
-    const panel = panelRef.current;
-    const layers = preLayerElsRef.current;
-    if (!panel) return null;
+      gsap.set(plusH, { transformOrigin: "50% 50%", rotate: 0 })
+      gsap.set(plusV, { transformOrigin: "50% 50%", rotate: 90 })
+      gsap.set(icon, { rotate: 0, transformOrigin: "50% 50%" })
+      gsap.set(textInner, { yPercent: 0 })
 
-    openTlRef.current?.kill();
-    if (closeTweenRef.current) {
-      closeTweenRef.current.kill();
-      closeTweenRef.current = null;
-    }
-    itemEntranceTweenRef.current?.kill();
+      if (toggleBtnRef.current) {
+        gsap.set(toggleBtnRef.current, { color: menuButtonColor })
+      }
+    })
 
-    const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
+    return () => ctx.revert()
+  }, [menuButtonColor, position])
+
+  const animatePanelItems = useCallback(() => {
+    const panel = panelRef.current
+    if (!panel) return
+
+    const itemEls = Array.from(
+      panel.querySelectorAll(".sm-panel-itemLabel")
+    ) as HTMLElement[]
+
     const numberEls = Array.from(
-      panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
-    ) as HTMLElement[];
-    const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
-    const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
-
-    const offscreen = position === 'left' ? -100 : 100;
-    const layerStates = layers.map(el => ({ el, start: offscreen }));
-    const panelStart = offscreen;
+      panel.querySelectorAll(
+        ".sm-panel-list[data-numbering] .sm-panel-item"
+      )
+    ) as HTMLElement[]
 
     if (itemEls.length) {
-      gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-    }
-    if (numberEls.length) {
-      gsap.set(numberEls, { '--sm-num-opacity': 0 });
-    }
-    if (socialTitle) {
-      gsap.set(socialTitle, { opacity: 0 });
-    }
-    if (socialLinks.length) {
-      gsap.set(socialLinks, { y: 25, opacity: 0 });
+      gsap.fromTo(
+        itemEls,
+        { yPercent: 140, rotate: 10 },
+        {
+          yPercent: 0,
+          rotate: 0,
+          duration: 0.75,
+          ease: "power4.out",
+          stagger: { each: 0.08, from: "start" },
+        }
+      )
     }
 
-    const tl = gsap.timeline({ paused: true });
+    if (numberEls.length) {
+      gsap.fromTo(
+        numberEls,
+        { "--sm-num-opacity": 0 } as gsap.TweenVars,
+        {
+          "--sm-num-opacity": 1,
+          duration: 0.45,
+          ease: "power2.out",
+          stagger: { each: 0.06, from: "start" },
+        } as gsap.TweenVars
+      )
+    }
+  }, [])
+
+  const buildOpenTimeline = useCallback(() => {
+    const panel = panelRef.current
+    const layers = preLayerElsRef.current
+
+    if (!panel) return null
+
+    openTlRef.current?.kill()
+
+    if (closeTweenRef.current) {
+      closeTweenRef.current.kill()
+      closeTweenRef.current = null
+    }
+
+    itemEntranceTweenRef.current?.kill()
+
+    const itemEls = Array.from(
+      panel.querySelectorAll(".sm-panel-itemLabel")
+    ) as HTMLElement[]
+
+    const numberEls = Array.from(
+      panel.querySelectorAll(
+        ".sm-panel-list[data-numbering] .sm-panel-item"
+      )
+    ) as HTMLElement[]
+
+    const socialTitle = panel.querySelector(
+      ".sm-socials-title"
+    ) as HTMLElement | null
+
+    const socialLinks = Array.from(
+      panel.querySelectorAll(".sm-socials-link")
+    ) as HTMLElement[]
+
+    const offscreen = position === "left" ? -100 : 100
+    const layerStates = layers.map((el) => ({ el, start: offscreen }))
+    const panelStart = offscreen
+
+    if (itemEls.length) {
+      gsap.set(itemEls, { yPercent: 140, rotate: 10 })
+    }
+
+    if (numberEls.length) {
+      gsap.set(numberEls, { "--sm-num-opacity": 0 } as gsap.TweenVars)
+    }
+
+    if (socialTitle) {
+      gsap.set(socialTitle, { opacity: 0 })
+    }
+
+    if (socialLinks.length) {
+      gsap.set(socialLinks, { y: 25, opacity: 0 })
+    }
+
+    const tl = gsap.timeline({ paused: true })
 
     layerStates.forEach((ls, i) => {
-      tl.fromTo(ls.el, { xPercent: ls.start }, { xPercent: 0, duration: 0.5, ease: 'power4.out' }, i * 0.07);
-    });
-    const lastTime = layerStates.length ? (layerStates.length - 1) * 0.07 : 0;
-    const panelInsertTime = lastTime + (layerStates.length ? 0.08 : 0);
-    const panelDuration = 0.65;
+      tl.fromTo(
+        ls.el,
+        { xPercent: ls.start },
+        { xPercent: 0, duration: 0.5, ease: "power4.out" },
+        i * 0.07
+      )
+    })
+
+    const lastTime = layerStates.length
+      ? (layerStates.length - 1) * 0.07
+      : 0
+
+    const panelInsertTime = lastTime + (layerStates.length ? 0.08 : 0)
+    const panelDuration = 0.65
+
     tl.fromTo(
       panel,
       { xPercent: panelStart },
-      { xPercent: 0, duration: panelDuration, ease: 'power4.out' },
+      { xPercent: 0, duration: panelDuration, ease: "power4.out" },
       panelInsertTime
-    );
+    )
 
     if (itemEls.length) {
-      const itemsStartRatio = 0.15;
-      const itemsStart = panelInsertTime + panelDuration * itemsStartRatio;
+      const itemsStart = panelInsertTime + panelDuration * 0.15
+
       tl.to(
         itemEls,
         {
           yPercent: 0,
           rotate: 0,
           duration: 1,
-          ease: 'power4.out',
-          stagger: { each: 0.1, from: 'start' }
+          ease: "power4.out",
+          stagger: { each: 0.1, from: "start" },
         },
         itemsStart
-      );
+      )
+
       if (numberEls.length) {
         tl.to(
           numberEls,
           {
             duration: 0.6,
-            ease: 'power2.out',
-            '--sm-num-opacity': 1,
-            stagger: { each: 0.08, from: 'start' }
-          },
+            ease: "power2.out",
+            "--sm-num-opacity": 1,
+            stagger: { each: 0.08, from: "start" },
+          } as gsap.TweenVars,
           itemsStart + 0.1
-        );
+        )
       }
     }
 
     if (socialTitle || socialLinks.length) {
-      const socialsStart = panelInsertTime + panelDuration * 0.4;
+      const socialsStart = panelInsertTime + panelDuration * 0.4
+
       if (socialTitle) {
         tl.to(
           socialTitle,
           {
             opacity: 1,
             duration: 0.5,
-            ease: 'power2.out'
+            ease: "power2.out",
           },
           socialsStart
-        );
+        )
       }
+
       if (socialLinks.length) {
         tl.to(
           socialLinks,
@@ -200,172 +304,304 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             y: 0,
             opacity: 1,
             duration: 0.55,
-            ease: 'power3.out',
-            stagger: { each: 0.08, from: 'start' },
+            ease: "power3.out",
+            stagger: { each: 0.08, from: "start" },
             onComplete: () => {
-              gsap.set(socialLinks, { clearProps: 'opacity' });
-            }
+              gsap.set(socialLinks, { clearProps: "opacity" })
+            },
           },
           socialsStart + 0.04
-        );
+        )
       }
     }
 
-    openTlRef.current = tl;
-    return tl;
-  }, [position]);
+    openTlRef.current = tl
+
+    return tl
+  }, [position])
 
   const playOpen = useCallback(() => {
-    if (busyRef.current) return;
-    busyRef.current = true;
-    const tl = buildOpenTimeline();
+    if (busyRef.current) return
+
+    busyRef.current = true
+
+    const tl = buildOpenTimeline()
+
     if (tl) {
-      tl.eventCallback('onComplete', () => {
-        busyRef.current = false;
-      });
-      tl.play(0);
+      tl.eventCallback("onComplete", () => {
+        busyRef.current = false
+      })
+
+      tl.play(0)
     } else {
-      busyRef.current = false;
+      busyRef.current = false
     }
-  }, [buildOpenTimeline]);
+  }, [buildOpenTimeline])
 
   const playClose = useCallback(() => {
-    openTlRef.current?.kill();
-    openTlRef.current = null;
-    itemEntranceTweenRef.current?.kill();
+    openTlRef.current?.kill()
+    openTlRef.current = null
 
-    const panel = panelRef.current;
-    const layers = preLayerElsRef.current;
-    if (!panel) return;
+    itemEntranceTweenRef.current?.kill()
 
-    const all: HTMLElement[] = [...layers, panel];
-    closeTweenRef.current?.kill();
-    const offscreen = position === 'left' ? -100 : 100;
+    const panel = panelRef.current
+    const layers = preLayerElsRef.current
+
+    if (!panel) return
+
+    const all: HTMLElement[] = [...layers, panel]
+    const offscreen = position === "left" ? -100 : 100
+
+    closeTweenRef.current?.kill()
+
     closeTweenRef.current = gsap.to(all, {
       xPercent: offscreen,
       duration: 0.32,
-      ease: 'power3.in',
-      overwrite: 'auto',
+      ease: "power3.in",
+      overwrite: "auto",
       onComplete: () => {
-        const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
+        const itemEls = Array.from(
+          panel.querySelectorAll(".sm-panel-itemLabel")
+        ) as HTMLElement[]
+
         if (itemEls.length) {
-          gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+          gsap.set(itemEls, { yPercent: 140, rotate: 10 })
         }
+
         const numberEls = Array.from(
-          panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
-        ) as HTMLElement[];
+          panel.querySelectorAll(
+            ".sm-panel-list[data-numbering] .sm-panel-item"
+          )
+        ) as HTMLElement[]
+
         if (numberEls.length) {
-          gsap.set(numberEls, { '--sm-num-opacity': 0 });
+          gsap.set(numberEls, { "--sm-num-opacity": 0 } as gsap.TweenVars)
         }
-        const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
-        const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
-        if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
-        if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
-        busyRef.current = false;
-      }
-    });
-  }, [position]);
+
+        const socialTitle = panel.querySelector(
+          ".sm-socials-title"
+        ) as HTMLElement | null
+
+        const socialLinks = Array.from(
+          panel.querySelectorAll(".sm-socials-link")
+        ) as HTMLElement[]
+
+        if (socialTitle) gsap.set(socialTitle, { opacity: 0 })
+        if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 })
+
+        setActiveSubmenu(null)
+        busyRef.current = false
+      },
+    })
+  }, [position])
 
   const animateIcon = useCallback((opening: boolean) => {
-    const icon = iconRef.current;
-    if (!icon) return;
-    spinTweenRef.current?.kill();
-    if (opening) {
-      spinTweenRef.current = gsap.to(icon, { rotate: 225, duration: 0.8, ease: 'power4.out', overwrite: 'auto' });
-    } else {
-      spinTweenRef.current = gsap.to(icon, { rotate: 0, duration: 0.35, ease: 'power3.inOut', overwrite: 'auto' });
-    }
-  }, []);
+    const icon = iconRef.current
+
+    if (!icon) return
+
+    spinTweenRef.current?.kill()
+
+    spinTweenRef.current = gsap.to(icon, {
+      rotate: opening ? 225 : 0,
+      duration: opening ? 0.8 : 0.35,
+      ease: opening ? "power4.out" : "power3.inOut",
+      overwrite: "auto",
+    })
+  }, [])
 
   const animateColor = useCallback(
     (opening: boolean) => {
-      const btn = toggleBtnRef.current;
-      if (!btn) return;
-      colorTweenRef.current?.kill();
+      const btn = toggleBtnRef.current
+
+      if (!btn) return
+
+      colorTweenRef.current?.kill()
+
       if (changeMenuColorOnOpen) {
-        const targetColor = opening ? openMenuButtonColor : menuButtonColor;
+        const targetColor = opening ? openMenuButtonColor : menuButtonColor
+
         colorTweenRef.current = gsap.to(btn, {
           color: targetColor,
           delay: 0.18,
           duration: 0.3,
-          ease: 'power2.out'
-        });
+          ease: "power2.out",
+        })
       } else {
-        gsap.set(btn, { color: menuButtonColor });
+        gsap.set(btn, {
+          color: opening ? openMenuButtonColor : menuButtonColor,
+        })
       }
     },
-    [openMenuButtonColor, menuButtonColor, changeMenuColorOnOpen]
-  );
+    [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor]
+  )
 
   React.useEffect(() => {
-    if (toggleBtnRef.current) {
-      if (changeMenuColorOnOpen) {
-        const targetColor = openRef.current ? openMenuButtonColor : menuButtonColor;
-        gsap.set(toggleBtnRef.current, { color: targetColor });
-      } else {
-        gsap.set(toggleBtnRef.current, { color: menuButtonColor });
-      }
-    }
-  }, [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor]);
+    if (!toggleBtnRef.current) return
+
+    const targetColor = openRef.current
+      ? openMenuButtonColor
+      : menuButtonColor
+
+    gsap.set(toggleBtnRef.current, { color: targetColor })
+  }, [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor])
 
   const animateText = useCallback((opening: boolean) => {
-    const inner = textInnerRef.current;
-    if (!inner) return;
-    textCycleAnimRef.current?.kill();
+    const inner = textInnerRef.current
 
-    const currentLabel = opening ? 'Menu' : 'Close';
-    const targetLabel = opening ? 'Close' : 'Menu';
-    const cycles = 3;
-    const seq: string[] = [currentLabel];
-    let last = currentLabel;
+    if (!inner) return
+
+    textCycleAnimRef.current?.kill()
+
+    const currentLabel = opening ? "Menu" : "Close"
+    const targetLabel = opening ? "Close" : "Menu"
+    const cycles = 3
+    const seq: string[] = [currentLabel]
+
+    let last = currentLabel
+
     for (let i = 0; i < cycles; i++) {
-      last = last === 'Menu' ? 'Close' : 'Menu';
-      seq.push(last);
+      last = last === "Menu" ? "Close" : "Menu"
+      seq.push(last)
     }
-    if (last !== targetLabel) seq.push(targetLabel);
-    seq.push(targetLabel);
-    setTextLines(seq);
 
-    gsap.set(inner, { yPercent: 0 });
-    const lineCount = seq.length;
-    const finalShift = ((lineCount - 1) / lineCount) * 100;
+    if (last !== targetLabel) seq.push(targetLabel)
+
+    seq.push(targetLabel)
+
+    setTextLines(seq)
+
+    gsap.set(inner, { yPercent: 0 })
+
+    const lineCount = seq.length
+    const finalShift = ((lineCount - 1) / lineCount) * 100
+
     textCycleAnimRef.current = gsap.to(inner, {
       yPercent: -finalShift,
       duration: 0.5 + lineCount * 0.07,
-      ease: 'power4.out'
-    });
-  }, []);
+      ease: "power4.out",
+    })
+  }, [])
 
   const toggleMenu = useCallback(() => {
-    const target = !openRef.current;
-    openRef.current = target;
-    setOpen(target);
+    const target = !openRef.current
+
+    openRef.current = target
+    setOpen(target)
+
     if (target) {
-      onMenuOpen?.();
-      playOpen();
+      onMenuOpen?.()
+      playOpen()
     } else {
-      onMenuClose?.();
-      playClose();
+      onMenuClose?.()
+      playClose()
     }
-    animateIcon(target);
-    animateColor(target);
-    animateText(target);
-  }, [playOpen, playClose, animateIcon, animateColor, animateText]);
+
+    animateIcon(target)
+    animateColor(target)
+    animateText(target)
+  }, [
+    playOpen,
+    playClose,
+    animateIcon,
+    animateColor,
+    animateText,
+    onMenuOpen,
+    onMenuClose,
+  ])
 
   const closeMenu = useCallback(() => {
-    if (openRef.current) {
-      openRef.current = false;
-      setOpen(false);
-      onMenuClose?.();
-      playClose();
-      animateIcon(false);
-      animateColor(false);
-      animateText(false);
-    }
-  }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
+    if (!openRef.current) return
+
+    openRef.current = false
+    setOpen(false)
+
+    onMenuClose?.()
+    playClose()
+    animateIcon(false)
+    animateColor(false)
+    animateText(false)
+  }, [playClose, animateIcon, animateColor, animateText, onMenuClose])
+
+  const openSubmenu = useCallback(
+    (submenu: string) => {
+      const panel = panelRef.current
+      if (!panel) return
+
+      const currentItems = Array.from(
+        panel.querySelectorAll(".sm-panel-itemLabel")
+      ) as HTMLElement[]
+
+      gsap.to(currentItems, {
+        xPercent: -20,
+        opacity: 0,
+        duration: 0.25,
+        ease: "power2.in",
+        onComplete: () => {
+          setActiveSubmenu(submenu)
+
+          requestAnimationFrame(() => {
+            const nextItems = Array.from(
+              panel.querySelectorAll(".sm-panel-itemLabel")
+            ) as HTMLElement[]
+
+            gsap.fromTo(
+              nextItems,
+              { xPercent: 20, opacity: 0, yPercent: 0, rotate: 0 },
+              {
+                xPercent: 0,
+                opacity: 1,
+                duration: 0.45,
+                ease: "power3.out",
+                stagger: { each: 0.06, from: "start" },
+              }
+            )
+          })
+        },
+      })
+    },
+    []
+  )
+
+  const backToMainMenu = useCallback(() => {
+    const panel = panelRef.current
+    if (!panel) return
+
+    const currentItems = Array.from(
+      panel.querySelectorAll(".sm-panel-itemLabel")
+    ) as HTMLElement[]
+
+    gsap.to(currentItems, {
+      xPercent: 20,
+      opacity: 0,
+      duration: 0.25,
+      ease: "power2.in",
+      onComplete: () => {
+        setActiveSubmenu(null)
+
+        requestAnimationFrame(() => {
+          const nextItems = Array.from(
+            panel.querySelectorAll(".sm-panel-itemLabel")
+          ) as HTMLElement[]
+
+          gsap.fromTo(
+            nextItems,
+            { xPercent: -20, opacity: 0, yPercent: 0, rotate: 0 },
+            {
+              xPercent: 0,
+              opacity: 1,
+              duration: 0.45,
+              ease: "power3.out",
+              stagger: { each: 0.06, from: "start" },
+            }
+          )
+        })
+      },
+    })
+  }, [])
 
   React.useEffect(() => {
-    if (!closeOnClickAway || !open) return;
+    if (!closeOnClickAway || !open) return
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -374,63 +610,89 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         toggleBtnRef.current &&
         !toggleBtnRef.current.contains(event.target as Node)
       ) {
-        closeMenu();
+        closeMenu()
       }
-    };
+    }
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside)
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [closeOnClickAway, open, closeMenu]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [closeOnClickAway, open, closeMenu])
 
   return (
     <div
-      className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
-      style={accentColor ? { ['--sm-accent' as any]: accentColor } : undefined}
+      className={
+        (className ? className + " " : "") +
+        "staggered-menu-wrapper" +
+        (isFixed ? " fixed-wrapper" : "")
+      }
+      style={
+        accentColor
+          ? ({ "--sm-accent": accentColor } as React.CSSProperties)
+          : undefined
+      }
       data-position={position}
       data-open={open || undefined}
     >
       <div ref={preLayersRef} className="sm-prelayers" aria-hidden="true">
         {(() => {
-          const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
-          let arr = [...raw];
+          const raw =
+            colors && colors.length ? colors.slice(0, 4) : ["#95cb00", "#f3db03"]
+
+          const arr = [...raw]
+
           if (arr.length >= 3) {
-            const mid = Math.floor(arr.length / 2);
-            arr.splice(mid, 1);
+            const mid = Math.floor(arr.length / 2)
+            arr.splice(mid, 1)
           }
-          return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
+
+          return arr.map((color, index) => (
+            <div
+              key={index}
+              className="sm-prelayer"
+              style={{ background: color }}
+            />
+          ))
         })()}
       </div>
+
       <header className="staggered-menu-header" aria-label="Main navigation header">
-        <div className="sm-logo" aria-label="Logo">
+        <a className="sm-logo" aria-label="Go to home page" href={logoHref}>
           <img
-            src={logoUrl="/assets/logos/bangon.png"}
-            alt="Logo"
+            src={logoUrl}
+            alt="Bang On"
             className="sm-logo-img"
             draggable={false}
             width={110}
             height={24}
           />
-        </div>
+        </a>
+
         <button
           ref={toggleBtnRef}
           className="sm-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="staggered-menu-panel"
           onClick={toggleMenu}
           type="button"
         >
-          <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
+          <span
+            ref={textWrapRef}
+            className="sm-toggle-textWrap"
+            aria-hidden="true"
+          >
             <span ref={textInnerRef} className="sm-toggle-textInner">
-              {textLines.map((l, i) => (
-                <span className="sm-toggle-line" key={i}>
-                  {l}
+              {textLines.map((line, index) => (
+                <span className="sm-toggle-line" key={`${line}-${index}`}>
+                  {line}
                 </span>
               ))}
             </span>
           </span>
+
           <span ref={iconRef} className="sm-icon" aria-hidden="true">
             <span ref={plusHRef} className="sm-icon-line" />
             <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
@@ -438,15 +700,60 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </button>
       </header>
 
-      <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
+      <aside
+        id="staggered-menu-panel"
+        ref={panelRef}
+        className="staggered-menu-panel"
+        aria-hidden={!open}
+      >
         <div className="sm-panel-inner">
-          <ul className="sm-panel-list" role="list" data-numbering={displayItemNumbering || undefined}>
-            {items && items.length ? (
-              items.map((it, idx) => (
-                <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                    <span className="sm-panel-itemLabel">{it.label}</span>
-                  </a>
+          <ul
+            className="sm-panel-list"
+            role="list"
+            data-numbering={displayItemNumbering || undefined}
+          >
+            {activeSubmenu && (
+              <li className="sm-panel-itemWrap">
+                <button
+                  type="button"
+                  className="sm-panel-item sm-panel-back"
+                  aria-label="Back to main menu"
+                  onClick={backToMainMenu}
+                >
+                  <span className="sm-panel-itemLabel">← Back</span>
+                </button>
+              </li>
+            )}
+
+            {visibleItems && visibleItems.length ? (
+              visibleItems.map((item, index) => (
+                <li
+                  className="sm-panel-itemWrap"
+                  key={`${item.label}-${index}`}
+                >
+                  {item.submenu ? (
+                    <button
+                      type="button"
+                      className="sm-panel-item sm-panel-submenu-trigger"
+                      aria-label={item.ariaLabel}
+                      data-index={index + 1}
+                      onClick={() => openSubmenu(item.submenu!)}
+                    >
+                      <span className="sm-panel-itemLabel">
+                        {item.label} →
+                      </span>
+                    </button>
+                  ) : (
+                    <a
+                      className="sm-panel-item"
+                      href={item.link}
+                      aria-label={item.ariaLabel}
+                      data-index={activeSubmenu ? index + 2 : index + 1}
+                      onClick={closeMenu}
+                    >
+                      <span className="sm-panel-itemLabel">{item.label}</span>
+                    </a>
+                  )}
                 </li>
               ))
             ) : (
@@ -457,14 +764,24 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               </li>
             )}
           </ul>
+
           {displaySocials && socialItems && socialItems.length > 0 && (
             <div className="sm-socials" aria-label="Social links">
               <h3 className="sm-socials-title">Socials</h3>
+
               <ul className="sm-socials-list" role="list">
-                {socialItems.map((s, i) => (
-                  <li key={s.label + i} className="sm-socials-item">
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
-                      {s.label}
+                {socialItems.map((social, index) => (
+                  <li
+                    key={`${social.label}-${index}`}
+                    className="sm-socials-item"
+                  >
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sm-socials-link"
+                    >
+                      {social.label}
                     </a>
                   </li>
                 ))}
@@ -474,7 +791,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </div>
       </aside>
     </div>
-  );
-};
+  )
+}
 
-export default StaggeredMenu;
+export default StaggeredMenu

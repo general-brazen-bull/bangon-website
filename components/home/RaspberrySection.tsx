@@ -26,7 +26,7 @@ export function RaspberrySection() {
             className="
               text-[20vw] md:text-[15vw] lg:text-[12vw]
               leading-[0.85]
-              text-[#fafafa]
+              text-[#0a0a0a]
               mb-12
               text-right
               pl-6 md:pl-0
