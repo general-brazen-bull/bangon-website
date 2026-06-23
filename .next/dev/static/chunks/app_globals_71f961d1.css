@@ -516,6 +516,40 @@
     order: 2;
   }
 
+  .container {
+    width: 100%;
+  }
+
+  @media (min-width: 40rem) {
+    .container {
+      max-width: 40rem;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .container {
+      max-width: 48rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .container {
+      max-width: 64rem;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .container {
+      max-width: 80rem;
+    }
+  }
+
+  @media (min-width: 96rem) {
+    .container {
+      max-width: 96rem;
+    }
+  }
+
   .mx-\[0\.15em\] {
     margin-inline: .15em;
   }
@@ -700,6 +734,10 @@
     height: 560px;
   }
 
+  .h-\[650px\] {
+    height: 650px;
+  }
+
   .h-auto {
     height: auto;
   }
@@ -716,8 +754,24 @@
     min-height: 60vh;
   }
 
+  .min-h-\[70vh\] {
+    min-height: 70vh;
+  }
+
+  .min-h-\[80vh\] {
+    min-height: 80vh;
+  }
+
+  .min-h-\[90vh\] {
+    min-height: 90vh;
+  }
+
   .min-h-\[260px\] {
     min-height: 260px;
+  }
+
+  .min-h-\[300px\] {
+    min-height: 300px;
   }
 
   .min-h-screen {
@@ -1381,6 +1435,10 @@
     text-align: right;
   }
 
+  .\[font-family\:Impact\,Haettenschweiler\,\'Arial_Narrow_Bold\'\,sans-serif\] {
+    font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  }
+
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -1496,6 +1554,30 @@
     font-size: clamp(1.4rem, 3.5vw, 2.6rem);
   }
 
+  .text-\[clamp\(3\.8rem\,18vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 18vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.8rem\,20vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 20vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.8rem\,22vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 22vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.8rem\,23vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 23vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.8rem\,24vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 24vw, 6.5rem);
+  }
+
+  .text-\[clamp\(3\.8rem\,25vw\,6\.5rem\)\] {
+    font-size: clamp(3.8rem, 25vw, 6.5rem);
+  }
+
   .text-\[clamp\(4\.3rem\,7\.5vw\,8\.5rem\)\] {
     font-size: clamp(4.3rem, 7.5vw, 8.5rem);
   }
@@ -1526,6 +1608,11 @@
   .leading-\[0\.95\] {
     --tw-leading: .95;
     line-height: .95;
+  }
+
+  .leading-\[0\.99\] {
+    --tw-leading: .99;
+    line-height: .99;
   }
 
   .leading-none {
@@ -1635,6 +1722,10 @@
 
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+
+  .whitespace-pre-wrap {
+    white-space: pre-wrap;
   }
 
   .text-\[\#0a0a0a\] {
@@ -1813,6 +1904,11 @@
   .shadow-\[0_10px_30px_rgba\(0\,0\,0\,0\.5\)\] {
     --tw-shadow: 0 10px 30px var(--tw-shadow-color, #00000080);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  .blur {
+    --tw-blur: blur(8px);
+    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
   }
 
   .blur-\[90px\] {
@@ -2100,6 +2196,12 @@
   }
 
   @media (min-width: 48rem) {
+    .md\:flex {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 48rem) {
     .md\:hidden {
       display: none;
     }
@@ -2114,6 +2216,12 @@
   @media (min-width: 48rem) {
     .md\:h-\[620px\] {
       height: 620px;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:h-\[650px\] {
+      height: 650px;
     }
   }
 
