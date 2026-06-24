@@ -758,10 +758,6 @@
     min-height: 70vh;
   }
 
-  .min-h-\[80vh\] {
-    min-height: 80vh;
-  }
-
   .min-h-\[90vh\] {
     min-height: 90vh;
   }
@@ -1558,26 +1554,6 @@
     font-size: clamp(3.8rem, 18vw, 6.5rem);
   }
 
-  .text-\[clamp\(3\.8rem\,20vw\,6\.5rem\)\] {
-    font-size: clamp(3.8rem, 20vw, 6.5rem);
-  }
-
-  .text-\[clamp\(3\.8rem\,22vw\,6\.5rem\)\] {
-    font-size: clamp(3.8rem, 22vw, 6.5rem);
-  }
-
-  .text-\[clamp\(3\.8rem\,23vw\,6\.5rem\)\] {
-    font-size: clamp(3.8rem, 23vw, 6.5rem);
-  }
-
-  .text-\[clamp\(3\.8rem\,24vw\,6\.5rem\)\] {
-    font-size: clamp(3.8rem, 24vw, 6.5rem);
-  }
-
-  .text-\[clamp\(3\.8rem\,25vw\,6\.5rem\)\] {
-    font-size: clamp(3.8rem, 25vw, 6.5rem);
-  }
-
   .text-\[clamp\(4\.3rem\,7\.5vw\,8\.5rem\)\] {
     font-size: clamp(4.3rem, 7.5vw, 8.5rem);
   }
@@ -2216,12 +2192,6 @@
   @media (min-width: 48rem) {
     .md\:h-\[620px\] {
       height: 620px;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:h-\[650px\] {
-      height: 650px;
     }
   }
 

@@ -57,7 +57,6 @@ const flavourItems = [
 
 const socialItems = [
   { label: "Instagram", link: "https://instagram.com" },
-  { label: "TikTok", link: "https://tiktok.com" },
 ]
 
 export function Header() {

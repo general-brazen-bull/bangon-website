@@ -47,11 +47,6 @@ const footerCards: FooterCard[] = [
         href: "https://instagram.com",
         external: true,
       },
-      {
-        text: "TikTok",
-        href: "https://tiktok.com",
-        external: true,
-      },
     ],
   },
 ]
