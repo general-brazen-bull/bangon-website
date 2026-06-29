@@ -310,7 +310,10 @@ export const FruitNinjaBackground = forwardRef<
 
       width = rect.width
       height = rect.height
-      dpr = Math.min(window.devicePixelRatio || 1, 2)
+      dpr =
+  window.innerWidth < 768
+    ? Math.min(window.devicePixelRatio || 1, 1.25)
+    : Math.min(window.devicePixelRatio || 1, 2)
 
       canvas.width = Math.floor(width * dpr)
       canvas.height = Math.floor(height * dpr)
@@ -344,29 +347,29 @@ export const FruitNinjaBackground = forwardRef<
 
     function spawnFruit() {
       const mobile = window.innerWidth < 768
-      const maxFruit = mobile ? 10 : mayhemActive ? 18 : 14
-
+      const maxFruit = mobile ? 6 : mayhemActive ? 18 : 14
+    
       if (fruits.length >= maxFruit) return
-
+    
       const type = randomFruitType()
-      const mobileScale = mobile ? 0.72 : 1
-
+      const mobileScale = mobile ? 0.62 : 1
+    
       const size =
         (type === "banana"
           ? 250 + Math.random() * 70
           : type === "apple"
             ? 210 + Math.random() * 65
             : 180 + Math.random() * 60) * mobileScale
-
+    
       const useSideLaunch = mayhemActive && Math.random() < 0.45
-
+    
       if (useSideLaunch) {
         const launchFromLeft = Math.random() > 0.5
         const x = launchFromLeft ? -size * 0.35 : width + size * 0.35
         const y = height * (0.22 + Math.random() * 0.56)
-
+    
         const speed = 8.8 + Math.random() * 3.3
-
+    
         fruits.push({
           id: fruitId++,
           type,
@@ -381,23 +384,23 @@ export const FruitNinjaBackground = forwardRef<
           life: 1,
           countedMiss: false,
         })
-
+    
         return
       }
-
+    
       const launchFromLeft = Math.random() > 0.5
-
+    
       const x = launchFromLeft
         ? width * (0.08 + Math.random() * 0.1)
         : width * (0.82 + Math.random() * 0.1)
-
+    
       const y = height + size * 0.2
-
+    
       const landingX = width * (0.44 + Math.random() * 0.12)
       const flightTime = frenzyActive
         ? 130 + Math.random() * 25
         : 165 + Math.random() * 35
-
+    
       fruits.push({
         id: fruitId++,
         type,
@@ -418,17 +421,17 @@ export const FruitNinjaBackground = forwardRef<
 
     function queueWave() {
       const mobile = window.innerWidth < 768
-
-      const idlePattern = mobile ? [2, 2, 3] : [2, 3, 3]
-      const gamePattern = mobile ? [2, 3, 3, 4] : [3, 4, 4, 5]
-      const frenzyPattern = mobile ? [6, 7, 8] : [9, 11, 13]
-
+    
+      const idlePattern = mobile ? [1, 2, 2] : [2, 3, 3]
+      const gamePattern = mobile ? [2, 2, 3] : [3, 4, 4, 5]
+      const frenzyPattern = mobile ? [4, 5, 5] : [9, 11, 13]
+    
       const pattern = frenzyActive
         ? frenzyPattern
         : gameActiveRef.current
           ? gamePattern
           : idlePattern
-
+    
       waveSpawnQueue = pattern[waveIndex % pattern.length]
       waveIndex++
       waveTimer = 0
@@ -436,24 +439,44 @@ export const FruitNinjaBackground = forwardRef<
 
     function updateWaves(delta: number) {
       if (gamePausedRef.current || internalPaused || gameOverRef.current) return
-
+    
+      const mobile = window.innerWidth < 768
+    
       waveTimer += delta
       waveSpawnTimer += delta
-
-      const pauseBetweenWaves = mayhemActive
-        ? 34
-        : frenzyActive
-          ? 42
-          : gameActiveRef.current
-            ? 80
-            : 95
-
-      const spawnGap = mayhemActive ? 3 : frenzyActive ? 4 : 11
-
+    
+      const pauseBetweenWaves = mobile
+        ? mayhemActive
+          ? 52
+          : frenzyActive
+            ? 62
+            : gameActiveRef.current
+              ? 95
+              : 115
+        : mayhemActive
+          ? 34
+          : frenzyActive
+            ? 42
+            : gameActiveRef.current
+              ? 80
+              : 95
+    
+      const spawnGap = mobile
+        ? mayhemActive
+          ? 8
+          : frenzyActive
+            ? 10
+            : 15
+        : mayhemActive
+          ? 3
+          : frenzyActive
+            ? 4
+            : 11
+    
       if (waveSpawnQueue <= 0 && waveTimer > pauseBetweenWaves) {
         queueWave()
       }
-
+    
       if (waveSpawnQueue > 0 && waveSpawnTimer > spawnGap) {
         spawnFruit()
         waveSpawnQueue--
@@ -508,9 +531,13 @@ export const FruitNinjaBackground = forwardRef<
         imageKey: getSplatKey(type),
       })
 
-      if (splats.length > 6) splats.shift()
+      const mobile = window.innerWidth < 768
 
-      const dropletCount = 30 + Math.floor(Math.random() * 18)
+      if (splats.length > (mobile ? 3 : 6)) splats.shift()
+      
+      const dropletCount = mobile
+        ? 10 + Math.floor(Math.random() * 8)
+        : 30 + Math.floor(Math.random() * 18)
 
       for (let i = 0; i < dropletCount; i++) {
         const speed = 5 + Math.random() * 11
@@ -969,56 +996,58 @@ export const FruitNinjaBackground = forwardRef<
     }
 
     function handlePointerMove(e: PointerEvent) {
+      if (!gameActiveRef.current || gameOverRef.current) return
+    
+      e.preventDefault()
+    
       const rect = canvas.getBoundingClientRect()
-
+    
       const next = {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
       }
-
+    
       const prev = pointer
       previousPointer = prev
       pointer = next
       isPointerInside = true
-
-      if (!gameActiveRef.current || gameOverRef.current) return
-
+    
       const movement = Math.hypot(next.x - prev.x, next.y - prev.y)
-
+    
       if (movement > 1.5) {
         slashTrail.push({ x: next.x, y: next.y, life: 1 })
-
+    
         slashPowerHistory.push(movement)
-
+    
         if (slashPowerHistory.length > 5) {
           slashPowerHistory.shift()
         }
-
+    
         const slashPower = slashPowerHistory.reduce(
           (sum, value) => sum + value,
           0
         )
-
+    
         const mobile = window.innerWidth < 768
-
+    
         const minSlashPower = mobile ? 58 : 82
         const currentSegmentPower = mobile ? 11 : 16
-
+    
         const isRealSlash =
           slashPower >= minSlashPower && movement >= currentSegmentPower
-
+    
         if (!isRealSlash) return
-
+    
         let cutCount = 0
         let comboX = 0
         let comboY = 0
         let comboType: FruitType = "raspberry"
-
+    
         fruits.forEach((fruit) => {
           if (!fruit || fruit.sliced) return
-
+    
           const hitRadius = fruit.size * 0.43
-
+    
           const distance = distanceToSegment(
             fruit.x,
             fruit.y,
@@ -1027,10 +1056,10 @@ export const FruitNinjaBackground = forwardRef<
             next.x,
             next.y
           )
-
+    
           if (distance < hitRadius) {
             const didSlice = sliceFruit(fruit)
-
+    
             if (didSlice) {
               cutCount++
               comboX += fruit.x
@@ -1039,7 +1068,7 @@ export const FruitNinjaBackground = forwardRef<
             }
           }
         })
-
+    
         if (cutCount > 0) {
           awardScore(cutCount, comboX / cutCount, comboY / cutCount, comboType)
           slashPowerHistory = []
@@ -1048,6 +1077,7 @@ export const FruitNinjaBackground = forwardRef<
     }
 
     function handlePointerEnter() {
+      if (!gameActiveRef.current || gameOverRef.current) return
       isPointerInside = true
     }
 
@@ -1055,6 +1085,11 @@ export const FruitNinjaBackground = forwardRef<
       isPointerInside = false
       slashTrail = []
       slashPowerHistory = []
+    }
+
+    function handlePointerDown() {
+      if (!gameActiveRef.current || gameOverRef.current) return
+      unlockAudio()
     }
 
     function handleVisibilityChange() {
@@ -1077,9 +1112,7 @@ export const FruitNinjaBackground = forwardRef<
     canvas.addEventListener("pointermove", handlePointerMove)
     canvas.addEventListener("pointerenter", handlePointerEnter)
     canvas.addEventListener("pointerleave", handlePointerLeave)
-    canvas.addEventListener("pointerdown", unlockAudio, { once: true })
-    canvas.addEventListener("touchstart", unlockAudio, { once: true })
-
+    canvas.addEventListener("pointerdown", handlePointerDown)
     return () => {
       cancelAnimationFrame(raf)
 
@@ -1097,8 +1130,7 @@ export const FruitNinjaBackground = forwardRef<
       canvas.removeEventListener("pointermove", handlePointerMove)
       canvas.removeEventListener("pointerenter", handlePointerEnter)
       canvas.removeEventListener("pointerleave", handlePointerLeave)
-      canvas.removeEventListener("pointerdown", unlockAudio)
-      canvas.removeEventListener("touchstart", unlockAudio)
+      canvas.removeEventListener("pointerdown", handlePointerDown)
     }
   }, [])
 
@@ -1109,9 +1141,7 @@ export const FruitNinjaBackground = forwardRef<
         className={`
           absolute inset-0 z-0
           h-full w-full
-          ${gameActive ? "cursor-none" : "cursor-default"}
-          touch-none
-          pointer-events-auto
+          ${gameActive ? "cursor-none touch-none pointer-events-auto" : "cursor-default pointer-events-none"}
         `}
         aria-hidden="true"
       />

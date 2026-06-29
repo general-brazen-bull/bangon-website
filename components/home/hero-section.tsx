@@ -124,6 +124,14 @@ export function HeroSection() {
   }, [])
 
   useEffect(() => {
+    document.body.classList.toggle("mobile-game-active", gameState !== "idle")
+
+    return () => {
+      document.body.classList.remove("mobile-game-active")
+    }
+  }, [gameState])
+
+  useEffect(() => {
     if (gameState !== "countdown") return
 
     setCountdown(5)
@@ -154,7 +162,6 @@ export function HeroSection() {
     setScoreSaved(false)
     fruitRef.current?.resetScore()
     fruitRef.current?.clearFruit()
-    fruitRef.current?.unlockAudio()
     setGameState("rules")
   }
 
@@ -193,6 +200,18 @@ export function HeroSection() {
     setGameState("gameover")
   }
 
+  const resetToIdle = () => {
+    setScore(0)
+    setFinalScore(0)
+    setMisses(0)
+    setFrenzyActive(false)
+    setMayhemActive(false)
+    setScoreSaved(false)
+    fruitRef.current?.resetScore()
+    fruitRef.current?.clearFruit()
+    setGameState("idle")
+  }
+
   const saveFinalScore = async () => {
     if (scoreSaved || finalScore <= 0) return
 
@@ -211,16 +230,7 @@ export function HeroSection() {
 
   const continueFromGameOver = async () => {
     await saveFinalScore()
-
-    setScore(0)
-    setFinalScore(0)
-    setMisses(0)
-    setFrenzyActive(false)
-    setMayhemActive(false)
-    setScoreSaved(false)
-    fruitRef.current?.resetScore()
-    fruitRef.current?.clearFruit()
-    setGameState("idle")
+    resetToIdle()
     handleContinue()
   }
 
@@ -265,13 +275,17 @@ export function HeroSection() {
   }
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-black">
+    <section
+      ref={ref}
+      className="relative min-h-[100svh] overflow-hidden bg-black md:h-screen"
+      style={{ touchAction: isPlaying ? "none" : "pan-y" }}
+    >
       <audio ref={musicRef} src="/sounds/music.mp3" preload="auto" loop />
 
       <FruitNinjaBackground
-       ref={fruitRef}
-       muted={fxMuted || !isPlaying}
-       gameActive={isPlaying}
+        ref={fruitRef}
+        muted={fxMuted || !isPlaying}
+        gameActive={isPlaying}
         gamePaused={
           gameState === "countdown" ||
           isRules ||
@@ -294,22 +308,21 @@ export function HeroSection() {
         }}
       />
 
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,rgba(255,54,114,0.18),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.85))] pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,rgba(255,54,114,0.18),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.85))]" />
 
       {/* DESKTOP SCORE / PLAY PANEL */}
       <div
         className="
-          hidden md:block
+          pointer-events-auto
           absolute left-4 top-28 z-30
-          w-[240px]
+          hidden w-[240px]
           border-2 border-[#2596be]
           bg-black/80
           p-4
           text-white
-          shadow-[0_0_20px_rgba(37,150,190,0.5)]          
+          shadow-[0_0_20px_rgba(37,150,190,0.5)]
           backdrop-blur-md
-          pointer-events-auto
-          md:left-8 md:top-24
+          md:left-8 md:top-24 md:block
         "
       >
         {isIdle ? (
@@ -402,7 +415,7 @@ export function HeroSection() {
                 : mayhemActive
                   ? "Absolute mayhem incoming..."
                   : frenzyActive
-                    ? "Fruit frenzy incoming..."
+                    ? "Juice storm incoming..."
                     : "Miss 3 fruits and score resets"}
             </p>
           </>
@@ -439,7 +452,7 @@ export function HeroSection() {
 
       {/* COUNTDOWN */}
       {gameState === "countdown" && (
-        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
 
           <div className="relative z-10 px-6 text-center">
@@ -472,7 +485,7 @@ export function HeroSection() {
 
       {/* DESKTOP GAME OVER */}
       {isGameOver && (
-        <div className="absolute inset-0 z-40 hidden items-center justify-center pointer-events-none md:flex">
+        <div className="pointer-events-none absolute inset-0 z-40 hidden items-center justify-center md:flex">
           <motion.div
             className="absolute inset-0 bg-black/70 backdrop-blur-md"
             initial={{ opacity: 0 }}
@@ -481,7 +494,7 @@ export function HeroSection() {
           />
 
           <motion.div
-            className="relative z-10 px-6 text-center pointer-events-auto"
+            className="pointer-events-auto relative z-10 px-6 text-center"
             initial={{ opacity: 0, scale: 0.9, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
@@ -531,7 +544,7 @@ export function HeroSection() {
 
       {/* FRENZY */}
       {frenzyActive && (
-        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/65 backdrop-blur-md" />
 
           <div className="relative z-10 px-6 text-center">
@@ -558,7 +571,7 @@ export function HeroSection() {
 
       {/* ABSOLUTE MAYHEM */}
       {mayhemActive && (
-        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
 
           <div className="relative z-10 px-6 text-center">
@@ -586,11 +599,10 @@ export function HeroSection() {
       {/* DESKTOP AUDIO CONTROLS */}
       <div
         className="
-          hidden md:flex
-          absolute right-4 top-28 z-50
-          flex-col gap-2
           pointer-events-auto
-          md:right-8 md:top-24 md:flex-row
+          absolute right-4 top-28 z-50
+          hidden flex-col gap-2
+          md:right-8 md:top-24 md:flex md:flex-row
         "
       >
         <button
@@ -646,39 +658,64 @@ export function HeroSection() {
         </button>
       </div>
 
+      {/* MOBILE MUSIC BUTTON OUTSIDE GAMEPLAY */}
       {(isIdle || isRules || isGameOver) && (
-  <button
-    type="button"
-    onClick={toggleMusic}
-    className="
-      absolute right-4 top-24 z-50
-      flex h-11 w-11 items-center justify-center
-      rounded-full
-      border border-[#f3db03]/50
-      bg-black/70
-      text-white
-      backdrop-blur-md
-      transition
-      active:scale-95
-      md:hidden
-    "
-    aria-label={musicEnabled ? "Disable music" : "Enable music"}
-  >
-    {musicEnabled ? (
-      <Music2 className="h-5 w-5" />
-    ) : (
-      <Music className="h-5 w-5" />
-    )}
-  </button>
-)}
+        <button
+          type="button"
+          onClick={toggleMusic}
+          className="
+            absolute right-4 top-24 z-50
+            flex h-11 w-11 items-center justify-center
+            rounded-full
+            border border-[#f3db03]/50
+            bg-black/70
+            text-white
+            backdrop-blur-md
+            transition
+            active:scale-95
+            md:hidden
+          "
+          aria-label={musicEnabled ? "Disable music" : "Enable music"}
+        >
+          {musicEnabled ? (
+            <Music2 className="h-5 w-5" />
+          ) : (
+            <Music className="h-5 w-5" />
+          )}
+        </button>
+      )}
+
+      {/* MOBILE GAME EXIT */}
+      {(isRules || gameState === "countdown" || isPlaying || isGameOver) && (
+        <button
+          type="button"
+          onClick={resetToIdle}
+          className="
+            absolute right-4 top-5 z-[60]
+            flex h-10 w-10 items-center justify-center
+            rounded-full
+            bg-black/75
+            text-2xl
+            leading-none
+            text-white
+            backdrop-blur-md
+            transition
+            active:scale-95
+            md:hidden
+          "
+          aria-label="Exit game"
+        >
+          ×
+        </button>
+      )}
 
       {/* MOBILE IDLE SCREEN */}
       {isIdle && (
         <motion.div
           className="
-            relative z-10 flex min-h-screen flex-col items-center justify-center
-            px-5 pt-24 pb-10 text-center
             pointer-events-none
+            relative z-10 flex min-h-[100svh] flex-col items-center justify-center
+            px-5 pb-24 pt-24 text-center
             md:hidden
           "
           initial={{ opacity: 0 }}
@@ -705,7 +742,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.div
-            className="relative z-10 mt-2 flex w-full max-w-[340px] flex-col gap-4 pointer-events-auto"
+            className="pointer-events-auto relative z-10 mt-2 flex w-full max-w-[340px] flex-col gap-4 pb-8"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.15 }}
@@ -766,9 +803,9 @@ export function HeroSection() {
       {isRules && (
         <motion.div
           className="
+            pointer-events-auto
             absolute inset-0 z-40 flex items-center justify-center
             bg-black/75 px-5 text-center backdrop-blur-md
-            pointer-events-auto
             md:hidden
           "
           initial={{ opacity: 0 }}
@@ -840,116 +877,116 @@ export function HeroSection() {
         </motion.div>
       )}
 
-   {/* MOBILE GAME HUD */}
-{(gameState === "countdown" || isPlaying) && (
-  <div
-    className="
-      absolute left-0 right-0 top-24 z-30
-      px-4
-      pointer-events-none
-      md:hidden
-    "
-  >
-    <div
-      className="
-        flex items-center justify-between gap-3
-        border border-[#2596be]/70
-        bg-black/75
-        px-4 py-3
-        text-white
-        backdrop-blur-md
-        shadow-[0_0_18px_rgba(37,150,190,0.3)]
-      "
-    >
-      <div className="min-w-[86px] text-left">
-        <p className="text-[9px] uppercase tracking-[0.22em] text-[#2596be]">
-          Score
-        </p>
-
-        <p
-          className="text-4xl leading-none text-[#ff3672]"
-          style={{
-            fontFamily:
-              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-          }}
+      {/* MOBILE GAME HUD */}
+      {(gameState === "countdown" || isPlaying) && (
+        <div
+          className="
+            pointer-events-none
+            absolute left-0 right-0 top-16 z-30
+            px-4
+            md:hidden
+          "
         >
-          {score}
-        </p>
-      </div>
+          <div
+            className="
+              flex items-center justify-between gap-3
+              border border-[#2596be]/70
+              bg-black/75
+              px-4 py-3
+              text-white
+              shadow-[0_0_18px_rgba(37,150,190,0.3)]
+              backdrop-blur-md
+            "
+          >
+            <div className="min-w-[86px] text-left">
+              <p className="text-[9px] uppercase tracking-[0.22em] text-[#2596be]">
+                Score
+              </p>
 
-      <div className="flex flex-1 flex-col items-center">
-        <p className="mb-2 text-[9px] uppercase tracking-[0.22em] text-[#95cb00]">
-          Misses
-        </p>
+              <p
+                className="text-4xl leading-none text-[#ff3672]"
+                style={{
+                  fontFamily:
+                    "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+                }}
+              >
+                {score}
+              </p>
+            </div>
 
-        <div className="flex w-full max-w-[110px] gap-1.5">
-          {[0, 1, 2].map((index) => (
-            <span
-              key={index}
-              className={`h-3 flex-1 ${
-                index < misses ? "bg-[#2596be]" : "bg-white/25"
-              }`}
-            />
-          ))}
+            <div className="flex flex-1 flex-col items-center">
+              <p className="mb-2 text-[9px] uppercase tracking-[0.22em] text-[#95cb00]">
+                Misses
+              </p>
+
+              <div className="flex w-full max-w-[110px] gap-1.5">
+                {[0, 1, 2].map((index) => (
+                  <span
+                    key={index}
+                    className={`h-3 flex-1 ${
+                      index < misses ? "bg-[#2596be]" : "bg-white/25"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="pointer-events-auto flex shrink-0 items-center gap-2">
+              <button
+                type="button"
+                onClick={toggleMusic}
+                className="
+                  flex h-10 w-10 items-center justify-center
+                  rounded-full
+                  border border-[#f3db03]/70
+                  bg-black/70
+                  text-white
+                  backdrop-blur-md
+                  transition
+                  active:scale-95
+                "
+                aria-label={musicEnabled ? "Disable music" : "Enable music"}
+              >
+                {musicEnabled ? (
+                  <Music2 className="h-5 w-5" />
+                ) : (
+                  <Music className="h-5 w-5" />
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={toggleFx}
+                className="
+                  flex h-10 w-10 items-center justify-center
+                  rounded-full
+                  border border-[#95cb00]/70
+                  bg-black/70
+                  text-white
+                  backdrop-blur-md
+                  transition
+                  active:scale-95
+                "
+                aria-label={fxMuted ? "Enable FX" : "Disable FX"}
+              >
+                {fxMuted ? (
+                  <VolumeX className="h-5 w-5" />
+                ) : (
+                  <Volume2 className="h-5 w-5" />
+                )}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="flex shrink-0 items-center gap-2 pointer-events-auto">
-        <button
-          type="button"
-          onClick={toggleMusic}
-          className="
-            flex h-10 w-10 items-center justify-center
-            rounded-full
-            border border-[#f3db03]/70
-            bg-black/70
-            text-white
-            backdrop-blur-md
-            transition
-            active:scale-95
-          "
-          aria-label={musicEnabled ? "Disable music" : "Enable music"}
-        >
-          {musicEnabled ? (
-            <Music2 className="h-5 w-5" />
-          ) : (
-            <Music className="h-5 w-5" />
-          )}
-        </button>
-
-        <button
-          type="button"
-          onClick={toggleFx}
-          className="
-            flex h-10 w-10 items-center justify-center
-            rounded-full
-            border border-[#95cb00]/70
-            bg-black/70
-            text-white
-            backdrop-blur-md
-            transition
-            active:scale-95
-          "
-          aria-label={fxMuted ? "Enable FX" : "Disable FX"}
-        >
-          {fxMuted ? (
-            <VolumeX className="h-5 w-5" />
-          ) : (
-            <Volume2 className="h-5 w-5" />
-          )}
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
       {/* MOBILE GAME OVER */}
       {isGameOver && (
         <motion.div
           className="
+            pointer-events-auto
             absolute inset-0 z-40 flex items-center justify-center
             bg-black/80 px-5 py-24 text-center backdrop-blur-md
-            pointer-events-auto
             md:hidden
           "
           initial={{ opacity: 0 }}
@@ -1103,7 +1140,7 @@ export function HeroSection() {
 
       {/* DESKTOP CONTENT */}
       <motion.div
-        className="relative z-10 hidden min-h-screen flex-col items-center justify-center px-6 text-center pointer-events-none md:flex"
+        className="pointer-events-none relative z-10 hidden min-h-screen flex-col items-center justify-center px-6 text-center md:flex"
         style={{ y: contentY, opacity: contentOpacity }}
       >
         <motion.div
@@ -1140,6 +1177,7 @@ export function HeroSection() {
 
         <motion.div
           className="
+            pointer-events-none
             absolute
             left-1/2
             top-1/2
@@ -1151,7 +1189,6 @@ export function HeroSection() {
             rounded-full
             bg-[#ff3672]/10
             blur-[90px]
-            pointer-events-none
           "
           animate={{
             opacity: isIdle ? 0.45 : 0.28,
