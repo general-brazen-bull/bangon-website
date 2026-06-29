@@ -392,7 +392,7 @@ body.light-header-section .sm-toggle:hover {
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
-    filter: invert();
+    filter: none;
   }
 }
 
@@ -448,7 +448,7 @@ body.light-header-section .sm-toggle:hover {
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
-    filter: invert();
+    filter: none;
   }
 }
 

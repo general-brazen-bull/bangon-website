@@ -145,9 +145,11 @@ export function Header() {
       colors={["#95cb00", "#f3db03", "#2596be"]}
       accentColor="#ff3672"
       logoUrl={
-        useRedLogo
+        menuOpen
           ? "/assets/logos/bangonred.png"
-          : "/assets/logos/bangon.png"
+          : useRedLogo
+            ? "/assets/logos/bangonred.png"
+            : "/assets/logos/bangon.png"
       }
       logoHref="/"
       onMenuOpen={() => setMenuOpen(true)}

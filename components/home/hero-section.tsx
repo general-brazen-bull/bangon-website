@@ -14,7 +14,7 @@ type LeaderboardEntry = {
   score: number
 }
 
-type GameState = "idle" | "countdown" | "playing" | "gameover"
+type GameState = "idle" | "rules" | "countdown" | "playing" | "gameover"
 
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -35,6 +35,7 @@ export function HeroSection() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
   const [name, setName] = useState("")
   const [activeName, setActiveName] = useState("")
+  const [scoreSaved, setScoreSaved] = useState(false)
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -45,6 +46,7 @@ export function HeroSection() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   const isIdle = gameState === "idle"
+  const isRules = gameState === "rules"
   const isPlaying = gameState === "playing"
   const isGameOver = gameState === "gameover"
 
@@ -143,23 +145,18 @@ export function HeroSection() {
     return () => window.clearInterval(interval)
   }, [gameState])
 
-  useEffect(() => {
-    if (gameState !== "gameover") return
-
-    const timeout = window.setTimeout(() => {
-      setScore(0)
-      setFinalScore(0)
-      setMisses(0)
-      setFrenzyActive(false)
-      setMayhemActive(false)
-      fruitRef.current?.resetScore()
-      fruitRef.current?.clearFruit()
-      setGameState("idle")
-      loadLeaderboard()
-    }, 2000)
-
-    return () => window.clearTimeout(timeout)
-  }, [gameState, loadLeaderboard])
+  const prepareMobileRules = () => {
+    setScore(0)
+    setFinalScore(0)
+    setMisses(0)
+    setFrenzyActive(false)
+    setMayhemActive(false)
+    setScoreSaved(false)
+    fruitRef.current?.resetScore()
+    fruitRef.current?.clearFruit()
+    fruitRef.current?.unlockAudio()
+    setGameState("rules")
+  }
 
   const startGame = () => {
     const cleanName = name.trim() || "Player"
@@ -170,6 +167,7 @@ export function HeroSection() {
     setMisses(0)
     setFrenzyActive(false)
     setMayhemActive(false)
+    setScoreSaved(false)
 
     fruitRef.current?.resetScore()
     fruitRef.current?.clearFruit()
@@ -191,12 +189,39 @@ export function HeroSection() {
     setMisses(3)
     setFrenzyActive(false)
     setMayhemActive(false)
-
-    if (activeName && finishedScore > 0) {
-      updateLeaderboard(activeName, finishedScore)
-    }
-
+    setScoreSaved(false)
     setGameState("gameover")
+  }
+
+  const saveFinalScore = async () => {
+    if (scoreSaved || finalScore <= 0) return
+
+    const cleanName = name.trim() || activeName || "Player"
+    setName(cleanName)
+    setActiveName(cleanName)
+
+    await updateLeaderboard(cleanName, finalScore)
+    setScoreSaved(true)
+  }
+
+  const playAgainFromGameOver = async () => {
+    await saveFinalScore()
+    startGame()
+  }
+
+  const continueFromGameOver = async () => {
+    await saveFinalScore()
+
+    setScore(0)
+    setFinalScore(0)
+    setMisses(0)
+    setFrenzyActive(false)
+    setMayhemActive(false)
+    setScoreSaved(false)
+    fruitRef.current?.resetScore()
+    fruitRef.current?.clearFruit()
+    setGameState("idle")
+    handleContinue()
   }
 
   const toggleMusic = async () => {
@@ -249,6 +274,7 @@ export function HeroSection() {
         gameActive={isPlaying}
         gamePaused={
           gameState === "countdown" ||
+          isRules ||
           frenzyActive ||
           mayhemActive ||
           isGameOver
@@ -270,9 +296,10 @@ export function HeroSection() {
 
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,rgba(255,54,114,0.18),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.85))] pointer-events-none" />
 
-      {/* SCORE / PLAY PANEL */}
+      {/* DESKTOP SCORE / PLAY PANEL */}
       <div
         className="
+          hidden md:block
           absolute left-4 top-28 z-30
           w-[240px]
           border-2 border-[#2596be]
@@ -371,7 +398,7 @@ export function HeroSection() {
 
             <p className="mt-2 text-xs font-semibold uppercase leading-snug tracking-[0.12em] text-white">
               {isGameOver
-                ? "Returning home..."
+                ? "Game over"
                 : mayhemActive
                   ? "Absolute mayhem incoming..."
                   : frenzyActive
@@ -443,9 +470,9 @@ export function HeroSection() {
         </div>
       )}
 
-      {/* GAME OVER */}
+      {/* DESKTOP GAME OVER */}
       {isGameOver && (
-        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 z-40 hidden items-center justify-center pointer-events-none md:flex">
           <motion.div
             className="absolute inset-0 bg-black/70 backdrop-blur-md"
             initial={{ opacity: 0 }}
@@ -454,13 +481,13 @@ export function HeroSection() {
           />
 
           <motion.div
-            className="relative z-10 px-6 text-center"
+            className="relative z-10 px-6 text-center pointer-events-auto"
             initial={{ opacity: 0, scale: 0.9, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
           >
             <p
-              className="text-[16vw] leading-[0.85] text-[#ff3672] md:text-[8vw]"
+              className="text-[8vw] leading-[0.85] text-[#ff3672]"
               style={{
                 fontFamily:
                   "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
@@ -472,7 +499,7 @@ export function HeroSection() {
             </p>
 
             <p
-              className="mt-5 text-2xl font-black uppercase tracking-[0.16em] text-[#95cb00] md:text-4xl"
+              className="mt-5 text-4xl font-black uppercase tracking-[0.16em] text-[#95cb00]"
               style={{
                 fontFamily:
                   "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
@@ -481,9 +508,23 @@ export function HeroSection() {
               FINAL SCORE: {finalScore}
             </p>
 
-            <p className="mt-4 text-sm font-black uppercase tracking-[0.22em] text-white/80 md:text-base">
-              Returning home...
-            </p>
+            <div className="mt-6 flex justify-center gap-3">
+              <button
+                type="button"
+                onClick={playAgainFromGameOver}
+                className="bg-[#ff3672] px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-black"
+              >
+                Play Again
+              </button>
+
+              <button
+                type="button"
+                onClick={continueFromGameOver}
+                className="bg-[#95cb00] px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-black"
+              >
+                Continue
+              </button>
+            </div>
           </motion.div>
         </div>
       )}
@@ -503,7 +544,7 @@ export function HeroSection() {
                   "0 0 22px rgba(149,203,0,0.8), 0 0 2px #ffffff",
               }}
             >
-              FRUIT FRENZY
+              JUICE STORM
               <br />
               INCOMING
             </p>
@@ -542,11 +583,12 @@ export function HeroSection() {
         </div>
       )}
 
-      {/* AUDIO CONTROLS */}
+      {/* DESKTOP AUDIO CONTROLS */}
       <div
         className="
+          hidden md:flex
           absolute right-4 top-28 z-50
-          flex flex-col gap-2
+          flex-col gap-2
           pointer-events-auto
           md:right-8 md:top-24 md:flex-row
         "
@@ -604,9 +646,503 @@ export function HeroSection() {
         </button>
       </div>
 
-      {/* CONTENT */}
+      {(isIdle || isRules || isGameOver) && (
+  <button
+    type="button"
+    onClick={toggleMusic}
+    className="
+      absolute right-4 top-24 z-50
+      flex h-11 w-11 items-center justify-center
+      rounded-full
+      border border-[#f3db03]/50
+      bg-black/70
+      text-white
+      backdrop-blur-md
+      transition
+      active:scale-95
+      md:hidden
+    "
+    aria-label={musicEnabled ? "Disable music" : "Enable music"}
+  >
+    {musicEnabled ? (
+      <Music2 className="h-5 w-5" />
+    ) : (
+      <Music className="h-5 w-5" />
+    )}
+  </button>
+)}
+
+      {/* MOBILE IDLE SCREEN */}
+      {isIdle && (
+        <motion.div
+          className="
+            relative z-10 flex min-h-screen flex-col items-center justify-center
+            px-5 pt-24 pb-10 text-center
+            pointer-events-none
+            md:hidden
+          "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45 }}
+        >
+          <motion.div
+            className="relative w-[112vw] max-w-none"
+            initial={{ y: 24, opacity: 0, scale: 0.94 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src="/assets/herologo.png"
+              alt="Wanna Bang? Bang On!"
+              width={1600}
+              height={900}
+              priority
+              className="
+                h-auto w-full select-none
+                drop-shadow-[0_0_32px_rgba(255,54,114,0.45)]
+              "
+            />
+          </motion.div>
+
+          <motion.div
+            className="relative z-10 mt-2 flex w-full max-w-[340px] flex-col gap-4 pointer-events-auto"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.15 }}
+          >
+            <button
+              type="button"
+              onClick={prepareMobileRules}
+              className="
+                w-full
+                bg-[#ff3672]
+                px-6 py-4
+                text-base
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-black
+                shadow-[0_0_24px_rgba(255,54,114,0.55)]
+                transition
+                active:scale-95
+              "
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+              }}
+            >
+              Play the Game
+            </button>
+
+            <a
+              href="https://deepbluedistilleries.ca/product-tag/bang-on/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                w-full
+                bg-[#95cb00]
+                px-6 py-4
+                text-base
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-black
+                shadow-[0_0_24px_rgba(149,203,0,0.45)]
+                transition
+                active:scale-95
+              "
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+              }}
+            >
+              Shop Now
+            </a>
+          </motion.div>
+
+          <motion.button
+            type="button"
+            onClick={handleContinue}
+            className="
+              pointer-events-auto
+              mt-8
+              flex flex-col items-center gap-3
+              text-white/80
+            "
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            aria-label="Continue to next section"
+          >
+            <span className="text-[14px] uppercase tracking-[0.25em]">
+              Continue
+            </span>
+
+            <motion.span
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 1.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="
+                flex h-11 w-11 items-center justify-center
+                rounded-full
+                border border-white/30
+                bg-white/10
+                text-2xl
+                leading-none
+                backdrop-blur-md
+              "
+            >
+              ↓
+            </motion.span>
+          </motion.button>
+        </motion.div>
+      )}
+
+      {/* MOBILE RULES SCREEN */}
+      {isRules && (
+        <motion.div
+          className="
+            absolute inset-0 z-40 flex items-center justify-center
+            bg-black/75 px-5 text-center backdrop-blur-md
+            pointer-events-auto
+            md:hidden
+          "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
+        >
+          <motion.div
+            className="
+              w-full max-w-[360px]
+              border-2 border-[#2596be]
+              bg-black/85
+              p-6
+              text-white
+              shadow-[0_0_28px_rgba(37,150,190,0.55)]
+            "
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <p
+              className="text-5xl uppercase leading-none text-[#ff3672]"
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+                textShadow: "0 0 18px rgba(255,54,114,0.65)",
+              }}
+            >
+              How to Play
+            </p>
+
+            <div className="mt-6 space-y-4 text-left">
+              <p className="text-sm font-black uppercase leading-snug tracking-[0.14em] text-white">
+                Slice the flying fruit.
+              </p>
+
+              <p className="text-sm font-black uppercase leading-snug tracking-[0.14em] text-white">
+                Miss 3 fruits and the game ends.
+              </p>
+
+              <p className="text-sm font-black uppercase leading-snug tracking-[0.14em] text-white">
+                Slice combos to score bonus points.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={startGame}
+              className="
+                mt-7 w-full
+                bg-[#95cb00]
+                px-6 py-4
+                text-base
+                font-black
+                uppercase
+                tracking-[0.16em]
+                text-black
+                shadow-[0_0_24px_rgba(149,203,0,0.45)]
+                transition
+                active:scale-95
+              "
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+              }}
+            >
+              Start
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+
+   {/* MOBILE GAME HUD */}
+{(gameState === "countdown" || isPlaying) && (
+  <div
+    className="
+      absolute left-0 right-0 top-24 z-30
+      px-4
+      pointer-events-none
+      md:hidden
+    "
+  >
+    <div
+      className="
+        flex items-center justify-between gap-3
+        border border-[#2596be]/70
+        bg-black/75
+        px-4 py-3
+        text-white
+        backdrop-blur-md
+        shadow-[0_0_18px_rgba(37,150,190,0.3)]
+      "
+    >
+      <div className="min-w-[86px] text-left">
+        <p className="text-[9px] uppercase tracking-[0.22em] text-[#2596be]">
+          Score
+        </p>
+
+        <p
+          className="text-4xl leading-none text-[#ff3672]"
+          style={{
+            fontFamily:
+              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+          }}
+        >
+          {score}
+        </p>
+      </div>
+
+      <div className="flex flex-1 flex-col items-center">
+        <p className="mb-2 text-[9px] uppercase tracking-[0.22em] text-[#95cb00]">
+          Misses
+        </p>
+
+        <div className="flex w-full max-w-[110px] gap-1.5">
+          {[0, 1, 2].map((index) => (
+            <span
+              key={index}
+              className={`h-3 flex-1 ${
+                index < misses ? "bg-[#2596be]" : "bg-white/25"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="flex shrink-0 items-center gap-2 pointer-events-auto">
+        <button
+          type="button"
+          onClick={toggleMusic}
+          className="
+            flex h-10 w-10 items-center justify-center
+            rounded-full
+            border border-[#f3db03]/70
+            bg-black/70
+            text-white
+            backdrop-blur-md
+            transition
+            active:scale-95
+          "
+          aria-label={musicEnabled ? "Disable music" : "Enable music"}
+        >
+          {musicEnabled ? (
+            <Music2 className="h-5 w-5" />
+          ) : (
+            <Music className="h-5 w-5" />
+          )}
+        </button>
+
+        <button
+          type="button"
+          onClick={toggleFx}
+          className="
+            flex h-10 w-10 items-center justify-center
+            rounded-full
+            border border-[#95cb00]/70
+            bg-black/70
+            text-white
+            backdrop-blur-md
+            transition
+            active:scale-95
+          "
+          aria-label={fxMuted ? "Enable FX" : "Disable FX"}
+        >
+          {fxMuted ? (
+            <VolumeX className="h-5 w-5" />
+          ) : (
+            <Volume2 className="h-5 w-5" />
+          )}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+      {/* MOBILE GAME OVER */}
+      {isGameOver && (
+        <motion.div
+          className="
+            absolute inset-0 z-40 flex items-center justify-center
+            bg-black/80 px-5 py-24 text-center backdrop-blur-md
+            pointer-events-auto
+            md:hidden
+          "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
+        >
+          <motion.div
+            className="
+              w-full max-w-[370px]
+              border-2 border-[#2596be]
+              bg-black/90
+              p-5
+              text-white
+              shadow-[0_0_28px_rgba(37,150,190,0.55)]
+            "
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <p
+              className="text-6xl uppercase leading-none text-[#ff3672]"
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+                textShadow: "0 0 20px rgba(255,54,114,0.75)",
+              }}
+            >
+              Game Over
+            </p>
+
+            <p className="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-[#95cb00]">
+              Final Score
+            </p>
+
+            <p
+              className="text-5xl leading-none text-[#f3db03]"
+              style={{
+                fontFamily:
+                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+              }}
+            >
+              {finalScore}
+            </p>
+
+            <div className="mt-5 text-left">
+              <p className="mb-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#2596be]">
+                Enter Name
+              </p>
+
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name"
+                maxLength={16}
+                className="
+                  w-full
+                  border border-[#2596be]/80
+                  bg-white/10
+                  px-3 py-3
+                  text-sm
+                  uppercase
+                  tracking-[0.08em]
+                  text-white
+                  outline-none
+                  placeholder:text-white/35
+                  focus:border-[#2596be]
+                "
+              />
+            </div>
+
+            <div className="mt-5 border-t border-[#2596be]/45 pt-4 text-left">
+              <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-[#2596be]">
+                Global High Scores
+              </p>
+
+              <div className="space-y-1">
+                {leaderboard.slice(0, 3).length > 0 ? (
+                  leaderboard.slice(0, 3).map((entry, index) => (
+                    <div
+                      key={`${entry.name}-${entry.score}-${index}`}
+                      className="flex justify-between gap-3 text-xs uppercase tracking-[0.08em] text-white/85"
+                    >
+                      <span className="truncate">
+                        {String(index + 1).padStart(2, "0")}. {entry.name}
+                      </span>
+                      <span className="shrink-0 text-[#f3db03]">
+                        {entry.score}
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-xs uppercase tracking-[0.08em] text-white/45">
+                    No scores yet
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3">
+              <button
+                type="button"
+                onClick={playAgainFromGameOver}
+                className="
+                  w-full
+                  bg-[#ff3672]
+                  px-6 py-4
+                  text-sm
+                  font-black
+                  uppercase
+                  tracking-[0.16em]
+                  text-black
+                  shadow-[0_0_20px_rgba(255,54,114,0.45)]
+                  transition
+                  active:scale-95
+                "
+                style={{
+                  fontFamily:
+                    "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+                }}
+              >
+                Play Again
+              </button>
+
+              <button
+                type="button"
+                onClick={continueFromGameOver}
+                className="
+                  w-full
+                  bg-[#95cb00]
+                  px-6 py-4
+                  text-sm
+                  font-black
+                  uppercase
+                  tracking-[0.16em]
+                  text-black
+                  shadow-[0_0_20px_rgba(149,203,0,0.45)]
+                  transition
+                  active:scale-95
+                "
+                style={{
+                  fontFamily:
+                    "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+                }}
+              >
+                Continue to site
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* DESKTOP CONTENT */}
       <motion.div
-        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center pointer-events-none"
+        className="relative z-10 hidden min-h-screen flex-col items-center justify-center px-6 text-center pointer-events-none md:flex"
         style={{ y: contentY, opacity: contentOpacity }}
       >
         <motion.div
@@ -742,52 +1278,6 @@ export function HeroSection() {
         >
           SHOP NOW
         </motion.a>
-
-        <motion.button
-          type="button"
-          onClick={handleContinue}
-          className="
-            pointer-events-auto
-            mt-8
-            flex flex-col items-center gap-3
-            text-white/80
-            transition-colors
-            hover:text-white
-            md:hidden
-          "
-          initial={{ opacity: 0, y: 12 }}
-          animate={{
-            opacity: isIdle ? 1 : 0,
-            y: isIdle ? 0 : 12,
-            pointerEvents: isIdle ? "auto" : "none",
-          }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          aria-label="Continue to next section"
-        >
-          <span className="text-[11px] uppercase tracking-[0.25em]">
-            Continue
-          </span>
-
-          <motion.span
-            animate={{ y: [0, 8, 0] }}
-            transition={{
-              duration: 1.4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="
-              flex h-11 w-11 items-center justify-center
-              rounded-full
-              border border-white/30
-              bg-white/10
-              text-2xl
-              leading-none
-              backdrop-blur-md
-            "
-          >
-            ↓
-          </motion.span>
-        </motion.button>
       </motion.div>
     </section>
   )

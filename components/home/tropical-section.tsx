@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 
 export function TropicalSection() {
   return (
@@ -52,6 +53,24 @@ export function TropicalSection() {
             </p>
           </motion.div>
 
+          {/* Mobile bottle */}
+          <motion.div
+  className="mb-12 flex justify-center w-full md:hidden"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.6, delay: 0.25 }}
+>
+  <Image
+     src="/assets/tropical-bottle.png"
+                  alt="Bang On Tropical"
+    width={300}
+    height={400}
+    className="h-auto w-[68%] max-w-[300px]"
+    priority
+  />
+</motion.div>
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,6 +85,9 @@ export function TropicalSection() {
               EXPLORE TROPICAL →
             </Link>
           </motion.div>
+
+
+
         </div>
       </div>
     </section>

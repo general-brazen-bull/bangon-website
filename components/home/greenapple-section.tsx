@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
 
@@ -9,7 +10,6 @@ export function GreenappleSection() {
 
   useEffect(() => {
     const section = sectionRef.current
-
     if (!section) return
 
     const observer = new IntersectionObserver(
@@ -19,9 +19,7 @@ export function GreenappleSection() {
           entry.isIntersecting
         )
       },
-      {
-        threshold: 0.35,
-      }
+      { threshold: 0.35 }
     )
 
     observer.observe(section)
@@ -34,33 +32,34 @@ export function GreenappleSection() {
 
   return (
     <section
-        data-header-theme="light"
-  className="py-32 md:py-40 bg-[#95cb00] relative overflow-hidden"
+      ref={sectionRef}
+      data-header-theme="light"
+      className="relative overflow-hidden bg-[#95cb00] py-32 md:py-40"
     >
-      {/* Background decorative rotated text */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none"
         initial={{ opacity: 0, rotate: -3, scale: 0.9 }}
         whileInView={{ opacity: 0.15, rotate: -2, scale: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="text-[30vw] md:text-[25vw] text-[#0a0a0a] leading-none whitespace-nowrap block">
+        <span className="block whitespace-nowrap text-[30vw] leading-none text-[#0a0a0a] md:text-[25vw]">
           GREEN APPLE
         </span>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col items-end">
-          {/* Stacked headline */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
+        <div className="flex flex-col items-start md:items-end">
           <motion.h2
             className="
-              text-[20vw] md:text-[15vw] lg:text-[12vw]
+              mb-12
+              text-left
+              text-[20vw]
               leading-[0.85]
               text-[#0a0a0a]
-              mb-12
-              text-right
-              pl-6 md:pl-0
+              md:text-right
+              md:text-[15vw]
+              lg:text-[12vw]
             "
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,27 +70,42 @@ export function GreenappleSection() {
             <span className="block">APPLE</span>
           </motion.h2>
 
-          {/* Product facts */}
           <motion.div
-            className="space-y-4 mb-12 text-right max-w-xl pl-6 md:pl-0"
+            className="mb-12 max-w-xl space-y-4 text-left md:text-right"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <p className="text-xl md:text-2xl text-[#0a0a0a]">
+            <p className="text-xl text-[#0a0a0a] md:text-2xl">
               Crisp green apple flavour. Twice distilled premium spirit. 99
               proof.
             </p>
 
-            <p className="text-lg md:text-xl text-[#0a0a0a]/80">
+            <p className="text-lg text-[#0a0a0a]/80 md:text-xl">
               Sharp, juicy, and built to hit hard.
             </p>
           </motion.div>
 
-          {/* CTA */}
           <motion.div
-            className="pl-6 md:pl-0"
+            className="mb-12 flex w-full justify-center md:hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <Image
+              src="/assets/apple-bottle.png"
+              alt="Bang On Green Apple"
+              width={300}
+              height={400}
+              className="h-auto w-[68%] max-w-[300px]"
+              priority
+            />
+          </motion.div>
+          
+          <motion.div
+            className="self-start md:self-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -99,11 +113,13 @@ export function GreenappleSection() {
           >
             <Link
               href="/flavours/green-apple"
-              className="inline-block bg-[#f94a02] text-[#fafafa] px-6 py-3 text-base rounded hover:bg-[#0a0a0a] transition-colors duration-300"
+              className="inline-block rounded bg-[#f94a02] px-6 py-3 text-base text-[#fafafa] transition-colors duration-300 hover:bg-[#0a0a0a]"
             >
               EXPLORE GREEN APPLE →
             </Link>
           </motion.div>
+
+         
         </div>
       </div>
     </section>

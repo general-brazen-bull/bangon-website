@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 
+
 export function RaspberrySection() {
   return (
     <section className="py-32 md:py-40 bg-[#ff3672] relative overflow-hidden">
@@ -71,6 +72,7 @@ export function RaspberrySection() {
               EXPLORE RIPE RASPBERRY →
             </Link>
           </motion.div>
+
         </div>
       </div>
     </section>
