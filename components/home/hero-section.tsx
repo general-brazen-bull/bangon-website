@@ -269,9 +269,9 @@ export function HeroSection() {
       <audio ref={musicRef} src="/sounds/music.mp3" preload="auto" loop />
 
       <FruitNinjaBackground
-        ref={fruitRef}
-        muted={fxMuted}
-        gameActive={isPlaying}
+       ref={fruitRef}
+       muted={fxMuted || !isPlaying}
+       gameActive={isPlaying}
         gamePaused={
           gameState === "countdown" ||
           isRules ||
@@ -759,45 +759,6 @@ export function HeroSection() {
               Shop Now
             </a>
           </motion.div>
-
-          <motion.button
-            type="button"
-            onClick={handleContinue}
-            className="
-              pointer-events-auto
-              mt-8
-              flex flex-col items-center gap-3
-              text-white/80
-            "
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            aria-label="Continue to next section"
-          >
-            <span className="text-[14px] uppercase tracking-[0.25em]">
-              Continue
-            </span>
-
-            <motion.span
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                duration: 1.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="
-                flex h-11 w-11 items-center justify-center
-                rounded-full
-                border border-white/30
-                bg-white/10
-                text-2xl
-                leading-none
-                backdrop-blur-md
-              "
-            >
-              ↓
-            </motion.span>
-          </motion.button>
         </motion.div>
       )}
 
