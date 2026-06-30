@@ -1672,7 +1672,7 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                 const rect = canvas.getBoundingClientRect();
                 width = rect.width;
                 height = rect.height;
-                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                dpr = window.innerWidth < 768 ? Math.min(window.devicePixelRatio || 1, 1.25) : Math.min(window.devicePixelRatio || 1, 2);
                 canvas.width = Math.floor(width * dpr);
                 canvas.height = Math.floor(height * dpr);
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -1698,10 +1698,10 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
             }
             function spawnFruit() {
                 const mobile = window.innerWidth < 768;
-                const maxFruit = mobile ? 10 : mayhemActive ? 18 : 14;
+                const maxFruit = mobile ? 6 : mayhemActive ? 18 : 14;
                 if (fruits.length >= maxFruit) return;
                 const type = randomFruitType();
-                const mobileScale = mobile ? 0.72 : 1;
+                const mobileScale = mobile ? 0.62 : 1;
                 const size = (type === "banana" ? 250 + Math.random() * 70 : type === "apple" ? 210 + Math.random() * 65 : 180 + Math.random() * 60) * mobileScale;
                 const useSideLaunch = mayhemActive && Math.random() < 0.45;
                 if (useSideLaunch) {
@@ -1748,9 +1748,9 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
             function queueWave() {
                 const mobile = window.innerWidth < 768;
                 const idlePattern = mobile ? [
+                    1,
                     2,
-                    2,
-                    3
+                    2
                 ] : [
                     2,
                     3,
@@ -1758,9 +1758,8 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                 ];
                 const gamePattern = mobile ? [
                     2,
-                    3,
-                    3,
-                    4
+                    2,
+                    3
                 ] : [
                     3,
                     4,
@@ -1768,9 +1767,9 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                     5
                 ];
                 const frenzyPattern = mobile ? [
-                    6,
-                    7,
-                    8
+                    4,
+                    5,
+                    5
                 ] : [
                     9,
                     11,
@@ -1783,10 +1782,11 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
             }
             function updateWaves(delta) {
                 if (gamePausedRef.current || internalPaused || gameOverRef.current) return;
+                const mobile = window.innerWidth < 768;
                 waveTimer += delta;
                 waveSpawnTimer += delta;
-                const pauseBetweenWaves = mayhemActive ? 34 : frenzyActive ? 42 : gameActiveRef.current ? 80 : 95;
-                const spawnGap = mayhemActive ? 3 : frenzyActive ? 4 : 11;
+                const pauseBetweenWaves = mobile ? mayhemActive ? 52 : frenzyActive ? 62 : gameActiveRef.current ? 95 : 115 : mayhemActive ? 34 : frenzyActive ? 42 : gameActiveRef.current ? 80 : 95;
+                const spawnGap = mobile ? mayhemActive ? 8 : frenzyActive ? 10 : 15 : mayhemActive ? 3 : frenzyActive ? 4 : 11;
                 if (waveSpawnQueue <= 0 && waveTimer > pauseBetweenWaves) {
                     queueWave();
                 }
@@ -1829,8 +1829,9 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                     life: 1,
                     imageKey: getSplatKey(type)
                 });
-                if (splats.length > 6) splats.shift();
-                const dropletCount = 30 + Math.floor(Math.random() * 18);
+                const mobile = window.innerWidth < 768;
+                if (splats.length > (mobile ? 3 : 6)) splats.shift();
+                const dropletCount = mobile ? 10 + Math.floor(Math.random() * 8) : 30 + Math.floor(Math.random() * 18);
                 for(let i = 0; i < dropletCount; i++){
                     const speed = 5 + Math.random() * 11;
                     const angle = Math.random() * Math.PI * 2;
@@ -2139,6 +2140,8 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                 raf = requestAnimationFrame(animate);
             }
             function handlePointerMove(e) {
+                if (!gameActiveRef.current || gameOverRef.current) return;
+                e.preventDefault();
                 const rect = canvas.getBoundingClientRect();
                 const next = {
                     x: e.clientX - rect.left,
@@ -2148,7 +2151,6 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                 previousPointer = prev;
                 pointer = next;
                 isPointerInside = true;
-                if (!gameActiveRef.current || gameOverRef.current) return;
                 const movement = Math.hypot(next.x - prev.x, next.y - prev.y);
                 if (movement > 1.5) {
                     slashTrail.push({
@@ -2195,12 +2197,17 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                 }
             }
             function handlePointerEnter() {
+                if (!gameActiveRef.current || gameOverRef.current) return;
                 isPointerInside = true;
             }
             function handlePointerLeave() {
                 isPointerInside = false;
                 slashTrail = [];
                 slashPowerHistory = [];
+            }
+            function handlePointerDown() {
+                if (!gameActiveRef.current || gameOverRef.current) return;
+                unlockAudio();
             }
             function handleVisibilityChange() {
                 if (document.hidden) {
@@ -2218,12 +2225,7 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
             canvas.addEventListener("pointermove", handlePointerMove);
             canvas.addEventListener("pointerenter", handlePointerEnter);
             canvas.addEventListener("pointerleave", handlePointerLeave);
-            canvas.addEventListener("pointerdown", unlockAudio, {
-                once: true
-            });
-            canvas.addEventListener("touchstart", unlockAudio, {
-                once: true
-            });
+            canvas.addEventListener("pointerdown", handlePointerDown);
             return ({
                 "FruitNinjaBackground.FruitNinjaBackground.useEffect": ()=>{
                     cancelAnimationFrame(raf);
@@ -2238,8 +2240,7 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
                     canvas.removeEventListener("pointermove", handlePointerMove);
                     canvas.removeEventListener("pointerenter", handlePointerEnter);
                     canvas.removeEventListener("pointerleave", handlePointerLeave);
-                    canvas.removeEventListener("pointerdown", unlockAudio);
-                    canvas.removeEventListener("touchstart", unlockAudio);
+                    canvas.removeEventListener("pointerdown", handlePointerDown);
                 }
             })["FruitNinjaBackground.FruitNinjaBackground.useEffect"];
         }
@@ -2251,19 +2252,17 @@ const FruitNinjaBackground = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module_
             className: `
           absolute inset-0 z-0
           h-full w-full
-          ${gameActive ? "cursor-none" : "cursor-default"}
-          touch-none
-          pointer-events-auto
+          ${gameActive ? "cursor-none touch-none pointer-events-auto" : "cursor-default pointer-events-none"}
         `,
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/components/home/FruitNinjaBackground.tsx",
-            lineNumber: 1107,
+            lineNumber: 1139,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/home/FruitNinjaBackground.tsx",
-        lineNumber: 1106,
+        lineNumber: 1138,
         columnNumber: 5
     }, this);
 }, "ukrfWAGESQS1r/KprD6rGJvcj8o=")), "ukrfWAGESQS1r/KprD6rGJvcj8o=");
@@ -2308,6 +2307,7 @@ function HeroSection() {
     const musicRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [fxMuted, setFxMuted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [musicEnabled, setMusicEnabled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [mobileGameNoticeOpen, setMobileGameNoticeOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [gameState, setGameState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("idle");
     const [countdown, setCountdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(5);
     const [frenzyActive, setFrenzyActive] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -2412,6 +2412,18 @@ function HeroSection() {
     }["HeroSection.useEffect"], []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HeroSection.useEffect": ()=>{
+            document.body.classList.toggle("mobile-game-active", gameState !== "idle");
+            return ({
+                "HeroSection.useEffect": ()=>{
+                    document.body.classList.remove("mobile-game-active");
+                }
+            })["HeroSection.useEffect"];
+        }
+    }["HeroSection.useEffect"], [
+        gameState
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "HeroSection.useEffect": ()=>{
             if (gameState !== "countdown") return;
             setCountdown(5);
             fruitRef.current?.clearFruit();
@@ -2446,7 +2458,6 @@ function HeroSection() {
         setScoreSaved(false);
         fruitRef.current?.resetScore();
         fruitRef.current?.clearFruit();
-        fruitRef.current?.unlockAudio();
         setGameState("rules");
     };
     const startGame = ()=>{
@@ -2478,6 +2489,17 @@ function HeroSection() {
         setScoreSaved(false);
         setGameState("gameover");
     };
+    const resetToIdle = ()=>{
+        setScore(0);
+        setFinalScore(0);
+        setMisses(0);
+        setFrenzyActive(false);
+        setMayhemActive(false);
+        setScoreSaved(false);
+        fruitRef.current?.resetScore();
+        fruitRef.current?.clearFruit();
+        setGameState("idle");
+    };
     const saveFinalScore = async ()=>{
         if (scoreSaved || finalScore <= 0) return;
         const cleanName = name.trim() || activeName || "Player";
@@ -2492,15 +2514,7 @@ function HeroSection() {
     };
     const continueFromGameOver = async ()=>{
         await saveFinalScore();
-        setScore(0);
-        setFinalScore(0);
-        setMisses(0);
-        setFrenzyActive(false);
-        setMayhemActive(false);
-        setScoreSaved(false);
-        fruitRef.current?.resetScore();
-        fruitRef.current?.clearFruit();
-        setGameState("idle");
+        resetToIdle();
         handleContinue();
     };
     const toggleMusic = async ()=>{
@@ -2539,7 +2553,10 @@ function HeroSection() {
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: ref,
-        className: "relative min-h-screen overflow-hidden bg-black",
+        className: "relative min-h-[100svh] overflow-hidden bg-black md:h-screen",
+        style: {
+            touchAction: isPlaying ? "none" : "pan-y"
+        },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
                 ref: musicRef,
@@ -2548,12 +2565,12 @@ function HeroSection() {
                 loop: true
             }, void 0, false, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 269,
+                lineNumber: 285,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$home$2f$FruitNinjaBackground$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FruitNinjaBackground"], {
                 ref: fruitRef,
-                muted: fxMuted,
+                muted: fxMuted || !isPlaying,
                 gameActive: isPlaying,
                 gamePaused: gameState === "countdown" || isRules || frenzyActive || mayhemActive || isGameOver,
                 onGameOver: handleGameOver,
@@ -2571,18 +2588,18 @@ function HeroSection() {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 271,
+                lineNumber: 287,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,rgba(255,54,114,0.18),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.85))] pointer-events-none"
+                className: "pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,rgba(255,54,114,0.18),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.85))]"
             }, void 0, false, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 297,
+                lineNumber: 313,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: " hidden md:block absolute left-4 top-28 z-30 w-[240px] border-2 border-[#2596be] bg-black/80 p-4 text-white shadow-[0_0_20px_rgba(37,150,190,0.5)]           backdrop-blur-md pointer-events-auto md:left-8 md:top-24 ",
+                className: " pointer-events-auto absolute left-4 top-28 z-30 hidden w-[240px] border-2 border-[#2596be] bg-black/80 p-4 text-white shadow-[0_0_20px_rgba(37,150,190,0.5)] backdrop-blur-md md:left-8 md:top-24 md:block ",
                 children: [
                     isIdle ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "space-y-3",
@@ -2592,7 +2609,7 @@ function HeroSection() {
                                 children: "Player 1"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 317,
+                                lineNumber: 332,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2600,7 +2617,7 @@ function HeroSection() {
                                 children: "Enter Name"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 321,
+                                lineNumber: 336,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2611,7 +2628,7 @@ function HeroSection() {
                                 className: " w-full border border-[#2596be]/80 bg-white/10 px-3 py-2 text-xs uppercase tracking-[0.08em] text-white outline-none placeholder:text-white/35 focus:border-[#2596be] "
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 325,
+                                lineNumber: 340,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2621,7 +2638,7 @@ function HeroSection() {
                                 children: "Play"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 345,
+                                lineNumber: 360,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2629,13 +2646,13 @@ function HeroSection() {
                                 children: "Slice all fruits. Score resets at 3 misses."
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 364,
+                                lineNumber: 379,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 316,
+                        lineNumber: 331,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                         children: [
@@ -2644,7 +2661,7 @@ function HeroSection() {
                                 children: isGameOver ? "Final Score" : "Fruits Cut"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 370,
+                                lineNumber: 385,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2655,7 +2672,7 @@ function HeroSection() {
                                 children: isGameOver ? finalScore : score
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 374,
+                                lineNumber: 389,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2666,7 +2683,7 @@ function HeroSection() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 384,
+                                lineNumber: 399,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2679,20 +2696,20 @@ function HeroSection() {
                                         className: `h-2 flex-1 ${index < misses ? "bg-[#2596be]" : "bg-white/20"}`
                                     }, index, false, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 390,
+                                        lineNumber: 405,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 388,
+                                lineNumber: 403,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "mt-2 text-xs font-semibold uppercase leading-snug tracking-[0.12em] text-white",
-                                children: isGameOver ? "Game over" : mayhemActive ? "Absolute mayhem incoming..." : frenzyActive ? "Fruit frenzy incoming..." : "Miss 3 fruits and score resets"
+                                children: isGameOver ? "Game over" : mayhemActive ? "Absolute mayhem incoming..." : frenzyActive ? "Juice storm incoming..." : "Miss 3 fruits and score resets"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 399,
+                                lineNumber: 414,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -2705,7 +2722,7 @@ function HeroSection() {
                                 children: "= Global High Scores ="
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 412,
+                                lineNumber: 427,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2722,7 +2739,7 @@ function HeroSection() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/home/hero-section.tsx",
-                                                lineNumber: 423,
+                                                lineNumber: 438,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2730,47 +2747,47 @@ function HeroSection() {
                                                 children: entry.score
                                             }, void 0, false, {
                                                 fileName: "[project]/components/home/hero-section.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 441,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, `${entry.name}-${entry.score}-${index}`, true, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 419,
+                                        lineNumber: 434,
                                         columnNumber: 17
                                     }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-xs uppercase tracking-[0.08em] text-white/45",
                                     children: "No scores yet"
                                 }, void 0, false, {
                                     fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 432,
+                                    lineNumber: 447,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 416,
+                                lineNumber: 431,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 411,
+                        lineNumber: 426,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 300,
+                lineNumber: 316,
                 columnNumber: 7
             }, this),
             gameState === "countdown" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 z-40 flex items-center justify-center pointer-events-none",
+                className: "pointer-events-none absolute inset-0 z-40 flex items-center justify-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-black/60 backdrop-blur-md"
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 443,
+                        lineNumber: 458,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2785,7 +2802,7 @@ function HeroSection() {
                                 children: "Slice all fruits. Score resets at 3 misses."
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 446,
+                                lineNumber: 461,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2797,23 +2814,23 @@ function HeroSection() {
                                 children: countdown
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 458,
+                                lineNumber: 473,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 445,
+                        lineNumber: 460,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 442,
+                lineNumber: 457,
                 columnNumber: 9
             }, this),
             isGameOver && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 z-40 hidden items-center justify-center pointer-events-none md:flex",
+                className: "pointer-events-none absolute inset-0 z-40 hidden items-center justify-center md:flex",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                         className: "absolute inset-0 bg-black/70 backdrop-blur-md",
@@ -2828,11 +2845,11 @@ function HeroSection() {
                         }
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 476,
+                        lineNumber: 491,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        className: "relative z-10 px-6 text-center pointer-events-auto",
+                        className: "pointer-events-auto relative z-10 px-6 text-center",
                         initial: {
                             opacity: 0,
                             scale: 0.9,
@@ -2857,7 +2874,7 @@ function HeroSection() {
                                 children: "GAME OVER"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 489,
+                                lineNumber: 504,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2871,7 +2888,7 @@ function HeroSection() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 501,
+                                lineNumber: 516,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2884,7 +2901,7 @@ function HeroSection() {
                                         children: "Play Again"
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 512,
+                                        lineNumber: 527,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2894,35 +2911,35 @@ function HeroSection() {
                                         children: "Continue"
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 520,
+                                        lineNumber: 535,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 511,
+                                lineNumber: 526,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 483,
+                        lineNumber: 498,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 475,
+                lineNumber: 490,
                 columnNumber: 9
             }, this),
             frenzyActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 z-40 flex items-center justify-center pointer-events-none",
+                className: "pointer-events-none absolute inset-0 z-40 flex items-center justify-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-black/65 backdrop-blur-md"
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 535,
+                        lineNumber: 550,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2938,14 +2955,14 @@ function HeroSection() {
                                     "JUICE STORM",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 548,
+                                        lineNumber: 563,
                                         columnNumber: 15
                                     }, this),
                                     "INCOMING"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 538,
+                                lineNumber: 553,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2953,29 +2970,29 @@ function HeroSection() {
                                 children: "The next wave hits harder."
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 552,
+                                lineNumber: 567,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 537,
+                        lineNumber: 552,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 534,
+                lineNumber: 549,
                 columnNumber: 9
             }, this),
             mayhemActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 z-40 flex items-center justify-center pointer-events-none",
+                className: "pointer-events-none absolute inset-0 z-40 flex items-center justify-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-black/70 backdrop-blur-md"
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 562,
+                        lineNumber: 577,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2991,14 +3008,14 @@ function HeroSection() {
                                     "ABSOLUTE",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 575,
+                                        lineNumber: 590,
                                         columnNumber: 15
                                     }, this),
                                     "MAYHEM"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 565,
+                                lineNumber: 580,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3006,23 +3023,23 @@ function HeroSection() {
                                 children: "Incoming from every side."
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 579,
+                                lineNumber: 594,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 564,
+                        lineNumber: 579,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 561,
+                lineNumber: 576,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: " hidden md:flex absolute right-4 top-28 z-50 flex-col gap-2 pointer-events-auto md:right-8 md:top-24 md:flex-row ",
+                className: " pointer-events-auto absolute right-4 top-28 z-50 hidden flex-col gap-2 md:right-8 md:top-24 md:flex md:flex-row ",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "button",
@@ -3033,20 +3050,20 @@ function HeroSection() {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 615,
+                                lineNumber: 629,
                                 columnNumber: 13
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$music$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Music$3e$__["Music"], {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 617,
+                                lineNumber: 631,
                                 columnNumber: 13
                             }, this),
                             musicEnabled ? "Disable Music" : "Enable Music"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 596,
+                        lineNumber: 610,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3058,26 +3075,26 @@ function HeroSection() {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 641,
+                                lineNumber: 655,
                                 columnNumber: 13
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$volume$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Volume2$3e$__["Volume2"], {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 643,
+                                lineNumber: 657,
                                 columnNumber: 13
                             }, this),
                             fxMuted ? "Enable FX" : "Disable FX"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 622,
+                        lineNumber: 636,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 587,
+                lineNumber: 602,
                 columnNumber: 7
             }, this),
             (isIdle || isRules || isGameOver) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3089,22 +3106,22 @@ function HeroSection() {
                     className: "h-5 w-5"
                 }, void 0, false, {
                     fileName: "[project]/components/home/hero-section.tsx",
-                    lineNumber: 668,
-                    columnNumber: 7
+                    lineNumber: 683,
+                    columnNumber: 13
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$music$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Music$3e$__["Music"], {
                     className: "h-5 w-5"
                 }, void 0, false, {
                     fileName: "[project]/components/home/hero-section.tsx",
-                    lineNumber: 670,
-                    columnNumber: 7
+                    lineNumber: 685,
+                    columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 650,
-                columnNumber: 3
+                lineNumber: 665,
+                columnNumber: 9
             }, this),
             isIdle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                className: " relative z-10 flex min-h-screen flex-col items-center justify-center px-5 pt-24 pb-10 text-center pointer-events-none md:hidden ",
+                className: " pointer-events-none relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-24 text-center md:hidden ",
                 initial: {
                     opacity: 0
                 },
@@ -3140,16 +3157,16 @@ function HeroSection() {
                             className: " h-auto w-full select-none drop-shadow-[0_0_32px_rgba(255,54,114,0.45)] "
                         }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 694,
+                            lineNumber: 711,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 688,
+                        lineNumber: 705,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        className: "relative z-10 mt-2 flex w-full max-w-[340px] flex-col gap-4 pointer-events-auto",
+                        className: "pointer-events-auto relative z-10 mt-2 flex w-full max-w-[340px] flex-col gap-4 pb-8",
                         initial: {
                             opacity: 0,
                             y: 18
@@ -3165,7 +3182,7 @@ function HeroSection() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "button",
-                                onClick: prepareMobileRules,
+                                onClick: ()=>setMobileGameNoticeOpen(true),
                                 className: " w-full bg-[#ff3672] px-6 py-4 text-base font-black uppercase tracking-[0.16em] text-black shadow-[0_0_24px_rgba(255,54,114,0.55)] transition active:scale-95 ",
                                 style: {
                                     fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
@@ -3173,7 +3190,7 @@ function HeroSection() {
                                 children: "Play the Game"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 713,
+                                lineNumber: 730,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3187,499 +3204,106 @@ function HeroSection() {
                                 children: "Shop Now"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 737,
+                                lineNumber: 754,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 707,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
-                        type: "button",
-                        onClick: handleContinue,
-                        className: " pointer-events-auto mt-8 flex flex-col items-center gap-3 text-white/80 ",
-                        initial: {
-                            opacity: 0,
-                            y: 12
-                        },
-                        animate: {
-                            opacity: 1,
-                            y: 0
-                        },
-                        transition: {
-                            duration: 0.5,
-                            delay: 0.45
-                        },
-                        "aria-label": "Continue to next section",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-[14px] uppercase tracking-[0.25em]",
-                                children: "Continue"
-                            }, void 0, false, {
-                                fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 777,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].span, {
-                                animate: {
-                                    y: [
-                                        0,
-                                        8,
-                                        0
-                                    ]
-                                },
-                                transition: {
-                                    duration: 1.4,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                },
-                                className: " flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-2xl leading-none backdrop-blur-md ",
-                                children: "↓"
-                            }, void 0, false, {
-                                fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 781,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 763,
+                        lineNumber: 724,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 677,
+                lineNumber: 694,
                 columnNumber: 9
             }, this),
-            isRules && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                className: " absolute inset-0 z-40 flex items-center justify-center bg-black/75 px-5 text-center backdrop-blur-md pointer-events-auto md:hidden ",
+            mobileGameNoticeOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "absolute inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md px-6 md:hidden",
                 initial: {
                     opacity: 0
                 },
                 animate: {
                     opacity: 1
                 },
-                transition: {
-                    duration: 0.25
+                exit: {
+                    opacity: 0
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                    className: " w-full max-w-[360px] border-2 border-[#2596be] bg-black/85 p-6 text-white shadow-[0_0_28px_rgba(37,150,190,0.55)] ",
-                    initial: {
-                        opacity: 0,
-                        scale: 0.92,
-                        y: 20
-                    },
-                    animate: {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0
-                    },
-                    transition: {
-                        duration: 0.35,
-                        ease: "easeOut"
-                    },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative w-full max-w-sm rounded-xl border-2 border-[#2596be] bg-black p-6 text-center",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-5xl uppercase leading-none text-[#ff3672]",
-                            style: {
-                                fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-                                textShadow: "0 0 18px rgba(255,54,114,0.65)"
-                            },
-                            children: "How to Play"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setMobileGameNoticeOpen(false),
+                            className: "absolute right-4 top-3 text-2xl text-white",
+                            children: "×"
                         }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 830,
-                            columnNumber: 13
+                            lineNumber: 791,
+                            columnNumber: 7
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-6 space-y-4 text-left",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm font-black uppercase leading-snug tracking-[0.14em] text-white",
-                                    children: "Slice the flying fruit."
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 842,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm font-black uppercase leading-snug tracking-[0.14em] text-white",
-                                    children: "Miss 3 fruits and the game ends."
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 846,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm font-black uppercase leading-snug tracking-[0.14em] text-white",
-                                    children: "Slice combos to score bonus points."
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 850,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 841,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            type: "button",
-                            onClick: startGame,
-                            className: " mt-7 w-full bg-[#95cb00] px-6 py-4 text-base font-black uppercase tracking-[0.16em] text-black shadow-[0_0_24px_rgba(149,203,0,0.45)] transition active:scale-95 ",
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-4xl text-[#ff3672] uppercase",
                             style: {
                                 fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
                             },
-                            children: "Start"
+                            children: "Bang On Arcade"
                         }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 855,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/components/home/hero-section.tsx",
-                    lineNumber: 817,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 806,
-                columnNumber: 9
-            }, this),
-            (gameState === "countdown" || isPlaying) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: " absolute left-0 right-0 top-24 z-30 px-4 pointer-events-none md:hidden ",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: " flex items-center justify-between gap-3 border border-[#2596be]/70 bg-black/75 px-4 py-3 text-white backdrop-blur-md shadow-[0_0_18px_rgba(37,150,190,0.3)] ",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "min-w-[86px] text-left",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-[9px] uppercase tracking-[0.22em] text-[#2596be]",
-                                    children: "Score"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 904,
-                                    columnNumber: 9
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-4xl leading-none text-[#ff3672]",
-                                    style: {
-                                        fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-                                    },
-                                    children: score
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 908,
-                                    columnNumber: 9
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 903,
+                            lineNumber: 798,
                             columnNumber: 7
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-1 flex-col items-center",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "mb-2 text-[9px] uppercase tracking-[0.22em] text-[#95cb00]",
-                                    children: "Misses"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 920,
-                                    columnNumber: 9
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex w-full max-w-[110px] gap-1.5",
-                                    children: [
-                                        0,
-                                        1,
-                                        2
-                                    ].map((index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: `h-3 flex-1 ${index < misses ? "bg-[#2596be]" : "bg-white/25"}`
-                                        }, index, false, {
-                                            fileName: "[project]/components/home/hero-section.tsx",
-                                            lineNumber: 926,
-                                            columnNumber: 13
-                                        }, this))
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 924,
-                                    columnNumber: 9
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "mt-5 text-white uppercase text-sm leading-relaxed",
+                            children: "The full fruit slicing game is available on desktop."
+                        }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 919,
+                            lineNumber: 808,
                             columnNumber: 7
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex shrink-0 items-center gap-2 pointer-events-auto",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: toggleMusic,
-                                    className: " flex h-10 w-10 items-center justify-center rounded-full border border-[#f3db03]/70 bg-black/70 text-white backdrop-blur-md transition active:scale-95 ",
-                                    "aria-label": musicEnabled ? "Disable music" : "Enable music",
-                                    children: musicEnabled ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$music$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Music2$3e$__["Music2"], {
-                                        className: "h-5 w-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 953,
-                                        columnNumber: 13
-                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$music$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Music$3e$__["Music"], {
-                                        className: "h-5 w-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 955,
-                                        columnNumber: 13
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 937,
-                                    columnNumber: 9
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: toggleFx,
-                                    className: " flex h-10 w-10 items-center justify-center rounded-full border border-[#95cb00]/70 bg-black/70 text-white backdrop-blur-md transition active:scale-95 ",
-                                    "aria-label": fxMuted ? "Enable FX" : "Disable FX",
-                                    children: fxMuted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$volume$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__VolumeX$3e$__["VolumeX"], {
-                                        className: "h-5 w-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 975,
-                                        columnNumber: 13
-                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$volume$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Volume2$3e$__["Volume2"], {
-                                        className: "h-5 w-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 977,
-                                        columnNumber: 13
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 959,
-                                    columnNumber: 9
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "mt-2 text-[#95cb00] uppercase text-xs tracking-[0.15em]",
+                            children: "Visit on a computer for the complete experience."
+                        }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 936,
+                            lineNumber: 812,
+                            columnNumber: 7
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>{
+                                setMobileGameNoticeOpen(false);
+                                handleContinue();
+                            },
+                            className: "mt-8 w-full bg-[#95cb00] py-4 font-black uppercase text-black",
+                            children: "Continue to Site"
+                        }, void 0, false, {
+                            fileName: "[project]/components/home/hero-section.tsx",
+                            lineNumber: 816,
+                            columnNumber: 7
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                            href: "https://deepbluedistilleries.ca/product-tag/bang-on/",
+                            target: "_blank",
+                            className: "mt-3 block w-full bg-[#ff3672] py-4 font-black uppercase text-black",
+                            children: "Shop Now"
+                        }, void 0, false, {
+                            fileName: "[project]/components/home/hero-section.tsx",
+                            lineNumber: 826,
                             columnNumber: 7
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/home/hero-section.tsx",
-                    lineNumber: 892,
+                    lineNumber: 789,
                     columnNumber: 5
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 884,
+                lineNumber: 783,
                 columnNumber: 3
             }, this),
-            isGameOver && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                className: " absolute inset-0 z-40 flex items-center justify-center bg-black/80 px-5 py-24 text-center backdrop-blur-md pointer-events-auto md:hidden ",
-                initial: {
-                    opacity: 0
-                },
-                animate: {
-                    opacity: 1
-                },
-                transition: {
-                    duration: 0.25
-                },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                    className: " w-full max-w-[370px] border-2 border-[#2596be] bg-black/90 p-5 text-white shadow-[0_0_28px_rgba(37,150,190,0.55)] ",
-                    initial: {
-                        opacity: 0,
-                        scale: 0.92,
-                        y: 20
-                    },
-                    animate: {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0
-                    },
-                    transition: {
-                        duration: 0.35,
-                        ease: "easeOut"
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-6xl uppercase leading-none text-[#ff3672]",
-                            style: {
-                                fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-                                textShadow: "0 0 20px rgba(255,54,114,0.75)"
-                            },
-                            children: "Game Over"
-                        }, void 0, false, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1011,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-[#95cb00]",
-                            children: "Final Score"
-                        }, void 0, false, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1022,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-5xl leading-none text-[#f3db03]",
-                            style: {
-                                fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-                            },
-                            children: finalScore
-                        }, void 0, false, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1026,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-5 text-left",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "mb-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#2596be]",
-                                    children: "Enter Name"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1037,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    value: name,
-                                    onChange: (e)=>setName(e.target.value),
-                                    placeholder: "Your name",
-                                    maxLength: 16,
-                                    className: " w-full border border-[#2596be]/80 bg-white/10 px-3 py-3 text-sm uppercase tracking-[0.08em] text-white outline-none placeholder:text-white/35 focus:border-[#2596be] "
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1041,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1036,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-5 border-t border-[#2596be]/45 pt-4 text-left",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "mb-2 text-[11px] uppercase tracking-[0.22em] text-[#2596be]",
-                                    children: "Global High Scores"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1063,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-1",
-                                    children: leaderboard.slice(0, 3).length > 0 ? leaderboard.slice(0, 3).map((entry, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex justify-between gap-3 text-xs uppercase tracking-[0.08em] text-white/85",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "truncate",
-                                                    children: [
-                                                        String(index + 1).padStart(2, "0"),
-                                                        ". ",
-                                                        entry.name
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/home/hero-section.tsx",
-                                                    lineNumber: 1074,
-                                                    columnNumber: 23
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "shrink-0 text-[#f3db03]",
-                                                    children: entry.score
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/home/hero-section.tsx",
-                                                    lineNumber: 1077,
-                                                    columnNumber: 23
-                                                }, this)
-                                            ]
-                                        }, `${entry.name}-${entry.score}-${index}`, true, {
-                                            fileName: "[project]/components/home/hero-section.tsx",
-                                            lineNumber: 1070,
-                                            columnNumber: 21
-                                        }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xs uppercase tracking-[0.08em] text-white/45",
-                                        children: "No scores yet"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/home/hero-section.tsx",
-                                        lineNumber: 1083,
-                                        columnNumber: 19
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1067,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1062,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-5 flex flex-col gap-3",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: playAgainFromGameOver,
-                                    className: " w-full bg-[#ff3672] px-6 py-4 text-sm font-black uppercase tracking-[0.16em] text-black shadow-[0_0_20px_rgba(255,54,114,0.45)] transition active:scale-95 ",
-                                    style: {
-                                        fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-                                    },
-                                    children: "Play Again"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1091,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: continueFromGameOver,
-                                    className: " w-full bg-[#95cb00] px-6 py-4 text-sm font-black uppercase tracking-[0.16em] text-black shadow-[0_0_20px_rgba(149,203,0,0.45)] transition active:scale-95 ",
-                                    style: {
-                                        fontFamily: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-                                    },
-                                    children: "Continue to site"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/home/hero-section.tsx",
-                                    lineNumber: 1115,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1090,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/components/home/hero-section.tsx",
-                    lineNumber: 998,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 987,
-                columnNumber: 9
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                className: "relative z-10 hidden min-h-screen flex-col items-center justify-center px-6 text-center pointer-events-none md:flex",
+                className: "pointer-events-none relative z-10 hidden min-h-screen flex-col items-center justify-center px-6 text-center md:flex",
                 style: {
                     y: contentY,
                     opacity: contentOpacity
@@ -3711,16 +3335,16 @@ function HeroSection() {
                             className: "h-auto w-full select-none drop-shadow-[0_0_28px_rgba(255,54,114,0.35)]"
                         }, void 0, false, {
                             fileName: "[project]/components/home/hero-section.tsx",
-                            lineNumber: 1170,
+                            lineNumber: 865,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 1148,
+                        lineNumber: 843,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        className: " absolute left-1/2 top-1/2 h-[42vw] w-[70vw] max-w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff3672]/10 blur-[90px] pointer-events-none ",
+                        className: " pointer-events-none absolute left-1/2 top-1/2 h-[42vw] w-[70vw] max-w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff3672]/10 blur-[90px] ",
                         animate: {
                             opacity: isIdle ? 0.45 : 0.28,
                             scale: isIdle ? 1 : 0.8
@@ -3731,7 +3355,7 @@ function HeroSection() {
                         }
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 1180,
+                        lineNumber: 875,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -3757,7 +3381,7 @@ function HeroSection() {
                                 children: "CANADA'S 99 PROOF • BORN IN BC"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 1219,
+                                lineNumber: 914,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3765,13 +3389,13 @@ function HeroSection() {
                                 children: "カナダ発 • 99プルーフ • BC生まれ"
                             }, void 0, false, {
                                 fileName: "[project]/components/home/hero-section.tsx",
-                                lineNumber: 1237,
+                                lineNumber: 932,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 1202,
+                        lineNumber: 897,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -3798,23 +3422,23 @@ function HeroSection() {
                         children: "SHOP NOW"
                     }, void 0, false, {
                         fileName: "[project]/components/home/hero-section.tsx",
-                        lineNumber: 1242,
+                        lineNumber: 937,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home/hero-section.tsx",
-                lineNumber: 1144,
+                lineNumber: 839,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/home/hero-section.tsx",
-        lineNumber: 268,
+        lineNumber: 280,
         columnNumber: 5
     }, this);
 }
-_s(HeroSection, "cFmzMr7SfB7MJ6wmQ1AAPlg+PQA=", false, function() {
+_s(HeroSection, "1hrhG5N5FJgpATkFh3ROWvbUKLQ=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
