@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { trackEvent } from "@/lib/analytics"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Volume2, VolumeX, Music, Music2 } from "lucide-react"
@@ -752,29 +753,34 @@ export function HeroSection() {
             </button>
 
             <a
-              href="https://deepbluedistilleries.ca/product-tag/bang-on/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                w-full
-                bg-[#95cb00]
-                px-6 py-4
-                text-base
-                font-black
-                uppercase
-                tracking-[0.16em]
-                text-black
-                shadow-[0_0_24px_rgba(149,203,0,0.45)]
-                transition
-                active:scale-95
-              "
-              style={{
-                fontFamily:
-                  "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-              }}
-            >
-              Shop Now
-            </a>
+  href="https://deepbluedistilleries.ca/product-tag/bang-on/"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() =>
+    trackEvent("shop_now_click", {
+      location: "hero_mobile",
+    })
+  }
+  className="
+    w-full
+    bg-[#95cb00]
+    px-6 py-4
+    text-base
+    font-black
+    uppercase
+    tracking-[0.16em]
+    text-black
+    shadow-[0_0_24px_rgba(149,203,0,0.45)]
+    transition
+    active:scale-95
+  "
+  style={{
+    fontFamily:
+      "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+  }}
+>
+  Shop Now
+</a>
           </motion.div>
         </motion.div>
       )}
@@ -824,12 +830,18 @@ export function HeroSection() {
       </button>
 
       <a
-        href="https://deepbluedistilleries.ca/product-tag/bang-on/"
-        target="_blank"
-        className="mt-3 block w-full bg-[#ff3672] py-4 font-black uppercase text-black"
-      >
-        Shop Now
-      </a>
+  href="https://deepbluedistilleries.ca/product-tag/bang-on/"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() =>
+    trackEvent("shop_now_click", {
+      location: "mobile_game_popup",
+    })
+  }
+  className="mt-3 block w-full bg-[#ff3672] py-4 font-black uppercase text-black"
+>
+  Shop Now
+</a>
     </div>
   </motion.div>
 )}
@@ -935,44 +947,49 @@ export function HeroSection() {
         </motion.div>
 
         <motion.a
-          href="https://deepbluedistilleries.ca/product-tag/bang-on/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            pointer-events-auto
-            relative
-            z-10
-            inline-block
-            bg-[#95cb00]
-            px-8
-            py-3
-            text-sm
-            font-black
-            uppercase
-            tracking-[0.14em]
-            text-black
-            shadow-[0_0_20px_rgba(149,203,0,0.5)]
-            transition-colors
-            duration-300
-            hover:bg-[#ff3672]
-            md:px-10
-            md:py-4
-            md:text-base
-          "
-          style={{
-            fontFamily:
-              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-          }}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{
-            opacity: isIdle ? 1 : 0,
-            y: isIdle ? 0 : 12,
-            pointerEvents: isIdle ? "auto" : "none",
-          }}
-          transition={{ duration: 0.4, delay: isIdle ? 0.25 : 0 }}
-        >
-          SHOP NOW
-        </motion.a>
+  href="https://deepbluedistilleries.ca/product-tag/bang-on/"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() =>
+    trackEvent("shop_now_click", {
+      location: "hero_desktop",
+    })
+  }
+  className="
+    pointer-events-auto
+    relative
+    z-10
+    inline-block
+    bg-[#95cb00]
+    px-8
+    py-3
+    text-sm
+    font-black
+    uppercase
+    tracking-[0.14em]
+    text-black
+    shadow-[0_0_20px_rgba(149,203,0,0.5)]
+    transition-colors
+    duration-300
+    hover:bg-[#ff3672]
+    md:px-10
+    md:py-4
+    md:text-base
+  "
+  style={{
+    fontFamily:
+      "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+  }}
+  initial={{ opacity: 0, y: 12 }}
+  animate={{
+    opacity: isIdle ? 1 : 0,
+    y: isIdle ? 0 : 12,
+    pointerEvents: isIdle ? "auto" : "none",
+  }}
+  transition={{ duration: 0.4, delay: isIdle ? 0.25 : 0 }}
+>
+  SHOP NOW
+</motion.a>
       </motion.div>
     </section>
   )
