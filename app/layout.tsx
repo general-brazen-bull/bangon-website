@@ -1,8 +1,8 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { AgeGate } from "@/components/AgeGate"
+import { GoogleTagManager } from "@next/third-parties/google"
 
 
 export const metadata: Metadata = {
@@ -39,8 +39,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
-        <Analytics />
+      <GoogleTagManager gtmId="GTM-PLLMJH69" />
+      {children}
         <AgeGate />
 
       </body>
