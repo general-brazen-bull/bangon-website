@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { trackEvent } from "@/lib/analytics"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Volume2, VolumeX, Music, Music2 } from "lucide-react"
@@ -9,6 +8,8 @@ import {
   FruitNinjaBackground,
   FruitNinjaBackgroundHandle,
 } from "@/components/home/FruitNinjaBackground"
+
+import { trackEvent } from "@/lib/analytics"
 
 type LeaderboardEntry = {
   name: string
