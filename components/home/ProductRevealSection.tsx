@@ -221,9 +221,9 @@ export function ProductRevealSection() {
                 className="absolute"
               >
                 <Image
-                  src="/assets/atomic-peach-bottle.png"
+                  src="/assets/atomic-peach-bottles.png"
                   alt="Bang On Atomic Peach"
-                  width={520}
+                  width={650}
                   height={700}
                   priority
                 />
@@ -240,7 +240,7 @@ export function ProductRevealSection() {
                 <Image
                   src="/assets/apple-bottle.png"
                   alt="Bang On Green Apple"
-                  width={520}
+                  width={650}
                   height={700}
                 />
               </motion.div>
@@ -254,9 +254,9 @@ export function ProductRevealSection() {
                 className="absolute"
               >
                 <Image
-                  src="/assets/banana-bottle.png"
+                  src="/assets/banana-bottles.png"
                   alt="Bang On Big Banana"
-                  width={520}
+                  width={650}
                   height={700}
                 />
               </motion.div>
@@ -272,7 +272,7 @@ export function ProductRevealSection() {
                 <Image
                   src="/assets/tropical-bottle.png"
                   alt="Bang On Tropical"
-                  width={520}
+                  width={650}
                   height={700}
                 />
               </motion.div>
@@ -288,7 +288,7 @@ export function ProductRevealSection() {
                 <Image
                   src="/assets/raspberry-bottle.png"
                   alt="Bang On Ripe Raspberry"
-                  width={520}
+                  width={650}
                   height={700}
                 />
               </motion.div>

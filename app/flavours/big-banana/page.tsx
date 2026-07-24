@@ -90,9 +90,9 @@ export default function BigBananaPage() {
   className="flex justify-center"
   style={{ y: bottleY }}
 >
-<div className="relative w-80 aspect-[1/2] overflow-visible">
+<div className="relative w-100 aspect-[1/2] overflow-visible">
   <Image
-    src="/assets/banana-bottle.png"
+    src="/assets/banana-bottles.png"
     alt="Big Banana bottle"
     fill
     className="object-contain scale-[1.28] md:scale-[1.45] lg:scale-[1.7]"
@@ -132,6 +132,12 @@ export default function BigBananaPage() {
                   <span className="text-lg text-[#0a0a0a]">Origin</span>
                   <span className="text-lg text-[#0a0a0a]">British Columbia, Canada</span>
                 </div>
+
+                <div className="flex justify-between items-center border-b border-[#0a0a0a]/20 pb-4">
+                  <span className="text-lg text-[#0a0a0a]">Size</span>
+                  <span className="text-lg text-[#0a0a0a]">50 mL and 200 mL</span>
+                </div>
+
               </div>
 
               <p className="text-lg text-[#0a0a0a] mb-12">

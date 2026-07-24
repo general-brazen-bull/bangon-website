@@ -972,10 +972,6 @@ const socialItems = [
     {
         label: "Instagram",
         link: "https://instagram.com"
-    },
-    {
-        label: "TikTok",
-        link: "https://tiktok.com"
     }
 ];
 function Header() {
@@ -1069,13 +1065,13 @@ function Header() {
             "#2596be"
         ],
         accentColor: "#ff3672",
-        logoUrl: useRedLogo ? "/assets/logos/bangonred.png" : "/assets/logos/bangon.png",
+        logoUrl: menuOpen ? "/assets/logos/bangonred.png" : useRedLogo ? "/assets/logos/bangonred.png" : "/assets/logos/bangon.png",
         logoHref: "/",
         onMenuOpen: ()=>setMenuOpen(true),
         onMenuClose: ()=>setMenuOpen(false)
     }, void 0, false, {
         fileName: "[project]/components/header.tsx",
-        lineNumber: 131,
+        lineNumber: 130,
         columnNumber: 5
     }, this);
 }
@@ -1162,11 +1158,6 @@ const footerCards = [
                 text: "Instagram",
                 href: "https://instagram.com",
                 external: true
-            },
-            {
-                text: "TikTok",
-                href: "https://tiktok.com",
-                external: true
             }
         ]
     }
@@ -1222,12 +1213,12 @@ function Footer() {
                                                 children: "BANG ON"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/footer.tsx",
-                                                lineNumber: 98,
+                                                lineNumber: 93,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 94,
+                                            lineNumber: 89,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1238,12 +1229,12 @@ function Footer() {
                                                     children: "99 Proof."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 102,
+                                                    lineNumber: 97,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 98,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1251,12 +1242,12 @@ function Footer() {
                                                     children: "Proudly Canadian."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 99,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 100,
                                                     columnNumber: 3
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1264,24 +1255,24 @@ function Footer() {
                                                     children: "Born in BC."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 106,
+                                                    lineNumber: 101,
                                                     columnNumber: 3
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 96,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/footer.tsx",
-                                    lineNumber: 93,
+                                    lineNumber: 88,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 89,
+                                lineNumber: 84,
                                 columnNumber: 13
                             }, this),
                             footerCards.map((card, index)=>{
@@ -1309,7 +1300,7 @@ function Footer() {
                                             children: card.title
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 140,
+                                            lineNumber: 135,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1326,36 +1317,36 @@ function Footer() {
                                                                 className: "h-3 w-3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/footer.tsx",
-                                                                lineNumber: 160,
+                                                                lineNumber: 155,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/footer.tsx",
-                                                        lineNumber: 147,
+                                                        lineNumber: 142,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, link.text, false, {
                                                     fileName: "[project]/components/footer.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 141,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/footer.tsx",
-                                            lineNumber: 144,
+                                            lineNumber: 139,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, card.title, true, {
                                     fileName: "[project]/components/footer.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 130,
                                     columnNumber: 17
                                 }, this);
                             })
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 87,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1367,12 +1358,12 @@ function Footer() {
                             children: "BANG ON"
                         }, void 0, false, {
                             fileName: "[project]/components/footer.tsx",
-                            lineNumber: 176,
+                            lineNumber: 171,
                             columnNumber: 12
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 172,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1384,7 +1375,7 @@ function Footer() {
                                 children: "Drink responsibly. Must be 19+."
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 203,
+                                lineNumber: 198,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1392,29 +1383,29 @@ function Footer() {
                                 children: "© 2026 Brazen Bull Creative"
                             }, void 0, false, {
                                 fileName: "[project]/components/footer.tsx",
-                                lineNumber: 207,
+                                lineNumber: 202,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/footer.tsx",
-                        lineNumber: 199,
+                        lineNumber: 194,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/footer.tsx",
-                lineNumber: 79,
+                lineNumber: 74,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/footer.tsx",
-            lineNumber: 78,
+            lineNumber: 73,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/footer.tsx",
-        lineNumber: 77,
+        lineNumber: 72,
         columnNumber: 5
     }, this);
 }
@@ -1755,6 +1746,31 @@ function AtomicPeachPage() {
                                                     fileName: "[project]/app/flavours/atomic-peach/page.tsx",
                                                     lineNumber: 117,
                                                     columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex justify-between items-center border-b border-[#fafafa]/20 pb-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-lg text-[#fafafa]",
+                                                            children: "Size"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/flavours/atomic-peach/page.tsx",
+                                                            lineNumber: 125,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-lg text-[#fafafa]",
+                                                            children: "50 mL and 200 mL"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/flavours/atomic-peach/page.tsx",
+                                                            lineNumber: 126,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/flavours/atomic-peach/page.tsx",
+                                                    lineNumber: 124,
+                                                    columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
@@ -1764,10 +1780,10 @@ function AtomicPeachPage() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-lg text-[#fafafa] mb-12",
-                                            children: "Atomic Peach brings big peach flavour with a smooth, sweet opening and a high-proof finish. Bright, juicy, and made to hit hard, it is pure Bang On energy in a 50 mL bottle."
+                                            children: "Atomic Peach brings big peach flavour with a smooth, sweet opening and a high-proof finish. Bright, juicy, and made to hit hard, it is pure Bang On energy in a 50 mL and 200 mL bottle."
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 133,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1778,7 +1794,7 @@ function AtomicPeachPage() {
                                             children: "SHOP NOW"
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 131,
+                                            lineNumber: 139,
                                             columnNumber: 15
                                         }, this)
                                     ]
@@ -1795,9 +1811,9 @@ function AtomicPeachPage() {
                                             y: bottleY
                                         },
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative w-80 aspect-[1/2] overflow-visible",
+                                            className: "relative w-100 aspect-[1/2] overflow-visible",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                src: "/assets/atomic-peach-bottle.png",
+                                                src: "/assets/atomic-peach-bottles.png",
                                                 alt: "Bang On Atomic Peach bottle",
                                                 fill: true,
                                                 className: "object-contain scale-[1.28] md:scale-[1.45] lg:scale-[1.7]",
@@ -1805,22 +1821,22 @@ function AtomicPeachPage() {
                                                 priority: true
                                             }, void 0, false, {
                                                 fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                                lineNumber: 147,
+                                                lineNumber: 155,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 146,
+                                            lineNumber: 154,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 150,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                    lineNumber: 141,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -1865,7 +1881,7 @@ function AtomicPeachPage() {
                             children: "MIX IT UP"
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                            lineNumber: 164,
+                            lineNumber: 172,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1902,12 +1918,12 @@ function AtomicPeachPage() {
                                                 sizes: "(max-width: 768px) 100vw, 33vw"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                                lineNumber: 186,
+                                                lineNumber: 194,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 193,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1915,7 +1931,7 @@ function AtomicPeachPage() {
                                             children: cocktail.name
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 195,
+                                            lineNumber: 203,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1923,18 +1939,18 @@ function AtomicPeachPage() {
                                             children: cocktail.ingredients
                                         }, void 0, false, {
                                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 207,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, cocktail.name, true, {
                                     fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                                    lineNumber: 176,
+                                    lineNumber: 184,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                            lineNumber: 174,
+                            lineNumber: 182,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1943,18 +1959,18 @@ function AtomicPeachPage() {
                             children: "View all cocktails →"
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                            lineNumber: 206,
+                            lineNumber: 214,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                    lineNumber: 163,
+                    lineNumber: 171,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                lineNumber: 162,
+                lineNumber: 170,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1982,7 +1998,7 @@ function AtomicPeachPage() {
                             children: "READY FOR AN ATOMIC BANG?"
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                            lineNumber: 217,
+                            lineNumber: 225,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1991,23 +2007,23 @@ function AtomicPeachPage() {
                             children: "FIND BANG ON →"
                         }, void 0, false, {
                             fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                            lineNumber: 227,
+                            lineNumber: 235,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                    lineNumber: 216,
+                    lineNumber: 224,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                lineNumber: 215,
+                lineNumber: 223,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$footer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                 fileName: "[project]/app/flavours/atomic-peach/page.tsx",
-                lineNumber: 236,
+                lineNumber: 244,
                 columnNumber: 7
             }, this)
         ]

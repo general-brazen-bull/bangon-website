@@ -114,6 +114,10 @@ export default function RipeRaspberryPage() {
                   <span className="text-lg text-[#fafafa]">Origin</span>
                   <span className="text-lg text-[#fafafa]">British Columbia, Canada</span>
                 </div>
+                <div className="flex justify-between items-center border-b border-[#fafafa]/20 pb-4">
+                  <span className="text-lg text-[#fafafa]">Size</span>
+                  <span className="text-lg text-[#fafafa]">50 mL and 200 mL</span>
+                </div>
               </div>
 
               <p className="text-lg text-[#fafafa] mb-12">
@@ -137,7 +141,7 @@ export default function RipeRaspberryPage() {
   className="absolute inset-0 flex justify-center items-center"
   style={{ y: bottleY }} // ❌ NO scale here
 >
-<div className="relative w-80 aspect-[1/2] overflow-visible">
+<div className="relative w-100 aspect-[1/2] overflow-visible">
     <Image
       src="/assets/raspberry-bottle.png"
       alt="Ripe Raspberry bottle"

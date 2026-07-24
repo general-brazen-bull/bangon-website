@@ -120,12 +120,20 @@ export default function AtomicPeachPage() {
                     British Columbia, Canada
                   </span>
                 </div>
+
+                <div className="flex justify-between items-center border-b border-[#fafafa]/20 pb-4">
+                  <span className="text-lg text-[#fafafa]">Size</span>
+                  <span className="text-lg text-[#fafafa]">
+                    50 mL and 200 mL
+                  </span>
+                </div>
+
               </div>
 
               <p className="text-lg text-[#fafafa] mb-12">
                 Atomic Peach brings big peach flavour with a smooth, sweet
                 opening and a high-proof finish. Bright, juicy, and made to hit
-                hard, it is pure Bang On energy in a 50 mL bottle.
+                hard, it is pure Bang On energy in a 50 mL and 200 mL bottle.
               </p>
 
               <a
@@ -143,9 +151,9 @@ export default function AtomicPeachPage() {
                 className="absolute inset-0 flex justify-center items-center"
                 style={{ y: bottleY }}
               >
-                <div className="relative w-80 aspect-[1/2] overflow-visible">
+                <div className="relative w-100 aspect-[1/2] overflow-visible">
                   <Image
-                    src="/assets/atomic-peach-bottle.png"
+                    src="/assets/atomic-peach-bottles.png"
                     alt="Bang On Atomic Peach bottle"
                     fill
                     className="object-contain scale-[1.28] md:scale-[1.45] lg:scale-[1.7]"

@@ -121,6 +121,13 @@ export default function TropicalPage() {
                     British Columbia, Canada
                   </span>
                 </div>
+
+                <div className="flex justify-between items-center border-b border-[#fafafa]/20 pb-4">
+                  <span className="text-lg text-[#fafafa]">Size</span>
+                  <span className="text-lg text-[#fafafa]">
+                   50 mL and 200 mL
+                  </span>
+                </div>
               </div>
 
               <p className="text-lg text-[#fafafa] mb-12">
@@ -145,7 +152,7 @@ export default function TropicalPage() {
                 className="absolute inset-0 flex justify-center items-center"
                 style={{ y: bottleY }}
               >
-                <div className="relative w-80 aspect-[1/2] overflow-visible">
+                <div className="relative w-100 aspect-[1/2] overflow-visible">
                   <Image
                     src="/assets/tropical-bottle.png"
                     alt="Bang On Tropical bottle"

@@ -87,7 +87,7 @@ export default function GreenApplePage() {
               className="flex justify-center"
               style={{ y: bottleY }}
             >
-              <div className="relative w-80 aspect-[1/2] overflow-visible">
+              <div className="relative w-100 aspect-[1/2] overflow-visible">
                 <Image
                   src="/assets/apple-bottle.png"
                   alt="Green Apple bottle"
@@ -126,6 +126,10 @@ export default function GreenApplePage() {
                 <div className="flex justify-between items-center border-b border-[#0a0a0a]/20 pb-4">
                   <span className="text-lg text-[#0a0a0a]">Origin</span>
                   <span className="text-lg text-[#0a0a0a]">British Columbia, Canada</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-[#0a0a0a]/20 pb-4">
+                  <span className="text-lg text-[#0a0a0a]">Size</span>
+                  <span className="text-lg text-[#0a0a0a]">50 mL and 200 mL</span>
                 </div>
               </div>
 

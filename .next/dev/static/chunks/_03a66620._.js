@@ -4414,9 +4414,9 @@ function ProductRevealSection() {
                                     },
                                     className: "absolute",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/atomic-peach-bottle.png",
+                                        src: "/assets/atomic-peach-bottles.png",
                                         alt: "Bang On Atomic Peach",
-                                        width: 520,
+                                        width: 650,
                                         height: 700,
                                         priority: true
                                     }, void 0, false, {
@@ -4438,7 +4438,7 @@ function ProductRevealSection() {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: "/assets/apple-bottle.png",
                                         alt: "Bang On Green Apple",
-                                        width: 520,
+                                        width: 650,
                                         height: 700
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/ProductRevealSection.tsx",
@@ -4457,9 +4457,9 @@ function ProductRevealSection() {
                                     },
                                     className: "absolute",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/banana-bottle.png",
+                                        src: "/assets/banana-bottles.png",
                                         alt: "Bang On Big Banana",
-                                        width: 520,
+                                        width: 650,
                                         height: 700
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/ProductRevealSection.tsx",
@@ -4480,7 +4480,7 @@ function ProductRevealSection() {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: "/assets/tropical-bottle.png",
                                         alt: "Bang On Tropical",
-                                        width: 520,
+                                        width: 650,
                                         height: 700
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/ProductRevealSection.tsx",
@@ -4501,7 +4501,7 @@ function ProductRevealSection() {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         src: "/assets/raspberry-bottle.png",
                                         alt: "Bang On Ripe Raspberry",
-                                        width: 520,
+                                        width: 650,
                                         height: 700
                                     }, void 0, false, {
                                         fileName: "[project]/components/home/ProductRevealSection.tsx",
