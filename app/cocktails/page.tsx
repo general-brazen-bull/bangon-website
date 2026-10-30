@@ -26,13 +26,14 @@ const cocktails = [
     image: "/assets/espresso-martini.webp",
     ingredients: [
       "1 oz Bang On Espresso",
-      "1 oz vodka",
-      "1 oz freshly brewed espresso",
+      "0.75 oz Kahlua Liqueur",
+      "1 oz Cold brewed espresso",
+      "0.75 Creme De Cacao",
       "Ice",
       "Coffee beans",
     ],
     method:
-      "Add Bang On Espresso, vodka, and freshly brewed espresso to a shaker filled with ice. Shake vigorously until chilled and frothy. Double strain into a chilled martini glass and garnish with three coffee beans.",
+      "Add Bang On Espresso, Kahlua, Creme De Cacao, and freshly brewed espresso to a shaker filled with ice. Shake vigorously until chilled and frothy. Double strain into a chilled martini glass and garnish with three coffee beans.",
   },
   {
     name: "Espresso Velvet",
