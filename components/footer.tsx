@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link"
@@ -19,6 +20,7 @@ const footerCards: FooterCard[] = [
   {
     title: "Flavours",
     links: [
+      { text: "Espresso", href: "/flavours/espresso" },
       { text: "Atomic Peach", href: "/flavours/atomic-peach" },
       { text: "Big Banana", href: "/flavours/big-banana" },
       { text: "Green Apple", href: "/flavours/green-apple" },
@@ -94,14 +96,19 @@ export function Footer() {
                 </Link>
 
                 <h3 className="mt-8 text-2xl md:text-3xl leading-tight">
-  <span className="text-[#fafafa]">99 Proof.</span>
-  <br />
-  <span className="text-[#d52b1e]">Proudly Canadian.</span>
-  <br />
-  <span className="text-[#d52b1e]">Born in BC.</span>
-</h3>
-</div>
-
+                  <span className="text-[#fafafa]">
+                    99 Proof.
+                  </span>
+                  <br />
+                  <span className="text-[#d52b1e]">
+                    Proudly Canadian.
+                  </span>
+                  <br />
+                  <span className="text-[#d52b1e]">
+                    Born in BC.
+                  </span>
+                </h3>
+              </div>
             </motion.div>
 
             {/* FOOTER CARDS */}
@@ -141,7 +148,11 @@ export function Footer() {
                       <li key={link.text}>
                         <Link
                           href={link.href}
-                          target={link.external ? "_blank" : undefined}
+                          target={
+                            link.external
+                              ? "_blank"
+                              : undefined
+                          }
                           rel={
                             link.external
                               ? "noopener noreferrer"
@@ -168,26 +179,26 @@ export function Footer() {
             variants={itemVariants}
             className="relative flex items-center justify-center overflow-hidden py-8 md:py-12"
           >
-           <span
-  aria-hidden="true"
-  className="
-    group
-    select-none
-    text-[clamp(5.5rem,16vw,20rem)]
-    leading-none
-    font-black
-    tracking-tighter
-    whitespace-nowrap
-    text-[#141414]
-    transition-all
-    duration-700
-    hover:text-transparent
-    hover:bg-clip-text
-    hover:bg-[linear-gradient(90deg,#f3db03_0%,#95cb00_25%,#ff3672_55%,#2596be_100%)]
-  "
->
-  BANG ON
-</span>
+            <span
+              aria-hidden="true"
+              className="
+                group
+                select-none
+                text-[clamp(5.5rem,16vw,20rem)]
+                leading-none
+                font-black
+                tracking-tighter
+                whitespace-nowrap
+                text-[#141414]
+                transition-all
+                duration-700
+                hover:text-transparent
+                hover:bg-clip-text
+                hover:bg-[linear-gradient(90deg,#f3db03_0%,#95cb00_25%,#ff3672_55%,#2596be_100%)]
+              "
+            >
+              BANG ON
+            </span>
           </motion.div>
 
           {/* BOTTOM BAR */}
