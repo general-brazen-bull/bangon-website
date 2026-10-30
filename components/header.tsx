@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState } from "react"
@@ -28,6 +29,11 @@ const menuItems = [
 ]
 
 const flavourItems = [
+  {
+    label: "Espresso",
+    ariaLabel: "View Espresso flavour",
+    link: "/flavours/espresso",
+  },
   {
     label: "Big Banana",
     ariaLabel: "View Big Banana flavour",

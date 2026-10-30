@@ -1,10 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/leaderboard/route": "app/api/leaderboard/route.js",
-  "/flavours/atomic-peach/page": "app/flavours/atomic-peach/page.js",
-  "/flavours/big-banana/page": "app/flavours/big-banana/page.js",
-  "/flavours/green-apple/page": "app/flavours/green-apple/page.js",
-  "/flavours/ripe-raspberry/page": "app/flavours/ripe-raspberry/page.js",
-  "/flavours/tropical/page": "app/flavours/tropical/page.js",
+  "/cocktails/page": "app/cocktails/page.js",
   "/page": "app/page.js"
 }

@@ -255,6 +255,10 @@
   color: #ff3672;
 }
 
+.sm-panel-item[href="/flavours/espresso"]:hover {
+  color: #8b3e0f;
+}
+
 .sm-panel-item[href="/flavours/big-banana"]:hover {
   color: #f3db03;
 }

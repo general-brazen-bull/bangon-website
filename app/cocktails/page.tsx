@@ -1,3 +1,4 @@
+
 "use client"
 
 import { motion } from "framer-motion"
@@ -9,6 +10,7 @@ import { Footer } from "@/components/footer"
 
 const flavourFilters = [
   { label: "All", value: "All", color: "#f94a02" },
+  { label: "Espresso", value: "Espresso", color: "#8B3E0F" },
   { label: "Atomic Peach", value: "Atomic Peach", color: "#ff7a1a" },
   { label: "Big Banana", value: "Big Banana", color: "#f3db03" },
   { label: "Ripe Raspberry", value: "Ripe Raspberry", color: "#ff3672" },
@@ -18,11 +20,57 @@ const flavourFilters = [
 
 const cocktails = [
   {
+    name: "Espresso Martini",
+    flavour: "Espresso",
+    flavourColor: "#8B3E0F",
+    image: "/assets/espresso-martini.webp",
+    ingredients: [
+      "1 oz Bang On Espresso",
+      "1 oz vodka",
+      "1 oz freshly brewed espresso",
+      "Ice",
+      "Coffee beans",
+    ],
+    method:
+      "Add Bang On Espresso, vodka, and freshly brewed espresso to a shaker filled with ice. Shake vigorously until chilled and frothy. Double strain into a chilled martini glass and garnish with three coffee beans.",
+  },
+  {
+    name: "Espresso Velvet",
+    flavour: "Espresso",
+    flavourColor: "#8B3E0F",
+    image: "/assets/espresso-velvet.webp",
+    ingredients: [
+      "1 oz Bang On Espresso",
+      "1 oz Irish cream liqueur",
+      "Ice",
+    ],
+    method:
+      "Combine Bang On Espresso and Irish cream liqueur in a shaker with ice. Shake until well chilled and strain into a rocks glass over fresh ice.",
+  },
+  {
+    name: "Espresso Rush",
+    flavour: "Espresso",
+    flavourColor: "#8B3E0F",
+    image: "/assets/espresso-rush.webp",
+    ingredients: [
+      "1 oz Bang On Espresso",
+      "3 oz cola",
+      "Ice",
+    ],
+    method:
+      "Fill a highball glass with ice and add Bang On Espresso. Slowly top with chilled cola and stir gently to combine.",
+  },
+  {
     name: "Peach Bomb Shot",
     flavour: "Atomic Peach",
     flavourColor: "#ff7a1a",
     image: "/assets/peach-shot.png",
-    ingredients: ["1 oz Atomic Peach", "0.5 oz vodka", "0.25 oz lemon juice", "Ice"],
+    ingredients: [
+      "1 oz Atomic Peach",
+      "0.5 oz vodka",
+      "0.25 oz lemon juice",
+      "Ice",
+    ],
     method:
       "Shake Atomic Peach, vodka, and lemon juice with ice. Strain into a shot glass.",
   },
@@ -63,8 +111,12 @@ const cocktails = [
     flavour: "Big Banana",
     flavourColor: "#f3db03",
     image: "/assets/banana-velvet.webp",
-    ingredients: ["1.5 oz Big Banana", "0.5 oz Bailey's liqueur"],
-    method: "Shake with ice in a shaker. Strain it into a double shot glass.",
+    ingredients: [
+      "1.5 oz Big Banana",
+      "0.5 oz Bailey's liqueur",
+    ],
+    method:
+      "Shake with ice in a shaker. Strain it into a double shot glass.",
   },
   {
     name: "Raspberry Rumble",
@@ -77,7 +129,8 @@ const cocktails = [
       "0.5 oz lime juice",
       "Soda water",
     ],
-    method: "Build in a highball glass over ice. Top with soda.",
+    method:
+      "Build in a highball glass over ice. Top with soda.",
   },
   {
     name: "Apple Jacked",
@@ -114,7 +167,11 @@ const cocktails = [
     flavour: "Ripe Raspberry",
     flavourColor: "#ff3672",
     image: "/assets/berry-fizz.webp",
-    ingredients: ["1 oz Ripe Raspberry", "4 oz champagne", "Lemon twist"],
+    ingredients: [
+      "1 oz Ripe Raspberry",
+      "4 oz champagne",
+      "Lemon twist",
+    ],
     method:
       "Pour Ripe Raspberry into a flute. Top with champagne. Garnish with lemon.",
   },
@@ -152,8 +209,14 @@ const cocktails = [
     flavour: "Big Banana",
     flavourColor: "#f3db03",
     image: "/assets/monkey-business.webp",
-    ingredients: ["1 oz Big Banana", "0.5 oz Kahlua", "0.5 oz Bailey's", "Ice"],
-    method: "Shake with ice and strain into a nick and nora glass.",
+    ingredients: [
+      "1 oz Big Banana",
+      "0.5 oz Kahlua",
+      "0.5 oz Bailey's",
+      "Ice",
+    ],
+    method:
+      "Shake with ice and strain into a nick and nora glass.",
   },
   {
     name: "Pink Panther",
@@ -166,7 +229,8 @@ const cocktails = [
       "4 oz tonic",
       "Fresh berries",
     ],
-    method: "Build in a balloon glass over ice. Garnish with fresh berries.",
+    method:
+      "Build in a balloon glass over ice. Garnish with fresh berries.",
   },
   {
     name: "Green Light",
@@ -209,14 +273,20 @@ const cocktails = [
       "0.5 oz vodka",
       "Splash of lemon",
     ],
-    method: "Shake all with ice. Strain into a double shot glass.",
+    method:
+      "Shake all with ice. Strain into a double shot glass.",
   },
   {
     name: "Sunrise Bang",
     flavour: "Big Banana",
     flavourColor: "#f3db03",
     image: "/assets/sunrise-bang.webp",
-    ingredients: ["1.5 oz Big Banana", "3 oz orange juice", "Grenadine", "Ice"],
+    ingredients: [
+      "1.5 oz Big Banana",
+      "3 oz orange juice",
+      "Grenadine",
+      "Ice",
+    ],
     method:
       "Pour Big Banana and orange juice over ice. Slowly add grenadine for a sunrise effect.",
   },
@@ -225,8 +295,14 @@ const cocktails = [
     flavour: "Ripe Raspberry",
     flavourColor: "#ff3672",
     image: "/assets/raspberry-lemonade.webp",
-    ingredients: ["1.5 oz Ripe Raspberry", "4 oz lemonade", "Fresh mint", "Ice"],
-    method: "Build over ice in a tall glass. Garnish with mint.",
+    ingredients: [
+      "1.5 oz Ripe Raspberry",
+      "4 oz lemonade",
+      "Fresh mint",
+      "Ice",
+    ],
+    method:
+      "Build over ice in a tall glass. Garnish with mint.",
   },
 ]
 
@@ -236,12 +312,15 @@ export default function CocktailsPage() {
   const filteredCocktails =
     activeFilter === "All"
       ? cocktails
-      : cocktails.filter((cocktail) => cocktail.flavour === activeFilter)
+      : cocktails.filter(
+          (cocktail) => cocktail.flavour === activeFilter
+        )
 
   return (
     <main>
       <Header />
 
+      {/* HERO SECTION */}
       <section className="bg-[#f5f5f5] pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.h1
@@ -264,6 +343,7 @@ export default function CocktailsPage() {
         </div>
       </section>
 
+      {/* FLAVOUR FILTERS */}
       <section className="sticky top-0 z-30 bg-white border-b border-black/10 py-5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex gap-3 overflow-x-auto pb-1">
@@ -272,6 +352,7 @@ export default function CocktailsPage() {
                 key={filter.value}
                 type="button"
                 onClick={() => setActiveFilter(filter.value)}
+                aria-pressed={activeFilter === filter.value}
                 className={`shrink-0 px-5 py-2 rounded-full text-lg font-bold uppercase tracking-wide border transition-colors duration-300 ${
                   activeFilter === filter.value
                     ? "text-white border-transparent"
@@ -279,7 +360,9 @@ export default function CocktailsPage() {
                 }`}
                 style={{
                   backgroundColor:
-                    activeFilter === filter.value ? filter.color : "transparent",
+                    activeFilter === filter.value
+                      ? filter.color
+                      : "transparent",
                 }}
               >
                 {filter.label}
@@ -289,6 +372,7 @@ export default function CocktailsPage() {
         </div>
       </section>
 
+      {/* COCKTAIL RECIPES */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-28">
           {filteredCocktails.map((cocktail) => (
@@ -300,6 +384,7 @@ export default function CocktailsPage() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
             >
+              {/* COCKTAIL IMAGE */}
               <div className="relative w-full h-[420px] md:h-[520px] bg-[#f5f5f5] rounded-sm overflow-hidden">
                 <Image
                   src={cocktail.image}
@@ -310,10 +395,13 @@ export default function CocktailsPage() {
                 />
               </div>
 
+              {/* COCKTAIL DETAILS */}
               <div>
                 <div
                   className="w-16 h-1 mb-6"
-                  style={{ backgroundColor: cocktail.flavourColor }}
+                  style={{
+                    backgroundColor: cocktail.flavourColor,
+                  }}
                 />
 
                 <h3 className="text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-4">
@@ -322,29 +410,40 @@ export default function CocktailsPage() {
 
                 <p
                   className="uppercase tracking-wide mb-6 text-base font-medium"
-                  style={{ color: cocktail.flavourColor }}
+                  style={{
+                    color: cocktail.flavourColor,
+                  }}
                 >
                   Made with {cocktail.flavour}
                 </p>
 
+                {/* INGREDIENTS */}
                 <div className="mb-8">
                   <p className="text-sm uppercase text-[#737373] mb-2">
                     Ingredients
                   </p>
+
                   <ul className="space-y-1">
                     {cocktail.ingredients.map((ingredient) => (
-                      <li key={ingredient} className="body-text text-[#525252]">
+                      <li
+                        key={ingredient}
+                        className="body-text text-[#525252]"
+                      >
                         {ingredient}
                       </li>
                     ))}
                   </ul>
                 </div>
 
+                {/* METHOD */}
                 <div className="max-w-md">
                   <p className="text-sm uppercase text-[#737373] mb-2">
                     Method
                   </p>
-                  <p className="body-text text-[#525252]">{cocktail.method}</p>
+
+                  <p className="body-text text-[#525252]">
+                    {cocktail.method}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -352,6 +451,7 @@ export default function CocktailsPage() {
         </div>
       </section>
 
+      {/* CTA SECTION */}
       <section className="py-16 bg-black text-center">
         <h2 className="text-3xl md:text-4xl text-white mb-8">
           GOT THE RECIPES. NEED THE BANG.

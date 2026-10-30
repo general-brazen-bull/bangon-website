@@ -735,8 +735,8 @@
     height: 320vh;
   }
 
-  .h-\[340vh\] {
-    height: 340vh;
+  .h-\[400vh\] {
+    height: 400vh;
   }
 
   .h-\[420px\] {
@@ -749,10 +749,6 @@
 
   .h-\[560px\] {
     height: 560px;
-  }
-
-  .h-\[600px\] {
-    height: 600px;
   }
 
   .h-\[650px\] {
@@ -835,6 +831,10 @@
     width: 70vw;
   }
 
+  .w-\[85\%\] {
+    width: 85%;
+  }
+
   .w-\[94vw\] {
     width: 94vw;
   }
@@ -845,6 +845,10 @@
 
   .w-\[240px\] {
     width: 240px;
+  }
+
+  .w-\[calc\(\(100\%-48px\)\/3\)\] {
+    width: calc(33.3333% - 16px);
   }
 
   .w-full {
@@ -869,6 +873,14 @@
 
   .max-w-\[340px\] {
     max-width: 340px;
+  }
+
+  .max-w-\[400px\] {
+    max-width: 400px;
+  }
+
+  .max-w-\[540px\] {
+    max-width: 540px;
   }
 
   .max-w-\[900px\] {
@@ -907,10 +919,6 @@
     max-width: var(--container-xl);
   }
 
-  .min-w-\[calc\(33\.333333\%-16px\)\] {
-    min-width: calc(33.3333% - 16px);
-  }
-
   .flex-1 {
     flex: 1;
   }
@@ -927,6 +935,10 @@
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
+  .scale-\[1\.2\] {
+    scale: 1.2;
   }
 
   .scale-\[1\.28\] {
@@ -1209,12 +1221,20 @@
     background-color: #006ad7;
   }
 
+  .bg-\[\#8B3E0F\] {
+    background-color: #8b3e0f;
+  }
+
   .bg-\[\#95cb00\] {
     background-color: #95cb00;
   }
 
   .bg-\[\#2596be\] {
     background-color: #2596be;
+  }
+
+  .bg-\[\#FFD400\] {
+    background-color: #ffd400;
   }
 
   .bg-\[\#e5e5e5\] {
@@ -1772,6 +1792,10 @@
     color: lab(2.74175% -.00000745058 .00000298023 / .8);
   }
 
+  .text-\[\#8B3E0F\] {
+    color: #8b3e0f;
+  }
+
   .text-\[\#95cb00\] {
     color: #95cb00;
   }
@@ -1790,6 +1814,10 @@
 
   .text-\[\#737373\] {
     color: #737373;
+  }
+
+  .text-\[\#FFD400\] {
+    color: #ffd400;
   }
 
   .text-\[\#a3a3a3\] {
@@ -2090,6 +2118,18 @@
   @media (hover: hover) {
     .hover\:bg-\[\#111111\]:hover {
       background-color: #111;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#FF8A00\]:hover {
+      background-color: #ff8a00;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#FFD400\]:hover {
+      background-color: #ffd400;
     }
   }
 

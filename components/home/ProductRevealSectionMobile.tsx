@@ -1,3 +1,4 @@
+
 "use client"
 
 import { motion } from "framer-motion"
@@ -6,7 +7,7 @@ import Image from "next/image"
 export default function ProductRevealSectionMobile() {
   return (
     <section className="bg-white px-6 py-20 overflow-hidden">
-      {/* Heading */}
+      {/* HEADING */}
       <motion.h2
         className="
           text-black
@@ -26,6 +27,60 @@ export default function ProductRevealSectionMobile() {
         That Hit Different
       </motion.h2>
 
+      {/* ESPRESSO */}
+      <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <Image
+            src="/assets/espresso-bottle.png"
+            alt="Bang On Espresso 50 mL and 200 mL bottles"
+            width={300}
+            height={420}
+            className="object-contain"
+            priority
+          />
+        </motion.div>
+
+        <p className="text-[#8B3E0F] text-4xl font-extrabold uppercase tracking-tight mb-4">
+          Espresso
+        </p>
+
+        <p className="text-black text-lg leading-relaxed max-w-md">
+          Rich espresso flavour with deep coffee notes, balanced sweetness,
+          and a bold, smooth 99-proof Bang On kick.
+        </p>
+      </div>
+
+      {/* ATOMIC PEACH */}
+      <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <Image
+            src="/assets/atomic-peach-bottle.png"
+            alt="Bang On Atomic Peach"
+            width={300}
+            height={420}
+          />
+        </motion.div>
+
+        <p className="text-[#ff7a1a] text-4xl font-extrabold uppercase tracking-tight mb-4">
+          Atomic Peach
+        </p>
+
+        <p className="text-black text-lg leading-relaxed max-w-md">
+          Juicy peach flavour with a sweet opening and a high-proof finish.
+          Bright, bold, and built to explode.
+        </p>
+      </div>
+
       {/* GREEN APPLE */}
       <div className="mb-20">
         <motion.div
@@ -39,7 +94,6 @@ export default function ProductRevealSectionMobile() {
             alt="Bang On Green Apple"
             width={300}
             height={420}
-            priority
           />
         </motion.div>
 
@@ -101,32 +155,6 @@ export default function ProductRevealSectionMobile() {
         <p className="text-black text-lg leading-relaxed max-w-md">
           Pineapple, coconut, and citrus flavours with a bold island-inspired
           punch. Sweet, bright, and finished with a smooth Bang On kick.
-        </p>
-      </div>
-
-      {/* ATOMIC PEACH */}
-      <div className="mb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          className="flex justify-center mb-8"
-        >
-          <Image
-            src="/assets/atomic-peach-bottle.png"
-            alt="Bang On Atomic Peach"
-            width={300}
-            height={420}
-          />
-        </motion.div>
-
-        <p className="text-[#ff7a1a] text-4xl font-extrabold uppercase tracking-tight mb-4">
-          Atomic Peach
-        </p>
-
-        <p className="text-black text-lg leading-relaxed max-w-md">
-          Juicy peach flavour with a sweet opening and a high-proof finish.
-          Bright, bold, and built to explode.
         </p>
       </div>
 

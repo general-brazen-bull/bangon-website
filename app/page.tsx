@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/home/hero-section"
 import ParticleText from "@/components/particle-text"
 import StaggeredText from "@/components/StaggeredText"
 import ProductRevealSectionWrapper from "@/components/home/ProductRevealSectionWrapper"
+import { EspressoSection } from "@/components/home/espresso-section"
 import { BananaSection } from "@/components/home/banana-section"
 import { PeachSection } from "@/components/home/peach-section"
 import { GreenappleSection } from "@/components/home/greenapple-section"
@@ -68,6 +69,7 @@ export default function HomePage() {
 </section>
       <ProductRevealSectionWrapper />
       <MarqueeSection />
+      <EspressoSection/>
       <PeachSection />
       <GreenappleSection />
       <TropicalSection />

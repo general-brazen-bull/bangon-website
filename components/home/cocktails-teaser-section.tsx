@@ -1,3 +1,4 @@
+
 "use client"
 
 import { motion } from "framer-motion"
@@ -6,6 +7,12 @@ import Image from "next/image"
 import { useState } from "react"
 
 const cocktails = [
+  {
+    name: "Espresso Martini",
+    description: "Bang On Espresso + vodka + freshly brewed espresso",
+    flavour: "Espresso",
+    image: "/assets/espresso-martini.webp",
+  },
   {
     name: "Apple Jacked",
     description: "Green Apple + whisky + ginger ale",
@@ -39,6 +46,7 @@ const cocktails = [
 ]
 
 function flavourColour(flavour: string) {
+  if (flavour === "Espresso") return "text-[#8B3E0F]"
   if (flavour === "Big Banana") return "text-[#f94a02]"
   if (flavour === "Ripe Raspberry") return "text-[#ff3672]"
   if (flavour === "Tropical") return "text-[#2596be]"
@@ -55,7 +63,7 @@ function CocktailCard({
 }) {
   return (
     <motion.div
-      className="bg-white p-8 group rounded-sm transition-shadow duration-300"
+      className="bg-white p-8 group rounded-sm transition-shadow duration-300 h-full"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -84,7 +92,7 @@ function CocktailCard({
           alt={cocktail.name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>
     </motion.div>
@@ -94,19 +102,29 @@ function CocktailCard({
 export function CocktailsTeaserSection() {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const maxIndex = cocktails.length - 3
+  const visibleCards = 3
+  const maxIndex = Math.max(0, cocktails.length - visibleCards)
 
   const nextSlide = () => {
-    setActiveIndex((current) => (current >= maxIndex ? 0 : current + 1))
+    setActiveIndex((current) =>
+      current >= maxIndex ? 0 : current + 1
+    )
   }
 
   const prevSlide = () => {
-    setActiveIndex((current) => (current <= 0 ? maxIndex : current - 1))
+    setActiveIndex((current) =>
+      current <= 0 ? maxIndex : current - 1
+    )
   }
 
   return (
-<section data-header-theme="light" className="py-20 md:py-28 bg-[#f5f5f5]">
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12">
+    <section
+      data-header-theme="light"
+      className="py-20 md:py-28 bg-[#f5f5f5]"
+    >
+      <div className="max-w-[1800px] mx-auto px-6 md:px-12">
+
+        {/* SECTION HEADING */}
         <motion.h2
           className="text-5xl md:text-5xl lg:text-6xl text-[#0a0a0a] text-center mb-16 font-black"
           initial={{ opacity: 0, y: 40 }}
@@ -117,7 +135,7 @@ export function CocktailsTeaserSection() {
           COCKTAILS THAT GO BANG
         </motion.h2>
 
-        {/* MOBILE / TABLET — SAME STACKED LAYOUT */}
+        {/* MOBILE / TABLET — STACKED GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 lg:hidden">
           {cocktails.map((cocktail, index) => (
             <CocktailCard
@@ -133,21 +151,32 @@ export function CocktailsTeaserSection() {
           <div className="relative overflow-hidden">
             <motion.div
               className="flex gap-6"
-              animate={{ x: `calc(-${activeIndex} * (33.333333% + 16px))` }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              animate={{
+                x: `calc(-${activeIndex} * ((100% - 48px) / 3 + 24px))`,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
             >
               {cocktails.map((cocktail, index) => (
                 <div
                   key={cocktail.name}
-                  className="min-w-[calc(33.333333%-16px)]"
+                  className="shrink-0 w-[calc((100%-48px)/3)]"
                 >
-                  <CocktailCard cocktail={cocktail} index={index} />
+                  <CocktailCard
+                    cocktail={cocktail}
+                    index={index}
+                  />
                 </div>
               ))}
             </motion.div>
           </div>
 
+          {/* CAROUSEL CONTROLS */}
           <div className="flex items-center justify-center gap-4 mt-10">
+
+            {/* PREVIOUS */}
             <button
               type="button"
               onClick={prevSlide}
@@ -157,20 +186,29 @@ export function CocktailsTeaserSection() {
               ←
             </button>
 
+            {/* PAGINATION DOTS */}
             <div className="flex gap-2">
-              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              {Array.from({
+                length: maxIndex + 1,
+              }).map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    activeIndex === index ? "bg-[#f94a02]" : "bg-[#0a0a0a]/25"
+                    activeIndex === index
+                      ? "bg-[#f94a02]"
+                      : "bg-[#0a0a0a]/25"
                   }`}
                   aria-label={`Go to cocktail slide ${index + 1}`}
+                  aria-current={
+                    activeIndex === index ? "true" : undefined
+                  }
                 />
               ))}
             </div>
 
+            {/* NEXT */}
             <button
               type="button"
               onClick={nextSlide}
@@ -179,9 +217,11 @@ export function CocktailsTeaserSection() {
             >
               →
             </button>
+
           </div>
         </div>
 
+        {/* VIEW ALL BUTTON */}
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -196,6 +236,7 @@ export function CocktailsTeaserSection() {
             VIEW ALL COCKTAILS →
           </Link>
         </motion.div>
+
       </div>
     </section>
   )

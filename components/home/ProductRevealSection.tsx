@@ -1,3 +1,4 @@
+
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -39,73 +40,128 @@ export function ProductRevealSection() {
 
   /**
    * Bottle transitions
-   * Order: Atomic Peach → Green Apple → Big Banana → Tropical → Ripe Raspberry
+   *
+   * Order:
+   * Espresso → Atomic Peach → Green Apple →
+   * Big Banana → Tropical → Ripe Raspberry
    */
-  const peachOpacity = useTransform(
+
+  // ESPRESSO
+  const espressoOpacity = useTransform(
     scrollYProgress,
-    [0.0, 0.14, 0.21],
+    [0.0, 0.11, 0.18],
     [1, 1, 0]
   )
-  const peachX = useTransform(scrollYProgress, [0.0, 0.21], [0, -200])
 
+  const espressoX = useTransform(
+    scrollYProgress,
+    [0.0, 0.18],
+    [0, -200]
+  )
+
+  // ATOMIC PEACH
+  const peachOpacity = useTransform(
+    scrollYProgress,
+    [0.16, 0.25, 0.34],
+    [0, 1, 0]
+  )
+
+  const peachX = useTransform(
+    scrollYProgress,
+    [0.16, 0.34],
+    [200, -200]
+  )
+
+  // GREEN APPLE
   const appleOpacity = useTransform(
     scrollYProgress,
-    [0.19, 0.31, 0.4],
+    [0.32, 0.41, 0.50],
     [0, 1, 0]
   )
-  const appleX = useTransform(scrollYProgress, [0.19, 0.4], [200, -200])
 
+  const appleX = useTransform(
+    scrollYProgress,
+    [0.32, 0.50],
+    [200, -200]
+  )
+
+  // BIG BANANA
   const bananaOpacity = useTransform(
     scrollYProgress,
-    [0.38, 0.5, 0.59],
+    [0.48, 0.57, 0.66],
     [0, 1, 0]
   )
-  const bananaX = useTransform(scrollYProgress, [0.38, 0.59], [200, -200])
 
+  const bananaX = useTransform(
+    scrollYProgress,
+    [0.48, 0.66],
+    [200, -200]
+  )
+
+  // TROPICAL
   const tropicalOpacity = useTransform(
     scrollYProgress,
-    [0.57, 0.69, 0.78],
+    [0.64, 0.73, 0.82],
     [0, 1, 0]
   )
-  const tropicalX = useTransform(scrollYProgress, [0.57, 0.78], [200, -200])
 
+  const tropicalX = useTransform(
+    scrollYProgress,
+    [0.64, 0.82],
+    [200, -200]
+  )
+
+  // RIPE RASPBERRY
   const raspberryOpacity = useTransform(
     scrollYProgress,
-    [0.76, 0.9],
+    [0.80, 0.91],
     [0, 1]
   )
-  const raspberryX = useTransform(scrollYProgress, [0.76, 0.9], [200, 0])
+
+  const raspberryX = useTransform(
+    scrollYProgress,
+    [0.80, 0.91],
+    [200, 0]
+  )
 
   /**
    * Text transitions
+   * Synchronized with the bottle animations
    */
+
+  const espressoTextOpacity = useTransform(
+    scrollYProgress,
+    [0.0, 0.11, 0.18],
+    [1, 1, 0]
+  )
+
   const peachTextOpacity = useTransform(
     scrollYProgress,
-    [0.0, 0.14, 0.21],
-    [1, 1, 0]
+    [0.16, 0.25, 0.34],
+    [0, 1, 0]
   )
 
   const appleTextOpacity = useTransform(
     scrollYProgress,
-    [0.19, 0.31, 0.4],
+    [0.32, 0.41, 0.50],
     [0, 1, 0]
   )
 
   const bananaTextOpacity = useTransform(
     scrollYProgress,
-    [0.38, 0.5, 0.59],
+    [0.48, 0.57, 0.66],
     [0, 1, 0]
   )
 
   const tropicalTextOpacity = useTransform(
     scrollYProgress,
-    [0.57, 0.69, 0.78],
+    [0.64, 0.73, 0.82],
     [0, 1, 0]
   )
 
   const raspberryTextOpacity = useTransform(
     scrollYProgress,
-    [0.76, 0.9],
+    [0.80, 0.91],
     [0, 1]
   )
 
@@ -115,10 +171,11 @@ export function ProductRevealSection() {
       data-header-theme="light"
       className="relative bg-white"
     >
-      {/* Scroll fuel */}
-      <div className="h-[340vh]">
+      {/* SCROLL FUEL */}
+      <div className="h-[400vh]">
         <div className="sticky top-0 h-screen flex items-center">
           <div className="w-full max-w-[1400px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
+
             {/* LEFT — TEXT */}
             <div>
               <h2
@@ -137,7 +194,24 @@ export function ProductRevealSection() {
               </h2>
 
               <div className="relative mt-10 h-40">
-                {/* Atomic Peach text */}
+
+                {/* ESPRESSO TEXT */}
+                <motion.div
+                  style={{ opacity: espressoTextOpacity }}
+                  className="absolute inset-0"
+                >
+                  <p className="text-[#8B3E0F] text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
+                    Espresso
+                  </p>
+
+                  <p className="mt-3 text-black text-lg md:text-xl max-w-md">
+                    Rich espresso flavour with deep coffee notes,
+                    balanced sweetness, and a bold, smooth 99-proof
+                    Bang On kick.
+                  </p>
+                </motion.div>
+
+                {/* ATOMIC PEACH TEXT */}
                 <motion.div
                   style={{ opacity: peachTextOpacity }}
                   className="absolute inset-0"
@@ -145,13 +219,14 @@ export function ProductRevealSection() {
                   <p className="text-[#ff7a1a] text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
                     Atomic Peach
                   </p>
+
                   <p className="mt-3 text-black text-lg md:text-xl max-w-md">
                     Juicy peach flavour with a sweet opening and a high-proof
                     finish. Bright, bold, and built to explode.
                   </p>
                 </motion.div>
 
-                {/* Green Apple text */}
+                {/* GREEN APPLE TEXT */}
                 <motion.div
                   style={{ opacity: appleTextOpacity }}
                   className="absolute inset-0"
@@ -159,13 +234,14 @@ export function ProductRevealSection() {
                   <p className="text-[#95cb00] text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
                     Green Apple
                   </p>
+
                   <p className="mt-3 text-black text-lg md:text-xl max-w-md">
                     Fresh green apple flavour with a clean finish. Bright,
                     punchy, and dangerously easy to drink.
                   </p>
                 </motion.div>
 
-                {/* Banana text */}
+                {/* BIG BANANA TEXT */}
                 <motion.div
                   style={{ opacity: bananaTextOpacity }}
                   className="absolute inset-0"
@@ -173,13 +249,14 @@ export function ProductRevealSection() {
                   <p className="text-yellow-400 text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
                     Big Banana
                   </p>
+
                   <p className="mt-3 text-black text-lg md:text-xl max-w-md">
                     The banana liqueur you remember from your past, but made
                     better and bolder. Balanced, redefined, unforgettable.
                   </p>
                 </motion.div>
 
-                {/* Tropical text */}
+                {/* TROPICAL TEXT */}
                 <motion.div
                   style={{ opacity: tropicalTextOpacity }}
                   className="absolute inset-0"
@@ -187,6 +264,7 @@ export function ProductRevealSection() {
                   <p className="text-[#2596be] text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
                     Tropical Mayhem
                   </p>
+
                   <p className="mt-3 text-black text-lg md:text-xl max-w-md">
                     Pineapple, coconut, and citrus flavours with a bold
                     island-inspired punch. Sweet, bright, and finished with a
@@ -194,7 +272,7 @@ export function ProductRevealSection() {
                   </p>
                 </motion.div>
 
-                {/* Raspberry text */}
+                {/* RIPE RASPBERRY TEXT */}
                 <motion.div
                   style={{ opacity: raspberryTextOpacity }}
                   className="absolute inset-0"
@@ -202,17 +280,38 @@ export function ProductRevealSection() {
                   <p className="text-pink-500 text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
                     Ripe Raspberry
                   </p>
+
                   <p className="mt-3 text-black text-lg md:text-xl max-w-md">
                     Sweet-crisp punch that hits different. Berry bold. When life
                     gives you raspberries, make them 99 proof.
                   </p>
                 </motion.div>
+
               </div>
             </div>
 
             {/* RIGHT — BOTTLES */}
             <div className="relative h-[560px] md:h-[700px] flex items-center justify-center">
-              {/* Atomic Peach bottle */}
+
+              {/* ESPRESSO BOTTLES */}
+              <motion.div
+                style={{
+                  opacity: espressoOpacity,
+                  x: espressoX,
+                }}
+                className="absolute"
+              >
+                <Image
+                  src="/assets/espresso-bottle.png"
+                  alt="Bang On Espresso 50 mL and 200 mL bottles"
+                  width={650}
+                  height={700}
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
+
+              {/* ATOMIC PEACH BOTTLES */}
               <motion.div
                 style={{
                   opacity: peachOpacity,
@@ -225,11 +324,10 @@ export function ProductRevealSection() {
                   alt="Bang On Atomic Peach"
                   width={650}
                   height={700}
-                  priority
                 />
               </motion.div>
 
-              {/* Green Apple bottle */}
+              {/* GREEN APPLE BOTTLES */}
               <motion.div
                 style={{
                   opacity: appleOpacity,
@@ -245,7 +343,7 @@ export function ProductRevealSection() {
                 />
               </motion.div>
 
-              {/* Banana bottle */}
+              {/* BIG BANANA BOTTLES */}
               <motion.div
                 style={{
                   opacity: bananaOpacity,
@@ -261,7 +359,7 @@ export function ProductRevealSection() {
                 />
               </motion.div>
 
-              {/* Tropical bottle */}
+              {/* TROPICAL BOTTLES */}
               <motion.div
                 style={{
                   opacity: tropicalOpacity,
@@ -277,7 +375,7 @@ export function ProductRevealSection() {
                 />
               </motion.div>
 
-              {/* Raspberry bottle */}
+              {/* RIPE RASPBERRY BOTTLES */}
               <motion.div
                 style={{
                   opacity: raspberryOpacity,
@@ -292,6 +390,7 @@ export function ProductRevealSection() {
                   height={700}
                 />
               </motion.div>
+
             </div>
           </div>
         </div>
